@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retail Operations Control Tower - Architecture</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-dim: #8b949e;
+      --arrow: #484f58;
+      --narrative: #58a6ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 48px 24px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 0 0.3rem 0;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      margin: 0 0 2.5rem 0;
+    }
+    .pipeline {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-bottom: 2rem;
+    }
+    .stage {
+      flex: 1;
+      min-width: 0;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border-left: 3px solid var(--accent);
+    }
+    .stage-header {
+      padding: 0.75rem 1rem 0.6rem;
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
+    }
+    .stage-num {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.15rem;
+    }
+    .stage-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .stage-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-style: italic;
+      margin-top: 0.15rem;
+    }
+    .stage-body {
+      padding: 0.75rem 1rem;
+      flex: 1;
+    }
+    .stage-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .stage-body li {
+      font-size: 0.80rem;
+      padding: 0.28rem 0;
+      color: var(--text);
+      border-bottom: 1px solid rgba(48, 54, 61, 0.4);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .stage-body li:last-child {
+      border-bottom: none;
+    }
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.4rem;
+      color: var(--arrow);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .narrative {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.7rem 1.5rem;
+      text-align: center;
+      font-family: "SF Mono", "Fira Code", Monaco, Consolas, monospace;
+      color: var(--narrative);
+      font-size: 0.9rem;
+    }
+    .footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      margin-top: 1.5rem;
+      font-style: italic;
+    }
+    @media (max-width: 960px) {
+      .pipeline { flex-direction: column; }
+      .arrow { transform: rotate(90deg); padding: 0.3rem 0; }
+      .stage-body li { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Retail Operations Control Tower</h1>
+    <p class="subtitle">System Architecture - Simulated Campaign Execution Pipeline</p>
+    <div class="pipeline">
+        <div class="stage" style="--accent:#f0883e">
+          <div class="stage-header">
+            <div class="stage-num">Stage 1</div>
+            <div class="stage-name">Intake</div>
+            <div class="stage-subtitle">Raw Simulated Inputs</div>
+          </div>
+          <div class="stage-body">
+            <ul>
+            <li>8 data tables (JSON)</li>
+            <li>stores (40 rows)</li>
+            <li>campaigns (2-3)</li>
+            <li>allocation_plan (480)</li>
+            <li>dispatch (480)</li>
+            <li>store_confirmations (480)</li>
+            <li>photo_proofs (~400)</li>
+            <li>sales_daily (13,440)</li>
+            <li>Deterministic, seed = 42</li>
+            </ul>
+          </div>
+        </div>
+        <div class="arrow"><span>&#9654;</span></div>
+        <div class="stage" style="--accent:#d29922">
+          <div class="stage-header">
+            <div class="stage-num">Stage 2</div>
+            <div class="stage-name">Normalize</div>
+            <div class="stage-subtitle">Data Validation</div>
+          </div>
+          <div class="stage-body">
+            <ul>
+            <li>15 validation rules</li>
+            <li>V-01 to V-15</li>
+            <li>Uniqueness constraints</li>
+            <li>Quantity range checks</li>
+            <li>Date ordering checks</li>
+            <li>Receiving tolerance (10%)</li>
+            <li>Timestamp window checks</li>
+            <li>Enum and status validation</li>
+            <li>Abort on ValidationError</li>
+            </ul>
+          </div>
+        </div>
+        <div class="arrow"><span>&#9654;</span></div>
+        <div class="stage" style="--accent:#3fb950">
+          <div class="stage-header">
+            <div class="stage-num">Stage 3</div>
+            <div class="stage-name">Validate</div>
+            <div class="stage-subtitle">Reconciliation Engine</div>
+          </div>
+          <div class="stage-body">
+            <ul>
+            <li>16 formulas computed</li>
+            <li>24 exception rules</li>
+            <li>EX-01 to EX-24</li>
+            <li>4-quantity variance tracking</li>
+            <li>planned vs shipped</li>
+            <li>shipped vs received</li>
+            <li>received vs sold</li>
+            <li>Source-of-truth tables</li>
+            <li>27 computed fields enriched</li>
+            </ul>
+          </div>
+        </div>
+        <div class="arrow"><span>&#9654;</span></div>
+        <div class="stage" style="--accent:#f85149">
+          <div class="stage-header">
+            <div class="stage-num">Stage 4</div>
+            <div class="stage-name">Prioritize</div>
+            <div class="stage-subtitle">Exception Action Engine</div>
+          </div>
+          <div class="stage-body">
+            <ul>
+            <li>8-category taxonomy</li>
+            <li>3-tier severity scoring</li>
+            <li>Priority score (1-200)</li>
+            <li>SLA aging (4 buckets)</li>
+            <li>Lifecycle state machine</li>
+            <li>8 transitions enforced</li>
+            <li>Action playbook</li>
+            <li>Daily action list (top 20)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="arrow"><span>&#9654;</span></div>
+        <div class="stage" style="--accent:#58a6ff">
+          <div class="stage-header">
+            <div class="stage-num">Stage 5</div>
+            <div class="stage-name">Report</div>
+            <div class="stage-subtitle">Metrics and Output</div>
+          </div>
+          <div class="stage-body">
+            <ul>
+            <li>10 MVP KPIs</li>
+            <li>Threshold color-coding</li>
+            <li>6 dashboard sections</li>
+            <li>7 weekly report types</li>
+            <li>Streamlit dashboard app</li>
+            <li>CLI: generate, build, report</li>
+            <li>Demo: Summer Peach LTO 2026</li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="narrative">Portfolio narrative:&nbsp;&nbsp;intake  &gt;  normalize  &gt;  validate  &gt;  prioritize  &gt;  report</div>
+    <p class="footer">All data is synthetic. No real company data claimed.</p>
+  </div>
+</body>
+</html>

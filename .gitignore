@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+sdist/
+wheels/
+pip-wheel-metadata/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Generated output
+output/
+/*.json
+
+# Build orchestration metadata (kanban pipeline, not part of portfolio)
+artifacts/kanban-orchestration.json
+artifacts/run-manifest.md
+artifacts/pipeline-status.md
+
+# Type checking
+.mypy_cache/
+.pyre/
+.pytype/

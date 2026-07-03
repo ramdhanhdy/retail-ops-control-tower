@@ -1,0 +1,13 @@
+kpi_name,category,value,unit,description
+campaign_readiness_rate,process,0.8375886524822695,ratio,"Fraction of allocations with a completed, on-time confirmation and photo proof within the campaign launch window."
+confirmation_completion_rate,process,0.9687943262411347,ratio,Fraction of dispatch records that have a matching store confirmation.
+photo_proof_completion_rate,process,0.9187408491947291,ratio,Fraction of store confirmations with at least one photo proof record.
+allocation_accuracy_rate,process,0.8916544655929722,ratio,Fraction of confirmations where received quantity exactly matches shipped quantity.
+quantity_mismatch_rate,process,0.10834553440702782,ratio,Fraction of confirmations where received quantity differs from shipped quantity.
+exception_rate,performance,1.1368794326241134,ratio,Total detected exceptions per allocation.
+open_exception_count,performance,1603.0,count,"Number of exceptions with an active status (open, in_progress, raised, escalated)."
+sla_breach_count,performance,160.0,count,Number of exceptions whose SLA status is breached.
+sell_through_rate,performance,0.6493153537772687,ratio,Total units sold divided by total units received across all stores and SKUs.
+stockout_risk_count,performance,99.0,count,Number of stockout risk exceptions detected.
+overstock_risk_count,performance,291.0,count,Number of overstock risk exceptions detected.
+am_follow_up_backlog,performance,1603.0,count,Number of active exceptions assigned to area managers for follow-up.

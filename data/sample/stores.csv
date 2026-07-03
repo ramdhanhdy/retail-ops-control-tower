@@ -1,0 +1,101 @@
+store_id,store_name,region,store_format,area_manager,field_rep,selling_area_sqft,city,state,open_date,is_active,timezone
+S-001,Valley Square,North,flagship,Sarah Chen,,3571,Madison,WI,2019-10-14,True,America/Chicago
+S-002,Forest District,North,standard,Robert Taylor,Greg Patel,1719,Columbus,OH,2020-12-14,True,America/Chicago
+S-003,Uptown Mall,East,standard,Emma Wilson,,2036,Newark,NJ,2025-09-04,True,America/New_York
+S-004,Forest Mall,East,standard,Lisa Wong,Lara Ortiz,1266,Boston,MA,2021-02-13,True,America/New_York
+S-005,Valley Mall,East,standard,Emma Wilson,Hannah Brooks,1150,Hartford,CT,2021-03-15,True,America/New_York
+S-006,Riverside Station,North,standard,Marcus Lee,Omar Faruk,935,Columbus,OH,2023-04-21,True,America/Chicago
+S-007,Northgate District,South,standard,Jennifer Kim,Beth Morgan,1677,Charlotte,NC,2023-04-05,True,America/Chicago
+S-008,Old Town Commons,South,standard,Jennifer Kim,Alex Turner,1588,Memphis,TN,2025-09-09,True,America/Chicago
+S-009,Northgate Market,North,standard,Lisa Wong,Fiona Garcia,1028,Fargo,ND,2020-08-01,True,America/Chicago
+S-010,Summit District,North,drive-thru,Jennifer Kim,Kevin Lee,1180,Minneapolis,MN,2020-09-25,True,America/Chicago
+S-011,Plaza Market,North,drive-thru,James Okoro,Evan Reed,480,Madison,WI,2019-12-16,True,America/Chicago
+S-012,Oak Market,West,drive-thru,Emma Wilson,Lara Ortiz,952,Seattle,WA,2021-12-10,True,America/Los_Angeles
+S-013,Pine Mall,West,standard,Sarah Chen,Beth Morgan,2004,Phoenix,AZ,2021-01-03,True,America/Los_Angeles
+S-014,Valley Galleria,North,standard,Marcus Lee,Greg Patel,1070,Madison,WI,2025-04-26,True,America/Chicago
+S-015,Downtown Galleria,West,standard,James Okoro,Greg Patel,2179,Sacramento,CA,2024-12-11,True,America/Los_Angeles
+S-016,Crossroads District,South,standard,Emma Wilson,Greg Patel,2135,Austin,TX,2019-04-06,True,America/Chicago
+S-017,Central Commons,North,standard,Lisa Wong,Beth Morgan,1384,Des Moines,IA,2025-03-07,True,America/Chicago
+S-018,Riverside Plaza,North,kiosk,Maria Rodriguez,,371,Minneapolis,MN,2018-09-03,True,America/Chicago
+S-019,Southpark Square,South,standard,Robert Taylor,Mike Chen,881,Memphis,TN,2023-05-07,True,America/Chicago
+S-020,Midtown Mall,East,standard,Jennifer Kim,Lara Ortiz,2072,Boston,MA,2019-09-07,True,America/New_York
+S-021,Oak Galleria,South,standard,Maria Rodriguez,Dana Foster,1419,Memphis,TN,2022-11-04,True,America/Chicago
+S-022,Eastgate Square,South,standard,Sarah Chen,,1216,Birmingham,AL,2025-05-28,True,America/Chicago
+S-023,Harbor Center,East,flagship,James Okoro,,4072,Providence,RI,2024-09-01,True,America/New_York
+S-024,Plaza Station,South,standard,Sarah Chen,Greg Patel,1103,Memphis,TN,2018-05-12,True,America/Chicago
+S-025,Northgate Commons,North,standard,Robert Taylor,Nora Smith,1284,Minneapolis,MN,2024-01-06,True,America/Chicago
+S-026,Old Town Mall,South,standard,David Park,Greg Patel,1763,Atlanta,GA,2025-06-10,True,America/Chicago
+S-027,Midtown Market,East,drive-thru,Lisa Wong,Ivan Petrov,1095,Newark,NJ,2023-01-04,True,America/New_York
+S-028,Old Town Station,West,standard,Emma Wilson,,1847,Las Vegas,NV,2021-05-02,True,America/Los_Angeles
+S-029,Sunset Station,South,standard,Emma Wilson,Julia Nash,2158,Memphis,TN,2022-09-10,True,America/Chicago
+S-030,Uptown Center,South,standard,David Park,Kevin Lee,1416,Memphis,TN,2018-05-10,True,America/Chicago
+S-031,Fairfield Galleria,West,standard,David Park,Hannah Brooks,2149,Sacramento,CA,2023-02-27,True,America/Los_Angeles
+S-032,Pine Galleria,South,flagship,Emma Wilson,Hannah Brooks,3298,Memphis,TN,2021-12-23,True,America/Chicago
+S-033,Midtown Commons,North,drive-thru,James Okoro,Omar Faruk,875,Madison,WI,2018-09-08,True,America/Chicago
+S-034,Crossroads Quarter,East,drive-thru,Marcus Lee,Hannah Brooks,856,Providence,RI,2020-12-28,True,America/New_York
+S-035,Westend Square,East,kiosk,Jennifer Kim,,246,Newark,NJ,2022-06-11,True,America/New_York
+S-036,Forest Square,West,standard,David Park,Mike Chen,1634,Portland,OR,2025-07-02,True,America/Los_Angeles
+S-037,Midtown Quarter,North,drive-thru,Jennifer Kim,Hannah Brooks,705,Columbus,OH,2024-07-18,True,America/Chicago
+S-038,Harbor Commons,East,standard,Ahmed Hassan,Chris Vega,1757,Providence,RI,2018-07-19,True,America/New_York
+S-039,Oak Plaza,South,drive-thru,Emma Wilson,Nora Smith,865,Charlotte,NC,2023-06-25,True,America/Chicago
+S-040,Brookside District,North,standard,David Park,Evan Reed,1259,Springfield,IL,2018-01-08,True,America/Chicago
+S-041,Crossroads Market,West,standard,Ahmed Hassan,,2040,Phoenix,AZ,2020-05-04,True,America/Los_Angeles
+S-042,Sunset Quarter,West,standard,James Okoro,Beth Morgan,1297,Sacramento,CA,2022-11-20,True,America/Los_Angeles
+S-043,Sunset District,West,standard,Marcus Lee,Nora Smith,825,Sacramento,CA,2019-07-12,True,America/Los_Angeles
+S-044,Northgate Galleria,East,standard,Marcus Lee,Omar Faruk,2491,Baltimore,MD,2021-02-09,True,America/New_York
+S-045,Greenwood Station,West,standard,Lisa Wong,Greg Patel,1234,Denver,CO,2023-05-20,True,America/Los_Angeles
+S-046,Midtown Square,West,standard,David Park,Hannah Brooks,2122,Sacramento,CA,2018-02-10,True,America/Los_Angeles
+S-047,Fairfield Station,East,standard,Lisa Wong,Greg Patel,1477,Baltimore,MD,2025-05-10,True,America/New_York
+S-048,Brookside Galleria,South,standard,David Park,Lara Ortiz,2007,Charlotte,NC,2022-02-27,True,America/Chicago
+S-049,Maple Market,North,kiosk,Marcus Lee,Alex Turner,249,Springfield,IL,2020-11-28,True,America/Chicago
+S-050,Riverside Market,West,standard,Sarah Chen,Julia Nash,2483,Las Vegas,NV,2025-02-19,True,America/Los_Angeles
+S-051,Eastgate Quarter,South,standard,Ahmed Hassan,Julia Nash,2388,Memphis,TN,2025-08-10,True,America/Chicago
+S-052,Brookside Mall,North,standard,Maria Rodriguez,Fiona Garcia,1232,Madison,WI,2019-03-08,False,America/Chicago
+S-053,Greenwood Market,West,standard,David Park,Greg Patel,1390,Portland,OR,2025-02-22,True,America/Los_Angeles
+S-054,Valley Center,South,standard,Marcus Lee,Mike Chen,1139,Austin,TX,2022-08-04,True,America/Chicago
+S-055,Eastgate Plaza,West,standard,Ahmed Hassan,Alex Turner,2036,Las Vegas,NV,2019-04-22,True,America/Los_Angeles
+S-056,Midtown Center,East,standard,Marcus Lee,Pia Romano,2134,Baltimore,MD,2020-10-14,True,America/New_York
+S-057,Highland Center,East,standard,Marcus Lee,,2220,Newark,NJ,2024-09-02,True,America/New_York
+S-058,Uptown District,North,drive-thru,Robert Taylor,Pia Romano,823,Springfield,IL,2018-04-17,True,America/Chicago
+S-059,Northgate Center,North,standard,David Park,Julia Nash,2230,Des Moines,IA,2018-11-20,True,America/Chicago
+S-060,Plaza Mall,West,flagship,Lisa Wong,Pia Romano,3481,Las Vegas,NV,2022-09-23,True,America/Los_Angeles
+S-061,Maple Commons,South,standard,Jennifer Kim,Alex Turner,1840,Nashville,TN,2022-07-11,True,America/Chicago
+S-062,Southpark Galleria,East,kiosk,Jennifer Kim,Kevin Lee,347,Philadelphia,PA,2023-09-25,True,America/New_York
+S-063,Pine Commons,South,standard,Maria Rodriguez,Beth Morgan,2325,Austin,TX,2024-07-22,True,America/Chicago
+S-064,Crossroads Mall,East,drive-thru,Lisa Wong,Mike Chen,819,Hartford,CT,2020-02-16,True,America/New_York
+S-065,Harbor Galleria,East,drive-thru,James Okoro,Dana Foster,640,Hartford,CT,2022-04-24,True,America/New_York
+S-066,Forest Market,North,standard,Maria Rodriguez,Nora Smith,1464,Springfield,IL,2023-06-14,True,America/Chicago
+S-067,Uptown Quarter,South,standard,Lisa Wong,Alex Turner,1819,Birmingham,AL,2021-08-21,True,America/Chicago
+S-068,Spring District,West,drive-thru,Lisa Wong,Julia Nash,1001,Denver,CO,2022-11-14,True,America/Los_Angeles
+S-069,Highland Square,West,drive-thru,Emma Wilson,Beth Morgan,702,Las Vegas,NV,2022-01-27,True,America/Los_Angeles
+S-070,Summit Square,West,kiosk,Maria Rodriguez,Beth Morgan,197,Seattle,WA,2022-11-25,True,America/Los_Angeles
+S-071,Lakeside Center,West,flagship,Jennifer Kim,Lara Ortiz,4208,Portland,OR,2021-03-26,True,America/Los_Angeles
+S-072,Old Town Market,East,kiosk,David Park,Mike Chen,158,Providence,RI,2019-03-25,True,America/New_York
+S-073,Uptown Plaza,East,flagship,Robert Taylor,Hannah Brooks,5197,Newark,NJ,2022-10-13,True,America/New_York
+S-074,Westend Galleria,East,drive-thru,Lisa Wong,Dana Foster,519,Providence,RI,2020-01-02,True,America/New_York
+S-075,Lakeside District,South,standard,Emma Wilson,Ivan Petrov,2320,Atlanta,GA,2019-08-20,True,America/Chicago
+S-076,Crossroads Square,East,standard,Lisa Wong,Dana Foster,2204,Newark,NJ,2023-01-13,True,America/New_York
+S-077,Cedar Quarter,West,flagship,James Okoro,Greg Patel,3207,Portland,OR,2020-10-07,True,America/Los_Angeles
+S-078,Maple Quarter,South,standard,Sarah Chen,Lara Ortiz,1096,Austin,TX,2022-03-04,True,America/Chicago
+S-079,Central Center,South,standard,Marcus Lee,Lara Ortiz,1059,Charlotte,NC,2019-12-03,True,America/Chicago
+S-080,Pine Quarter,North,standard,Sarah Chen,Mike Chen,2404,Springfield,IL,2025-11-01,True,America/Chicago
+S-081,Eastgate Center,North,standard,Jennifer Kim,Nora Smith,1363,Springfield,IL,2023-07-20,True,America/Chicago
+S-082,Westend District,North,drive-thru,Marcus Lee,Dana Foster,633,Fargo,ND,2024-06-27,True,America/Chicago
+S-083,Spring Galleria,East,standard,Robert Taylor,Beth Morgan,974,Boston,MA,2019-12-24,True,America/New_York
+S-084,Downtown Station,East,standard,Ahmed Hassan,Evan Reed,2276,Providence,RI,2022-06-04,True,America/New_York
+S-085,Lakeside Mall,South,kiosk,Lisa Wong,,319,Charlotte,NC,2018-10-22,True,America/Chicago
+S-086,Lakeside Plaza,East,drive-thru,Sarah Chen,,471,Philadelphia,PA,2020-12-21,True,America/New_York
+S-087,Lakeside Market,West,standard,Maria Rodriguez,Beth Morgan,2390,Sacramento,CA,2019-01-05,True,America/Los_Angeles
+S-088,Eastgate Galleria,East,standard,Lisa Wong,Pia Romano,1241,Baltimore,MD,2023-07-04,True,America/New_York
+S-089,Cedar Market,East,flagship,Marcus Lee,Fiona Garcia,3562,Philadelphia,PA,2023-02-01,True,America/New_York
+S-090,Sunset Commons,South,standard,Emma Wilson,Nora Smith,1693,Birmingham,AL,2019-06-19,True,America/Chicago
+S-091,Old Town Quarter,West,flagship,Ahmed Hassan,Chris Vega,5824,Las Vegas,NV,2019-04-14,True,America/Los_Angeles
+S-092,Pine Station,East,kiosk,Maria Rodriguez,Evan Reed,158,Philadelphia,PA,2021-06-12,True,America/New_York
+S-093,Westend Quarter,South,standard,Lisa Wong,Beth Morgan,1447,Charlotte,NC,2019-08-15,True,America/Chicago
+S-094,Crossroads Plaza,North,standard,Jennifer Kim,Beth Morgan,1387,Springfield,IL,2019-10-20,True,America/Chicago
+S-095,Greenwood District,South,standard,Maria Rodriguez,,1722,Nashville,TN,2019-09-21,True,America/Chicago
+S-096,Lakeside Station,West,standard,Robert Taylor,,1637,Phoenix,AZ,2018-11-21,True,America/Los_Angeles
+S-097,Brookside Quarter,West,standard,Emma Wilson,Chris Vega,966,Denver,CO,2020-06-10,True,America/Los_Angeles
+S-098,Central Station,West,standard,Maria Rodriguez,Julia Nash,1238,Phoenix,AZ,2025-04-08,True,America/Los_Angeles
+S-099,Oak Center,North,standard,Robert Taylor,Hannah Brooks,2456,Fargo,ND,2025-01-14,True,America/Chicago
+S-100,Old Town Galleria,East,kiosk,Ahmed Hassan,Omar Faruk,258,Philadelphia,PA,2021-06-22,True,America/New_York
