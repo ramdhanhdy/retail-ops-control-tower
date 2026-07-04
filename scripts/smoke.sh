@@ -8,7 +8,8 @@
 #   2. Build the exception table and daily action list.
 #   3. Build the KPI summary and AM scorecard.
 #   4. Generate the weekly operations report.
-#   5. Run the full pytest suite.
+#   5. Build the diagnostic insights.
+#   6. Run the full pytest suite.
 #
 # The script exits 0 on success, non-zero on any failure. It is designed to
 # run from the project root with no prior state (data/sample, data/processed,
@@ -129,9 +130,31 @@ echo "executive_summary.md: ${SUMMARY_SIZE} bytes"
 echo ""
 
 # --------------------------------------------------------------------------
-# Stage 5: Run the full pytest suite
+# Stage 5: Build diagnostic insights
 # --------------------------------------------------------------------------
-echo "--- Stage 5: Run pytest ---"
+echo "--- Stage 5: Build diagnostic insights ---"
+$PYTHON scripts/build_insights.py \
+    --input-dir data/sample \
+    --output-dir data/processed \
+    --report-dir reports \
+    --aging-date 2026-07-15
+
+if [ ! -f "data/processed/insights.csv" ]; then
+    echo "FAIL: data/processed/insights.csv was not created" >&2
+    exit 1
+fi
+if [ ! -f "reports/insights.md" ]; then
+    echo "FAIL: reports/insights.md was not created" >&2
+    exit 1
+fi
+INSIGHT_COUNT=$(tail -n +2 data/processed/insights.csv | wc -l)
+echo "insights.csv: ${INSIGHT_COUNT} insight rows"
+echo ""
+
+# --------------------------------------------------------------------------
+# Stage 6: Run the full pytest suite
+# --------------------------------------------------------------------------
+echo "--- Stage 6: Run pytest ---"
 $PYTHON -m pytest -q
 echo ""
 

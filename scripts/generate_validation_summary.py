@@ -7,7 +7,11 @@ human-readable markdown summary of findings.
 from __future__ import annotations
 
 import os
+import sys
 from collections import Counter, defaultdict
+
+# Ensure the package is importable when running the script directly.
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from retail_ops_control_tower.io import read_all_csv_tables
 from retail_ops_control_tower.validation import validate_tables

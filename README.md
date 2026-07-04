@@ -81,6 +81,10 @@ items first. The full workflow:
 5. **Report** - 12 KPIs, an area-manager scorecard, and an 8-section weekly
    operations report are generated. The Streamlit dashboard renders all of it
    interactively.
+6. **Diagnose** - the insight engine mines the exception table for ranked
+   root-cause findings: Pareto concentration, regional hotspot lift, upstream
+   DC/carrier attribution, execution-to-sales gaps, field-rep workload, and
+   inventory rebalancing opportunities.
 
 ---
 
@@ -104,11 +108,17 @@ items first. The full workflow:
 - **8-section weekly report** - executive snapshot, campaign readiness,
   allocation reconciliation, exception backlog, AM follow-up, sell-through notes,
   recommended actions, and data caveats.
+- **Diagnostic insight engine** - 6 root-cause analyses (Pareto concentration,
+  regional hotspots, DC/carrier attribution, execution-to-sales linkage,
+  field-rep workload, inventory rebalancing) producing ranked, quantified
+  findings with lift ratios, impact scores, and recommended actions.
 - **Interactive Streamlit dashboard** - filterable by campaign, region, and
   area manager; renders KPI tiles, reconciliation tables, exception backlog,
-  and the full weekly report inline.
-- **327 passing tests** - full unit and integration coverage of models,
-  validation, exception engine, metrics, reporting, I/O, CLI, and constants.
+  ranked insight cards with a Pareto concentration chart, and the full weekly
+  report inline.
+- **354 passing tests** - full unit and integration coverage of models,
+  validation, exception engine, metrics, insights, reporting, I/O, CLI, and
+  constants.
 
 ---
 
@@ -245,6 +255,9 @@ python scripts/generate_weekly_report.py --aging-date 2026-07-15
 
 # 5. Generate the validation summary
 python scripts/generate_validation_summary.py
+
+# 6. Build ranked diagnostic insights
+python scripts/build_insights.py --aging-date 2026-07-15
 ```
 
 ### Run the Streamlit dashboard
@@ -299,6 +312,7 @@ After running the pipeline, these files are generated:
 | `daily_action_list.csv` | Ranked action list for daily operations |
 | `kpi_summary.csv` | 12 dashboard-ready KPIs |
 | `am_scorecard.csv` | Per-area-manager scorecard |
+| `insights.csv` | Ranked diagnostic findings with lift and impact scores |
 
 **Reports (`reports/`):**
 
@@ -307,6 +321,7 @@ After running the pipeline, these files are generated:
 | `weekly_ops_report.md` | 8-section weekly operations brief |
 | `executive_summary.md` | Short executive summary with top action items |
 | `validation_summary.md` | Data quality findings from the validation engine |
+| `insights.md` | Diagnostic brief: root-cause findings and focus areas |
 
 **Sample KPI values (from the default 100-store, 3-campaign dataset):**
 
@@ -333,6 +348,16 @@ exceptions (651 critical), of which 160 have breached SLA. Inventory risk is
 elevated: 99 stores face stockout risk and 291 face overstock risk.
 ```
 
+**Sample diagnostic insights (from the same dataset):**
+
+```
+INS-001  47 of 100 stores (47%) drive 80% of all exceptions
+INS-002  North region over-indexes 1.3x on low sell through
+INS-003  North region over-indexes 1.5x on overstock risk
+INS-005  8 SKUs in C-2026-BTS have both stockout and overstock
+         stores - transfer candidates
+```
+
 ---
 
 ## Portfolio relevance
@@ -351,9 +376,12 @@ analyst portfolio piece, not an operations specialist claim.
   and a priority-ranked action list.
 - Computing a KPI metrics layer with threshold color-coding and an area-manager
   scorecard.
+- Building a diagnostic insight layer that moves beyond "what is broken" to
+  "why, where it concentrates, and what it costs" using Pareto, lift, and
+  cohort-gap analyses.
 - Rendering an interactive Streamlit dashboard and a structured weekly report.
-- Writing 327 passing tests that cover models, validation, exceptions, metrics,
-  reporting, I/O, and CLI.
+- Writing 354 passing tests that cover models, validation, exceptions, metrics,
+  insights, reporting, I/O, and CLI.
 
 **What it does not claim:**
 
@@ -422,6 +450,7 @@ retail-ops-control-tower/
 |   |-- validation.py                      # 9-rule validation engine (T09)
 |   |-- metrics.py                         # 12 KPI metrics layer (T11)
 |   |-- reporting.py                       # Weekly report generator (T12)
+|   |-- insights.py                        # Diagnostic insight engine (T13)
 |   |-- data_generation.py                 # Deterministic sample data generator (T08)
 |   |-- models/                            # Dataclass models for 8 tables
 |   |-- exceptions/                        # Exception engine, action list, SLA (T10)
@@ -438,9 +467,10 @@ retail-ops-control-tower/
 |   |-- build_kpi_summary.py               # Build KPIs and AM scorecard
 |   |-- generate_weekly_report.py          # Generate weekly report
 |   |-- generate_validation_summary.py     # Generate validation summary
+|   |-- build_insights.py                  # Build ranked diagnostic insights
 |   |-- render_architecture_diagram.py     # Render architecture PNG + HTML
 |
-|-- tests/                                 # 327 passing tests
+|-- tests/                                 # 354 passing tests
 |-- data/sample/                           # 8 generated CSV tables
 |-- data/processed/                        # Processed outputs (exceptions, KPIs, action list)
 |-- reports/                               # Generated reports

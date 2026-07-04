@@ -7,6 +7,7 @@ from typing import Iterable
 
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +25,7 @@ SAMPLE_TABLES = [
     "sales_daily",
 ]
 PROCESSED_TABLES = ["kpi_summary", "am_scorecard", "exceptions", "daily_action_list"]
+OPTIONAL_TABLES = ["insights"]
 
 
 @st.cache_data(show_spinner=False)
@@ -39,7 +41,7 @@ def load_tables() -> dict[str, pd.DataFrame]:
     tables: dict[str, pd.DataFrame] = {}
     for name in SAMPLE_TABLES:
         tables[name] = read_csv(str(SAMPLE_DIR / f"{name}.csv"))
-    for name in PROCESSED_TABLES:
+    for name in PROCESSED_TABLES + OPTIONAL_TABLES:
         tables[name] = read_csv(str(PROCESSED_DIR / f"{name}.csv"))
     return tables
 
@@ -330,8 +332,91 @@ def render_exception_board(tables: dict[str, pd.DataFrame]) -> None:
     st.dataframe(action_source[cols_to_show].head(25), use_container_width=True, hide_index=True)
 
 
+def pareto_curve(exceptions: pd.DataFrame) -> pd.DataFrame:
+    if exceptions.empty or "store_id" not in exceptions.columns:
+        return pd.DataFrame()
+    counts = (
+        exceptions.dropna(subset=["store_id"])
+        .groupby("store_id")
+        .size()
+        .sort_values(ascending=False)
+        .reset_index(name="exceptions")
+    )
+    if counts.empty:
+        return pd.DataFrame()
+    counts["store_rank"] = range(1, len(counts) + 1)
+    counts["cumulative_share"] = counts["exceptions"].cumsum() / counts["exceptions"].sum()
+    return counts
+
+
+def render_insights(tables: dict[str, pd.DataFrame]) -> None:
+    st.header("5. Diagnostic insights")
+    st.caption(
+        "Root-cause findings mined from the exception table: concentration, "
+        "hotspot lift, upstream attribution, and rebalancing opportunities. "
+        "Ranked by impact score. Findings are computed on the full dataset; "
+        "the Pareto chart respects the sidebar filters."
+    )
+    insights = tables.get("insights", pd.DataFrame())
+    if insights.empty:
+        st.warning(
+            "data/processed/insights.csv is missing. Run "
+            "python scripts/build_insights.py to generate it."
+        )
+    else:
+        cols = st.columns(3)
+        with cols[0]:
+            st.metric("Ranked findings", fmt_int(len(insights)))
+        with cols[1]:
+            st.metric("Categories", fmt_int(insights["category"].nunique()))
+        with cols[2]:
+            top_impact = insights["impact_score"].max() if "impact_score" in insights.columns else 0
+            st.metric("Top impact score", fmt_int(top_impact))
+
+        for _, row in insights.iterrows():
+            label = f"{row['insight_id']} | {row['headline']} (impact {fmt_int(row.get('impact_score', 0))})"
+            with st.expander(label):
+                st.write(row.get("detail", ""))
+                meta_cols = st.columns(3)
+                with meta_cols[0]:
+                    st.metric("Affected", fmt_int(row.get("affected_count", 0)))
+                with meta_cols[1]:
+                    lift = row.get("lift", 0)
+                    st.metric("Lift", f"{float(lift):.2f}x" if float(lift or 0) else "n/a")
+                with meta_cols[2]:
+                    st.metric("Category", str(row.get("category", "")).replace("_", " "))
+                st.markdown(f"**Evidence:** {row.get('evidence', '')}")
+                st.markdown(f"**Recommended action:** {row.get('recommended_action', '')}")
+
+    st.subheader("Exception concentration (Pareto)")
+    curve = pareto_curve(tables["exceptions"])
+    if curve.empty:
+        st.warning("No exception data available for the current filters.")
+        return
+    fig = go.Figure()
+    fig.add_bar(
+        x=curve["store_rank"], y=curve["exceptions"], name="Exceptions per store"
+    )
+    fig.add_scatter(
+        x=curve["store_rank"],
+        y=curve["cumulative_share"] * 100,
+        name="Cumulative share (%)",
+        yaxis="y2",
+        mode="lines",
+    )
+    fig.add_hline(y=80, line_dash="dash", line_color="gray", yref="y2")
+    fig.update_layout(
+        title="Stores ranked by exception count (80% line dashed)",
+        xaxis_title="Store rank",
+        yaxis=dict(title="Exceptions"),
+        yaxis2=dict(title="Cumulative share (%)", overlaying="y", side="right", range=[0, 100]),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02),
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
 def render_am_scorecard(tables: dict[str, pd.DataFrame]) -> None:
-    st.header("5. AM scorecard")
+    st.header("6. AM scorecard")
     scorecard = normalize_scorecard(tables["am_scorecard"])
     if scorecard.empty:
         st.warning("No AM scorecard data available for the current filters.")
@@ -346,7 +431,7 @@ def render_am_scorecard(tables: dict[str, pd.DataFrame]) -> None:
 
 
 def render_store_detail(tables: dict[str, pd.DataFrame]) -> None:
-    st.header("6. Store detail table")
+    st.header("7. Store detail table")
     detail = store_detail_table(tables)
     if detail.empty:
         st.warning("No store data available for the current filters.")
@@ -358,7 +443,7 @@ def render_store_detail(tables: dict[str, pd.DataFrame]) -> None:
 
 
 def render_weekly_report_preview() -> None:
-    st.header("7. Weekly report preview")
+    st.header("8. Weekly report preview")
     report = read_report(str(REPORT_PATH))
     if not report:
         st.warning("reports/weekly_ops_report.md is missing. Run python scripts/generate_weekly_report.py to create it.")
@@ -401,6 +486,7 @@ def main() -> None:
         "Campaign readiness",
         "Allocation reconciliation",
         "Exception board",
+        "Insights",
         "AM scorecard",
         "Store detail table",
         "Weekly report preview",
@@ -415,10 +501,12 @@ def main() -> None:
     with tabs[3]:
         render_exception_board(filtered)
     with tabs[4]:
-        render_am_scorecard(filtered)
+        render_insights(filtered)
     with tabs[5]:
-        render_store_detail(filtered)
+        render_am_scorecard(filtered)
     with tabs[6]:
+        render_store_detail(filtered)
+    with tabs[7]:
         render_weekly_report_preview()
 
 
