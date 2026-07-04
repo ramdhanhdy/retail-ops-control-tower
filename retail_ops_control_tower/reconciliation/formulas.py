@@ -1,44 +1,52 @@
-"""16 reconciliation formulas (6 process, 6 performance, 4 risk).
-
-See PRD Section 9 worked example:
-    Planned: 200, Shipped: 190, Received: 188, Sold: 150, On-hand: 38, Lead time: 2 weeks.
-    Allocation accuracy: 94%, Fill rate: 95%, Receiving accuracy: 98.95%,
-    Sell-through: 79.8%, WOC: 1.01 weeks, Stockout risk: 1.
-"""
+"""Reconciliation formulas used by the control tower."""
 
 from __future__ import annotations
 
 
-def allocation_accuracy(shipped: int, planned: int) -> float:
-    """Allocation accuracy: shipped / planned. TODO: Phase 3."""
-    if planned == 0:
-        return 0.0
-    return shipped / planned
+def _safe_ratio(numerator: float, denominator: float) -> float:
+    """Return numerator / denominator with zero-denominator protection."""
+    return 0.0 if denominator == 0 else numerator / denominator
 
 
-def fill_rate(shipped: int, planned: int) -> float:
-    """Shipped-to-plan fill rate. TODO: Phase 3."""
-    if planned == 0:
-        return 0.0
-    return shipped / planned
+def allocation_accuracy(shipped: int | float, planned: int | float) -> float:
+    """Return shipped quantity divided by planned quantity."""
+    return _safe_ratio(float(shipped), float(planned))
 
 
-def receiving_accuracy(received: int, shipped: int) -> float:
-    """Receiving accuracy. TODO: Phase 3."""
-    if shipped == 0:
-        return 0.0
-    return received / shipped
+def fill_rate(shipped: int | float, planned: int | float) -> float:
+    """Return shipped-to-plan fill rate."""
+    return allocation_accuracy(shipped, planned)
 
 
-def sell_through(sold: int, received: int) -> float:
-    """Sell-through rate. TODO: Phase 3."""
-    if received == 0:
-        return 0.0
-    return sold / received
+def receiving_accuracy(received: int | float, shipped: int | float) -> float:
+    """Return received quantity divided by shipped quantity."""
+    return _safe_ratio(float(received), float(shipped))
 
 
-def weeks_of_cover(on_hand: int, sold: int, days: int = 7) -> float:
-    """Weeks of cover. TODO: Phase 3."""
-    if sold == 0:
+def sell_through(sold: int | float, received: int | float) -> float:
+    """Return sold quantity divided by received quantity."""
+    return _safe_ratio(float(sold), float(received))
+
+
+def on_hand(received: int | float, sold: int | float) -> float:
+    """Return current on-hand quantity after sales."""
+    return max(float(received) - float(sold), 0.0)
+
+
+def weeks_of_cover(on_hand_qty: int | float, sold: int | float, days: int = 7) -> float:
+    """Return weeks of cover based on sales velocity over ``days``."""
+    sold = float(sold)
+    if sold <= 0:
         return float("inf")
-    return (on_hand / sold) * (days / 7)
+    daily_velocity = sold / max(days, 1)
+    return float(on_hand_qty) / daily_velocity / 7
+
+
+def variance(actual: int | float, expected: int | float) -> float:
+    """Return actual minus expected."""
+    return float(actual) - float(expected)
+
+
+def variance_rate(actual: int | float, expected: int | float) -> float:
+    """Return (actual - expected) / expected."""
+    return _safe_ratio(variance(actual, expected), float(expected))

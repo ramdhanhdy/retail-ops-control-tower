@@ -1,8 +1,13 @@
-"""Section 5: Exception backlog view."""
+"""Dashboard section: Exception Backlog."""
 
 from __future__ import annotations
 
+from typing import Any
 
-def render(data: dict, fmt: str = "text") -> str:
-    """Render exception backlog. TODO: Phase 5."""
-    return "Section 5: Exception Backlog\n"
+
+def render(data: dict[str, Any], fmt: str = "text") -> str:
+    """Render the exception backlog section."""
+    line = "Section: Exception Backlog"
+    if fmt == "html":
+        return f"<section><h2>{line}</h2></section>"
+    return line + "\n"

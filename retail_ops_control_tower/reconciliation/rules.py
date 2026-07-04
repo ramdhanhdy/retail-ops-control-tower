@@ -1,12 +1,26 @@
-"""24 exception rules (EX-01 to EX-24).
+"""Exception rule adapter.
 
-Each rule evaluates store-SKU records and raises exceptions when thresholds
-are breached. See PRD Section 5 and data-dictionary.md for rule definitions.
+The detailed exception detection rules are implemented in
+``retail_ops_control_tower.exceptions.engine``. This module exposes a compact
+rule-evaluation API for callers that imported the earlier reconciliation layer.
 """
 
 from __future__ import annotations
 
+from datetime import date
+from typing import Any
 
-def evaluate_rules(records: dict) -> list:
-    """Evaluate all 24 exception rules. TODO: Phase 3."""
-    return []
+from retail_ops_control_tower.exceptions.engine import detect_exceptions
+
+
+def evaluate_rules(records: dict[str, list[dict[str, Any]]] | list[dict[str, Any]], aging_date: date | None = None) -> list[dict[str, Any]]:
+    """Evaluate exception rules and return exception rows as dictionaries.
+
+    Pass the full table mapping for complete detection. Passing a list returns
+    an empty result because single-table input lacks the cross-table joins that
+    operational exceptions require.
+    """
+    if not isinstance(records, dict):
+        return []
+    report = detect_exceptions(records, aging_date=aging_date)
+    return [exception.to_dict() for exception in report.exceptions]

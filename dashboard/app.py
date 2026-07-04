@@ -91,8 +91,6 @@ def fmt_percent(value: float | int | str | None) -> str:
 
 
 def title_case_metric(name: str) -> str:
-    if name.startswith("«redacted"):
-        return "AM follow-up backlog"
     return name.replace("_", " ").title()
 
 
@@ -244,7 +242,7 @@ def normalize_scorecard(am_scorecard: pd.DataFrame) -> pd.DataFrame:
         return am_scorecard
     renamed = {}
     for column in am_scorecard.columns:
-        if column.startswith("«redacted") or "backlog" in column.lower():
+        if "backlog" in column.lower():
             renamed[column] = "am_followup_backlog"
     return am_scorecard.rename(columns=renamed)
 
