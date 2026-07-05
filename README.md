@@ -83,47 +83,52 @@ items first. The full workflow:
    interactively.
 6. **Diagnose** - the insight engine mines the exception table for ranked
    root-cause findings through a four-layer analytical framework: concentration
-   (Pareto, Gini), segmentation (ANOVA, Kruskal-Wallis), attribution (chi-square,
-   Poisson lift), and opportunity (rebalancing, SLA profiling).
+   (Pareto, Gini), segmentation (ANOVA, Kruskal-Wallis, Mann-Whitney post-hoc),
+   attribution (binomial exact tests, permutation test, chi-square), and
+   opportunity (rebalancing, SLA profiling, financial modeling, sensitivity).
 
 ---
 
 ## Insight engine
 
-The diagnostic notebook (`notebooks/insight_engine_story_v2.ipynb`) runs a
-multi-layer statistical analysis over the exception dataset. It produces ranked,
-quantified findings rather than descriptive summaries.
+The diagnostic engine (`scripts/insight_engine/`) runs a multi-layer
+statistical analysis over the exception dataset. It produces ranked,
+quantified findings rather than descriptive summaries. Charts are saved as
+PNGs to `images/`, structured data exports to `data/insight_exports/`, and
+the analytical narrative to `docs/insight_engine_story.md`.
 
 ### Analytical layers
 
 | Layer | Question | Methods |
 |-------|----------|---------|
-| Concentration | Where is risk focused? | Pareto, Gini coefficient with bootstrap 95% CI (n=5,000, seed=42) |
-| Segmentation | What drives exceptions? | One-way ANOVA, Kruskal-Wallis, Shapiro-Wilk, Levene, Tukey HSD post-hoc, Cohen's d |
-| Attribution | Who is responsible? | Chi-square with Cramer's V, Poisson exact lift with 95% CI, BH-FDR correction |
-| Opportunity | What to fix? | Inventory rebalancing census, SLA breach profiling, financial impact estimation |
+| Concentration | Where is risk focused? | Pareto, Gini coefficient with bootstrap 95% CI (n=10,000, seed=42) |
+| Segmentation | What drives exceptions? | ANOVA + Kruskal-Wallis, Shapiro-Wilk + Levene assumption checks, Mann-Whitney U post-hoc with Holm correction, rank-biserial + Cohen's d, epsilon-squared |
+| Attribution | Who is responsible? | Exact binomial tests over 32-cell family with BH-FDR, store-level permutation test (20,000 iterations) for field reps, chi-square GoF with Cramer's V |
+| Opportunity | What to fix? | Rebalancing census, SLA breach profiling with Wilson CI, aging bucket analysis, illustrative financial model, sensitivity testing (Spearman rho) |
 
 ### Statistical rigor
 
 Every test includes assumption checks before execution, effect sizes alongside
-p-values, multiple comparison correction where families overlap, and post-hoc
-power analysis for non-significant results:
+p-values, multiple comparison correction where families overlap, and
+transparent reporting of non-significant results:
 
 - **Assumption checks**: Shapiro-Wilk normality + Levene homogeneity before each
   ANOVA, with explicit fallback to Kruskal-Wallis when assumptions fail
-- **Post-hoc tests**: Bonferroni-corrected pairwise t-tests with Cohen's d
-  effect sizes after significant ANOVAs
-- **Multiple comparison correction**: Benjamini-Hochberg FDR on the 16-rep and
-  6-hotspot test families (reduces flagged reps from 4 to 1)
-- **Confidence intervals**: Bootstrap percentile CI on Gini, Poisson exact CI
-  on all lift estimates, Wilson CI on proportions
-- **Effect sizes**: eta-squared for ANOVA, Cramer's V for chi-square, Cohen's d
-  for pairwise comparisons, Cohen's f-squared for regression
-- **Power analysis**: `statsmodels.stats.power` (FTestAnovaPower, TTestIndPower,
-  GofChisquarePower) for every non-significant inference, with "may be
-  underpowered" labels where power < 0.80
-- **Methodology appendix**: full table of tests, assumptions, corrections,
-  financial model assumptions, and a 15-item statistical rigor checklist
+- **Post-hoc tests**: Mann-Whitney U pairwise comparisons with Holm correction,
+  rank-biserial effect sizes, plus Cohen's d as parametric reference
+- **Multiple comparison correction**: Benjamini-Hochberg FDR on the 32-cell
+  hotspot family and 16-rep field-rep family
+- **Confidence intervals**: Bootstrap percentile CI on Gini (10,000 resamples),
+  bootstrap CI on field-rep lift (5,000 resamples), Wilson CI on proportions
+- **Effect sizes**: epsilon-squared for Kruskal-Wallis, eta-squared for ANOVA,
+  Cramer's V for chi-square, rank-biserial for Mann-Whitney, Cohen's d for
+  pairwise comparisons
+- **Permutation testing**: Store-level permutation test (20,000 iterations) for
+  field-rep attribution, respecting store-level clustering instead of assuming
+  independent exceptions
+- **Sensitivity analysis**: Impact score rankings tested across 3 weight
+  scenarios with Spearman rho, plus verified reconstruction of all 14 published
+  scores from raw data
 
 ---
 
@@ -148,9 +153,9 @@ power analysis for non-significant results:
   allocation reconciliation, exception backlog, AM follow-up, sell-through notes,
   recommended actions, and data caveats.
 - **Statistical insight engine** - 4-layer analytical framework (concentration,
-  segmentation, attribution, opportunity) with full statistical rigor:
-  assumption checks, effect sizes, FDR correction, confidence intervals, power
-  analysis, and a methodology appendix.
+  segmentation, attribution, opportunity) with modular scripts, chart output,
+  and structured data exports: assumption checks, effect sizes, FDR correction,
+  permutation testing, confidence intervals, and sensitivity analysis.
 - **Interactive Streamlit dashboard** - filterable by campaign, region, and
   area manager; renders KPI tiles, reconciliation tables, exception backlog,
   ranked insight cards with a Pareto concentration chart, and the full weekly
@@ -299,16 +304,23 @@ python scripts/generate_validation_summary.py
 python scripts/build_insights.py --aging-date 2026-07-15
 ```
 
-### Run the insight notebook
+### Run the insight engine
 
 ```bash
-# Requires: pandas, scipy, statsmodels, plotly
-jupyter notebook notebooks/insight_engine_story_v2.ipynb
+# Requires: pandas, scipy, statsmodels, matplotlib
+python -m scripts.insight_engine.run_all
 ```
 
-The notebook runs a full statistical analysis over the exception dataset and
-produces ranked diagnostic findings with effect sizes, confidence intervals, and
-power analysis.
+This produces all chart PNGs in `images/`, structured data exports in
+`data/insight_exports/`, and the analytical narrative in
+`docs/insight_engine_story.md`. Each layer can also be run individually:
+
+```bash
+python -m scripts.insight_engine.layer1_concentration
+python -m scripts.insight_engine.layer2_segmentation
+python -m scripts.insight_engine.layer3_attribution
+python -m scripts.insight_engine.layer4_opportunity
+```
 
 ### Run the Streamlit dashboard
 
@@ -373,44 +385,30 @@ After running the pipeline, these files are generated:
 | `validation_summary.md` | Data quality findings from the validation engine |
 | `insights.md` | Diagnostic brief: root-cause findings and focus areas |
 
-**Notebook (`notebooks/`):**
+**Insight engine outputs:**
 
-| File | Description |
-|------|-------------|
-| `insight_engine_story_v2.ipynb` | 42-cell statistical analysis: 4 analytical layers, 19 code cells, full rigor (assumption checks, effect sizes, FDR, CIs, power analysis) |
+| Output | Location | Description |
+|-------|----------|-------------|
+| Chart PNGs | `images/` | 11 charts: Pareto/Lorenz, boxplots, hotspot lift, field-rep lift, mismatch, aging, financial, rebalancing, SLA, sensitivity |
+| Data exports | `data/insight_exports/` | 13 JSON/CSV files with full statistical results per layer |
+| Analytical narrative | `docs/insight_engine_story.md` | 547-line markdown story with embedded charts (Indonesian) |
 
-**Sample KPI values (from the default 100-store, 3-campaign dataset):**
-
-| KPI | Value |
-|-----|-------|
-| Campaign readiness rate | 83.8% |
-| Confirmation completion rate | 96.9% |
-| Photo proof completion rate | 91.9% |
-| Allocation accuracy rate | 89.2% |
-| Quantity mismatch rate | 10.8% |
-| Sell-through rate | 64.9% |
-| Open exceptions | 1,603 |
-| Critical exceptions | 651 |
-| SLA-breached exceptions | 160 |
-| Stockout risk stores | 99 |
-| Overstock risk stores | 291 |
-
-**Sample diagnostic findings (from the same dataset):**
+**Sample diagnostic findings (from the default 100-store, 3-campaign dataset):**
 
 ```
-INS-001  47 of 84 stores (56%) produce 80% of all exceptions
-         Gini = 0.356, bootstrap 95% CI [0.311, 0.391]
+INS-001  47 of 100 stores (47%) produce 80.3% of all exceptions
+         Gini = 0.459, bootstrap 95% CI [0.400, 0.513]
 
 INS-002  Store format predicts exception volume
-         Kruskal-Wallis H=37.26, p=4.06e-08, eta-squared=0.52 (large)
-         Post-hoc power = 1.00
+         Kruskal-Wallis H=29.36, p=1.9e-06, epsilon-squared=0.275 (large)
+         4/6 format pairs significant after Holm correction
 
-INS-003  Nora Smith over-indexes on compliance failures
-         BH-FDR corrected p=0.0005, lift=1.93x, 95% CI [1.39, 2.50]
-         Post-hoc power = 1.00
+INS-003  No field rep is statistically significant after permutation test
+         Nora Smith: lift=1.93x, p-FDR=0.19 (not significant)
+         Store-level permutation, 20,000 iterations + BH-FDR
 
-INS-004  8 SKUs in C-2026-BTS have transfer candidates
-         109 store touchpoints, zero-cost rebalancing opportunity
+INS-004  15 SKUs across 3 campaigns have rebalancing transfer candidates
+         64 store-campaign touchpoints, illustrative ROI 12.4x
 
 INS-005  SLA breach rate = 10.0% (160/1,603)
          Wilson 95% CI [8.6%, 11.5%]
@@ -510,12 +508,7 @@ retail-ops-control-tower/
 |   |-- reports/                           # Report generator and templates
 |   |-- demo/                              # Demo story runner
 |
-|-- notebooks/
-|   |-- insight_engine_story.ipynb         # Original insight notebook
-|   |-- insight_engine_story_v2.ipynb      # Enhanced notebook with full statistical rigor
-|
-|-- dashboard/app.py                        # Streamlit dashboard application
-|-- scripts/                               # Standalone pipeline scripts
+|-- scripts/
 |   |-- generate_sample_data.py            # Generate 8 CSV tables
 |   |-- build_exception_table.py           # Build exceptions and action list
 |   |-- build_kpi_summary.py               # Build KPIs and AM scorecard
@@ -523,12 +516,23 @@ retail-ops-control-tower/
 |   |-- generate_validation_summary.py     # Generate validation summary
 |   |-- build_insights.py                  # Build ranked diagnostic insights
 |   |-- render_architecture_diagram.py     # Render architecture PNG + HTML
+|   |-- insight_engine/                    # Modular statistical analysis engine
+|       |-- __init__.py                    # Exposes run_all()
+|       |-- common.py                      # Shared data loading and utilities
+|       |-- charts.py                      # Chart styling helpers
+|       |-- layer1_concentration.py        # Pareto + Gini (bootstrap CI)
+|       |-- layer2_segmentation.py         # ANOVA + Kruskal-Wallis + Mann-Whitney post-hoc
+|       |-- layer3_attribution.py         # Binomial hotspots + permutation field-rep test
+|       |-- layer4_opportunity.py          # Rebalancing, SLA, financial, sensitivity
+|       |-- run_all.py                     # Main entry point
 |
-|-- tests/                                 # 354 passing tests
+|-- images/                                # Generated chart PNGs (11 files)
 |-- data/sample/                           # 8 generated CSV tables
 |-- data/processed/                        # Processed outputs (exceptions, KPIs, action list)
+|-- data/insight_exports/                  # Statistical analysis exports (JSON + CSV)
 |-- reports/                               # Generated reports
-|-- docs/                                  # Documentation and architecture diagram
+|-- docs/                                  # Documentation, architecture, analytical narrative
+|-- tests/                                 # 354 passing tests
 ```
 
 ---
