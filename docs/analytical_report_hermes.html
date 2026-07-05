@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retail Ops Control Tower - Analytical Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090a;
+  --bg-panel: #0f1011;
+  --bg-elevated: #191a1b;
+  --bg-hover: #28282c;
+  --text-primary: #f7f8f8;
+  --text-secondary: #d0d6e0;
+  --text-muted: #8a8f98;
+  --text-subtle: #62666d;
+  --border: rgba(255,255,255,0.08);
+  --border-subtle: rgba(255,255,255,0.05);
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --radius-sm: 4px;
+  --radius: 6px;
+  --radius-card: 8px;
+  --radius-lg: 12px;
+  --max-width: 1200px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+body {
+  font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.56;
+  font-size: 16px;
+  font-weight: 400;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border-subtle);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+nav .nav-inner {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+nav .logo {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+nav .logo .accent { color: var(--accent); }
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+nav ul::-webkit-scrollbar { display: none; }
+
+nav ul li a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+
+nav ul li a:hover { color: var(--text-primary); background: rgba(255,255,255,0.04); }
+nav ul li a.active { color: var(--accent); }
+
+/* LAYOUT */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+section:last-child { border-bottom: none; }
+
+/* TYPOGRAPHY */
+h1 {
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -2.4px;
+  line-height: 1.0;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -1.28px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.96px;
+  line-height: 1.33;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  max-width: 65ch;
+}
+
+p strong { color: var(--text-primary); font-weight: 500; }
+
+.mono {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+}
+
+.eyebrow {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+/* HERO */
+.hero {
+  padding: 120px 0 80px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  letter-spacing: -2.88px;
+  margin-bottom: 32px;
+}
+
+.hero .lede {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 70ch;
+  margin-bottom: 48px;
+}
+
+/* METRIC GRID */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.metric-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  transition: background 0.15s;
+}
+
+.metric-card:hover { background: rgba(255,255,255,0.04); }
+
+.metric-card .value {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -1.44px;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.metric-card .value .unit {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0;
+}
+
+.metric-card .label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* CHART CARD */
+.chart-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.chart-card img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.chart-card .caption {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* TWO-COL */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 32px 0;
+}
+
+@media (max-width: 768px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* TABLE */
+.table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+table th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+table tr:last-child td { border-bottom: none; }
+table tr:hover td { background: rgba(255,255,255,0.01); }
+table td.num { font-family: 'Geist Mono', ui-monospace, monospace; color: var(--text-primary); }
+
+/* CALLOUT */
+.callout {
+  background: rgba(59,130,246,0.06);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.callout .label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.callout p { color: var(--text-secondary); margin-bottom: 0; }
+
+/* PILL */
+.pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.06);
+  color: var(--text-secondary);
+}
+
+.pill.success { background: rgba(16,185,129,0.12); color: var(--success); }
+.pill.warning { background: rgba(245,158,11,0.12); color: var(--warning); }
+.pill.danger { background: rgba(239,68,68,0.12); color: var(--danger); }
+.pill.accent { background: rgba(59,130,246,0.12); color: var(--accent); }
+
+/* ACTION FRAMEWORK */
+.action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 32px 0;
+}
+
+.action-item {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 20px;
+  align-items: start;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  transition: background 0.15s;
+}
+
+.action-item:hover { background: rgba(255,255,255,0.04); }
+
+.action-item .num {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  padding-top: 2px;
+}
+
+.action-item .body h4 { margin-bottom: 4px; }
+.action-item .body p { font-size: 14px; margin-bottom: 0; color: var(--text-muted); }
+
+.action-item .meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+  white-space: nowrap;
+}
+
+/* NOT-RECOMMENDED */
+.not-rec {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  margin: 32px 0;
+  background: rgba(255,255,255,0.01);
+}
+
+.not-rec h4 { color: var(--text-muted); margin-bottom: 12px; }
+.not-rec ul { list-style: none; padding: 0; }
+.not-rec ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 14px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: start;
+  gap: 12px;
+}
+.not-rec ul li:last-child { border-bottom: none; }
+.not-rec ul li::before { content: ""; color: var(--text-subtle); }
+
+/* SCOPE BAR */
+.scope-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.scope-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  font-size: 13px;
+}
+
+.scope-item .val { font-family: 'Geist Mono', ui-monospace, monospace; color: var(--text-primary); font-weight: 500; }
+.scope-item .desc { color: var(--text-muted); }
+
+/* FOOTER */
+footer {
+  padding: 48px 0;
+  text-align: center;
+  border-top: 1px solid var(--border-subtle);
+}
+
+footer p {
+  font-size: 13px;
+  color: var(--text-subtle);
+  margin-bottom: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  h1 { font-size: 36px; letter-spacing: -1.44px; }
+  .hero h1 { font-size: 36px; letter-spacing: -1.44px; }
+  h2 { font-size: 24px; letter-spacing: -0.96px; }
+  section { padding: 48px 0; }
+  .hero { padding: 64px 0 48px; }
+  main { padding: 0 16px; }
+  nav { padding: 0 16px; }
+  .metric-grid { grid-template-columns: 1fr 1fr; }
+  .action-item { grid-template-columns: 32px 1fr; }
+  .action-item .meta { grid-column: 2; align-items: flex-start; flex-direction: row; }
+}
+
+@media (max-width: 480px) {
+  .metric-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Retail Ops <span class="accent">//</span> Control Tower</div>
+    <ul id="nav-links">
+      <li><a href="#summary" class="active">Summary</a></li>
+      <li><a href="#concentration">Concentration</a></li>
+      <li><a href="#segmentation">Segmentation</a></li>
+      <li><a href="#attribution">Attribution</a></li>
+      <li><a href="#opportunity">Opportunity</a></li>
+      <li><a href="#actions">Actions</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="summary">
+  <div class="eyebrow">Analytical Report</div>
+  <h1>Half the fleet generates 80% of the exceptions.</h1>
+  <p class="lede">
+    A four-layer statistical analysis of 1,603 operational exceptions across 100 stores
+    finds that risk is structurally concentrated, driven by store format, and actionable
+    through targeted intervention. No single person or vendor is to blame. The biggest
+    financial lever costs $3,750 and returns $46,500.
+  </p>
+
+  <div class="scope-bar">
+    <div class="scope-item"><span class="val">100</span><span class="desc">stores</span></div>
+    <div class="scope-item"><span class="val">1,603</span><span class="desc">exceptions</span></div>
+    <div class="scope-item"><span class="val">651</span><span class="desc">critical</span></div>
+    <div class="scope-item"><span class="val">160</span><span class="desc">SLA breaches</span></div>
+    <div class="scope-item"><span class="val">3</span><span class="desc">campaigns</span></div>
+  </div>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="value">47<span class="unit">/100</span></div>
+      <div class="label">stores produce 80.3% of all exceptions</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">0.459</div>
+      <div class="label">Gini coefficient (inequality, 0=even, 1=all in one store)</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">2.5<span class="unit">×</span></div>
+      <div class="label">drive-thru/kiosk vs standard exception rate</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">0</div>
+      <div class="label">field reps significant after proper testing</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">15</div>
+      <div class="label">SKUs with rebalancing transfer candidates</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">$1.0<span class="unit">M</span></div>
+      <div class="label">total operational exposure</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="label">Governing thought</div>
+    <p>
+      Operational risk in this fleet is structurally concentrated, not randomly distributed.
+      Forty-seven stores account for 80% of exceptions. Store format (drive-thru and kiosk)
+      is the dominant predictor. No field rep can be statistically blamed. The most effective
+      interventions are targeted: a 47-store watchlist, format-specific policies, a North
+      region assortment audit, and 15 inter-store SKU transfers with 12.4× ROI.
+    </p>
+  </div>
+</section>
+
+<!-- LAYER 1 -->
+<section id="concentration">
+  <div class="eyebrow">Layer 1</div>
+  <h2>Where is risk concentrated?</h2>
+
+  <p>
+    Exceptions do not spread evenly across the fleet. The average store has 16 exceptions,
+    but the median is 13 and the maximum is 55. Sixteen stores have zero exceptions at all.
+    Including those zero-exception stores in the analysis is critical: excluding them
+    would make the distribution look more even than it actually is.
+  </p>
+
+  <div class="chart-card">
+    <img src="../images/layer1_pareto_lorenz.png" alt="Pareto curve and Lorenz curve with Gini coefficient">
+    <div class="caption">
+      Pareto curve (left) showing 47 of 100 stores produce 80.3% of exceptions. Lorenz curve
+      (right) with Gini = 0.459, bootstrap 95% CI [0.400, 0.513]. The gap between the
+      diagonal (perfect equality) and the curve visualizes the concentration.
+    </div>
+  </div>
+
+  <h3>The numbers</h3>
+  <div class="two-col">
+    <div class="metric-card">
+      <div class="value">0.459</div>
+      <div class="label">Gini coefficient, full fleet (100 stores). Bootstrap 95% CI [0.400, 0.513] over 10,000 resamples.</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">47<span class="unit">/100 (47%)</span></div>
+      <div class="label">stores producing 80.3% of all 1,603 exceptions</div>
+    </div>
+  </div>
+
+  <p>
+    A Gini of 0.459 is moderate-to-high inequality. For context, this is comparable to
+    the income inequality of a mid-tier developing nation. The confidence interval
+    [0.400, 0.513] rules out both perfect equality (0) and maximal concentration (1).
+  </p>
+
+  <p>
+    The top 5 stores are S-011 (55), S-037 (55), S-058 (51), S-092 (46), and S-018 (44).
+    Three of these five are drive-thru format stores in the North region. This is not
+    a coincidence; it foreshadows the segmentation findings below.
+  </p>
+
+  <div class="callout">
+    <div class="label">So what</div>
+    <p>
+      Create a "Focus 47" watchlist. These stores get weekly diagnostic reviews. The
+      remaining 53 get monthly reviews. Also study the 16 zero-exception stores as
+      internal best-practice benchmarks.
+    </p>
+  </div>
+</section>
+
+<!-- LAYER 2 -->
+<section id="segmentation">
+  <div class="eyebrow">Layer 2</div>
+  <h2>What drives the exceptions?</h2>
+
+  <p>
+    If Layer 1 told us where risk concentrates, Layer 2 asks why. Two store attributes
+    were tested: format (drive-thru, kiosk, standard, flagship) and region (North, West,
+    East, South). One of these matters a lot. The other does not.
+  </p>
+
+  <h3>Store format is the dominant predictor</h3>
+
+  <p>
+    Drive-thru and kiosk stores generate roughly 2.5 times more exceptions than standard
+    stores, and nearly 5 times more than flagship stores. The statistical test confirms
+    this is not random variation: Kruskal-Wallis H=29.36, p=1.9×10⁻⁶, with a large effect
+    size (ε²=0.275).
+  </p>
+
+  <div class="chart-card">
+    <img src="../images/layer2_format_boxplot.png" alt="Boxplot of exceptions per store by store format">
+    <div class="caption">
+      Exception distribution by store format. Drive-thru (n=16) and kiosk (n=9) have
+      visibly higher medians and wider spreads than standard (n=66) and flagship (n=9).
+      The Kruskal-Wallis test confirms the difference is significant.
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Format</th>
+          <th>Stores</th>
+          <th>Mean exceptions</th>
+          <th>Median</th>
+          <th>Std dev</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Drive-thru</td><td class="num">16</td><td class="num">30.4</td><td class="num">30.0</td><td class="num">16.7</td></tr>
+        <tr><td>Kiosk</td><td class="num">9</td><td class="num">29.6</td><td class="num">32.0</td><td class="num">15.0</td></tr>
+        <tr><td>Standard</td><td class="num">66</td><td class="num">12.0</td><td class="num">10.5</td><td class="num">8.5</td></tr>
+        <tr><td>Flagship</td><td class="num">9</td><td class="num">6.2</td><td class="num">5.0</td><td class="num">8.4</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Post-hoc pairwise testing (Mann-Whitney U with Holm correction) reveals that
+    drive-thru and kiosk are statistically identical to each other (p=0.977). They
+    should be treated as a single risk class. Four of six format pairs are significant
+    after correction, with large effect sizes (Cohen's d 1.68 to 1.92).
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Pair</th>
+          <th>p (Holm-corrected)</th>
+          <th>Significant</th>
+          <th>Rank-biserial</th>
+          <th>Cohen's d</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Drive-thru vs Standard</td><td class="num">3.5e-5</td><td><span class="pill success">Yes</span></td><td class="num">0.67</td><td class="num">1.74</td></tr>
+        <tr><td>Kiosk vs Standard</td><td class="num">7.4e-4</td><td><span class="pill success">Yes</span></td><td class="num">0.70</td><td class="num">1.85</td></tr>
+        <tr><td>Drive-thru vs Flagship</td><td class="num">2.5e-3</td><td><span class="pill success">Yes</span></td><td class="num">0.74</td><td class="num">1.68</td></tr>
+        <tr><td>Kiosk vs Flagship</td><td class="num">7.4e-3</td><td><span class="pill success">Yes</span></td><td class="num">0.75</td><td class="num">1.92</td></tr>
+        <tr><td>Standard vs Flagship</td><td class="num">0.032</td><td><span class="pill">No</span></td><td class="num">0.44</td><td class="num">0.68</td></tr>
+        <tr><td>Drive-thru vs Kiosk</td><td class="num">0.977</td><td><span class="pill">No</span></td><td class="num">-0.01</td><td class="num">0.05</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Region does not predict exception volume</h3>
+
+  <p>
+    Total exception volume is statistically identical across all four regions
+    (Kruskal-Wallis p=0.675, effect size essentially zero). However, this test was
+    underpowered for a medium effect (power=0.52), so the absence of significance
+    should be read as "inconclusive," not as proof that regions are the same.
+  </p>
+
+  <div class="chart-card">
+    <img src="../images/layer2_region_boxplot.png" alt="Boxplot of exceptions per store by region">
+    <div class="caption">
+      Exception distribution by region. North appears slightly higher, but the
+      difference is not statistically significant (p=0.675). The test was underpowered,
+      so this is inconclusive rather than a clean bill of health.
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="label">So what</div>
+    <p>
+      Adjust allocation quantity and audit frequency for the 25 drive-thru and kiosk
+      stores. Consider format-specific SLA thresholds that account for their higher
+      baseline exception rate. Do not launch a "region problem" investigation based
+      on total volume alone.
+    </p>
+  </div>
+</section>
+
+<!-- LAYER 3 -->
+<section id="attribution">
+  <div class="eyebrow">Layer 3</div>
+  <h2>Where do specific failure modes come from?</h2>
+
+  <p>
+    Layer 2 established that format drives volume. Layer 3 asks a sharper question:
+    when a specific type of exception happens, does it cluster in a particular region,
+    field rep, or upstream partner?
+  </p>
+
+  <h3>Regional hotspots: North has an assortment problem</h3>
+
+  <p>
+    While total exception volume does not differ by region, specific exception types
+    do cluster geographically. After testing all 32 region-by-type combinations with
+    exact binomial tests and correcting for false positives (BH-FDR across the full
+    family), six cells are genuinely significant.
+  </p>
+
+  <p>
+    The North region has a higher share than expected of overstock (1.52× baseline,
+    p-FDR=5.7×10⁻⁵) and low sell-through (1.33× baseline, p-FDR=7.1×10⁻⁵). The South
+    mirrors this with a lower share than expected on both. This points to a local
+    assortment planning issue, not a field execution failure.
+  </p>
+
+  <div class="chart-card">
+    <img src="../images/layer3_hotspot_lift.png" alt="Regional hotspot lift analysis">
+    <div class="caption">
+      Regional hotspot lift chart. Bars show how much each region exceeds or falls
+      short of its expected share for each exception type. Red bars are significant
+      after BH-FDR correction. Four of six engine-flagged hotspots do not survive
+      the correction.
+    </div>
+  </div>
+
+  <p>
+    Notably, four of six hotspots flagged by the original insight engine do not
+    survive FDR correction. This means the engine was flagging patterns that look
+    like signal but are actually consistent with random variation across 32 tests.
+  </p>
+
+  <h3>Field reps: nobody can be statistically blamed</h3>
+
+  <p>
+    This is the finding that changes the conversation. The original analysis flagged
+    field rep Nora Smith as significantly over-indexed on compliance failures
+    (p-FDR=0.0005, lift=1.93×). That result was wrong.
+  </p>
+
+  <p>
+    The original test used a Poisson model that assumed each exception was an
+    independent event. In reality, exceptions cluster at the store level (variance
+    is 3.6 times the mean). When a store-level permutation test (20,000 iterations)
+    replaces the Poisson test, no field rep is significant. Nora Smith's corrected
+    p-FDR is 0.19.
+  </p>
+
+  <div class="chart-card">
+    <img src="../images/layer3_fieldrep_lift.png" alt="Field rep compliance lift chart">
+    <div class="caption">
+      Field rep lift chart. No bar is red because no rep is significant after the
+      store-level permutation test. Nora Smith (highest bar) appeared significant
+      under the invalid Poisson test but is not significant after proper clustering
+      correction.
+    </div>
+  </div>
+
+  <p>
+    Additionally, 46 compliance exceptions at 13 stores with no assigned rep were
+    silently dropped from the original analysis. These need an owner.
+  </p>
+
+  <h3>Quantity mismatch: systemic, not vendor-specific</h3>
+
+  <p>
+    Quantity mismatches (148 total) are distributed uniformly across distribution
+    centers (chi-square p=0.782, Cramér's V=0.041) and carriers (p=0.817, V=0.037).
+    No DC or carrier is over- or under-represented. This is a systemic reconciliation
+    problem, not a vendor management problem.
+  </p>
+
+  <div class="chart-card">
+    <img src="../images/layer3_upstream_mismatch.png" alt="Quantity mismatch by DC and carrier">
+    <div class="caption">
+      Observed vs expected quantity mismatches by distribution center (left) and
+      carrier (right). The bars are nearly identical, confirming the mismatch is
+      systemic. The fix belongs in the data reconciliation layer, not in vendor
+      management.
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="label">So what</div>
+    <p>
+      Audit the North region's assortment and allocation planning process. Assign
+      field reps to the 13 uncovered stores. Do not review individual rep territories;
+      the data does not support it. Fix the reconciliation layer for quantity
+      mismatches instead of pressuring vendors.
+    </p>
+  </div>
+</section>
+
+<!-- LAYER 4 -->
+<section id="opportunity">
+  <div class="eyebrow">Layer 4</div>
+  <h2>What should we do first?</h2>
+
+  <p>
+    Three opportunities emerged from the data: inter-store transfers (the highest-ROI
+    action in this analysis), SLA breach prevention, and a sensitivity check on the
+    priority scoring system.
+  </p>
+
+  <h3>Rebalancing: 15 SKUs, 12.4× ROI</h3>
+
+  <p>
+    Fifteen SKUs across three campaigns have simultaneous stockouts in some stores
+    and overstock in others, within the same campaign. These are transfer candidates.
+    The cost of executing 15 transfers is $3,750. The recovered value is $46,500.
+    That is a 12.4× return.
+  </p>
+
+  <div class="chart-card">
+    <img src="../images/layer4_rebalancing.png" alt="Rebalancing opportunity by campaign">
+    <div class="caption">
+      Rebalancing candidates per campaign. C-2026-BTS has the most transferable SKUs
+      (8), followed by C-2026-FCL (6) and C-2026-PEACH (1). Each bar pair shows
+      stockout stores and overstock stores that could be matched.
+    </div>
+  </div>
+
+  <h3>SLA breaches: concentrated in process exceptions</h3>
+
+  <p>
+    The overall SLA breach rate is 10.0% (160 of 1,603 exceptions, Wilson 95% CI
+    [8.6%, 11.5%]). But this average hides extreme variation by exception type.
+    Unresolved SLA breaches have a 100% breach rate by definition. Quantity
+    mismatches breach 35.1% of the time. Low sell-through, overstock, and stockout
+    exceptions never breach SLA because their SLA windows are 7 days.
+  </p>
+
+  <div class="chart-card">
+    <img src="../images/layer4_sla_breach.png" alt="SLA breach rate by exception type">
+    <div class="caption">
+      SLA breach rates by exception type. The bars are sorted ascending. Process
+      exceptions (quantity mismatch, missing/late photo proof, missing/late
+      confirmation) have the highest breach rates. Inventory exceptions (overstock,
+      stockout, low sell-through) have zero breaches due to their longer SLA windows.
+    </div>
+  </div>
+
+  <h3>Aging: 92.8% fresh, but 7.2% needs attention</h3>
+
+  <p>
+    The vast majority of exceptions (92.8%) are fresh (0-5 days old). 3.9% are aging
+    (6-15 days), and 3.3% are overdue (16-30 days). Zero exceptions are chronic
+    (30+ days). The overdue bucket is the most urgent: every exception in it has
+    breached SLA.
+  </p>
+
+  <div class="chart-card">
+    <img src="../images/layer4_aging_profile.png" alt="Aging bucket profile">
+    <div class="caption">
+      Exception aging profile. Blue bars show total exceptions per bucket. Orange
+      bars show SLA breaches within each bucket. The "6-15 hari" (aging) and
+      "16-30 hari" (overdue) buckets have a 100% breach rate.
+    </div>
+  </div>
+
+  <h3>Financial exposure: $1.0M</h3>
+
+  <p>
+    The total operational exposure is $1,004,400, driven by stockout revenue risk
+    ($243,600), SLA breach penalties ($240,000), and critical exception expediting
+    ($520,800). These are illustrative figures based on assumed parameters
+    ($4,200 per stockout store-day, $1,500 per SLA breach, $800 per critical
+    exception). The parameters are configurable.
+  </p>
+
+  <div class="chart-card">
+    <img src="../images/layer4_financial.png" alt="Financial impact estimation">
+    <div class="caption">
+      Financial impact breakdown. Left bars show exposure by driver. Right bars
+      show the rebalancing business case: $3,750 cost vs $46,500 savings (ROI 12.4×).
+      All figures are illustrative.
+    </div>
+  </div>
+
+  <h3>Sensitivity: the priority queue is stable</h3>
+
+  <p>
+    The insight engine ranks exceptions by an impact score. How fragile is that
+    ranking to the choice of weights? Three scenarios were tested (original,
+    conservative, aggressive) and compared using Spearman's rho. The minimum
+    correlation is 0.960 (p<10⁻⁷). The ranking is robust.
+  </p>
+
+  <div class="chart-card">
+    <img src="../images/layer4_sensitivity.png" alt="Sensitivity analysis on impact scoring">
+    <div class="caption">
+      Impact score rankings across three weight scenarios. The lines track each
+      insight's rank. INS-001 through INS-004 remain in the top 5 across all
+      scenarios. The verdict: ROBUST.
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="label">So what</div>
+    <p>
+      Execute the 15 inter-store transfers immediately. This is the highest-ROI action
+      in the analysis and costs almost nothing. Prioritize the 53 overdue exceptions
+      for SLA recovery. Trust the impact score ranking; it does not change under
+      reasonable weight adjustments.
+    </p>
+  </div>
+</section>
+
+<!-- ACTION FRAMEWORK -->
+<section id="actions">
+  <div class="eyebrow">Synthesis</div>
+  <h2>Prioritized action framework</h2>
+
+  <p>
+    Six actions, ranked by impact. Each is tied to a specific analytical layer and
+    evidence base.
+  </p>
+
+  <div class="action-list">
+    <div class="action-item">
+      <div class="num">01</div>
+      <div class="body">
+        <h4>Create a "Focus 47" watchlist</h4>
+        <p>Weekly diagnostic reviews for the 47 stores producing 80% of exceptions.</p>
+      </div>
+      <div class="meta">
+        <span class="pill accent">Concentration</span>
+        <span class="pill">1 week</span>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="num">02</div>
+      <div class="body">
+        <h4>Execute 15 inter-store SKU transfers</h4>
+        <p>Stockout and overstock matches across 3 campaigns. ROI 12.4× ($3,750 cost, $46,500 recovered).</p>
+      </div>
+      <div class="meta">
+        <span class="pill accent">Opportunity</span>
+        <span class="pill">Immediate</span>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="num">03</div>
+      <div class="body">
+        <h4>Audit North region assortment and allocation</h4>
+        <p>North over-indexes on overstock (1.52×) and low sell-through (1.33×). Both survive FDR correction.</p>
+      </div>
+      <div class="meta">
+        <span class="pill accent">Attribution</span>
+        <span class="pill">2 weeks</span>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="num">04</div>
+      <div class="body">
+        <h4>Format-specific allocation and SLA policy</h4>
+        <p>Adjust audit frequency and SLA thresholds for 25 drive-thru and kiosk stores. Large effect (d=1.7-1.9).</p>
+      </div>
+      <div class="meta">
+        <span class="pill accent">Segmentation</span>
+        <span class="pill">4 weeks</span>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="num">05</div>
+      <div class="body">
+        <h4>Audit data reconciliation for quantity mismatches</h4>
+        <p>148 mismatches distributed uniformly across 3 DCs and 3 carriers. Fix the reconciliation layer.</p>
+      </div>
+      <div class="meta">
+        <span class="pill accent">Attribution</span>
+        <span class="pill">4-6 weeks</span>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="num">06</div>
+      <div class="body">
+        <h4>Assign field reps to 13 uncovered stores</h4>
+        <p>46 compliance exceptions currently have no owner. Assign coverage immediately.</p>
+      </div>
+      <div class="meta">
+        <span class="pill accent">Attribution</span>
+        <span class="pill">2 weeks</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="not-rec">
+    <h4>Explicitly not recommended</h4>
+    <ul>
+      <li>Per-rep territory review. No rep is statistically significant after proper testing. The original "flag Nora Smith" recommendation is withdrawn.</li>
+      <li>"Problem region" intervention based on total volume. Region is not a significant predictor of exception volume (p=0.675). The test was underpowered, but there is no evidence to support region-wide intervention.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Retail Ops Control Tower - Analytical Report | Snapshot date: 2026-07-15 | All data is simulated</p>
+</footer>
+
+<script>
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('#nav-links a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
