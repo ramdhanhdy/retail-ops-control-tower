@@ -522,7 +522,7 @@ retail-ops-control-tower/
 |       |-- charts.py                      # Chart styling helpers
 |       |-- layer1_concentration.py        # Pareto + Gini (bootstrap CI)
 |       |-- layer2_segmentation.py         # ANOVA + Kruskal-Wallis + Mann-Whitney post-hoc
-|       |-- layer3_attribution.py         # Binomial hotspots + permutation field-rep test
+|       |-- layer3_attribution.py          # Binomial hotspots + permutation field-rep test
 |       |-- layer4_opportunity.py          # Rebalancing, SLA, financial, sensitivity
 |       |-- run_all.py                     # Main entry point
 |
@@ -530,7 +530,7 @@ retail-ops-control-tower/
 |-- data/sample/                           # 8 generated CSV tables
 |-- data/processed/                        # Processed outputs (exceptions, KPIs, action list)
 |-- data/insight_exports/                  # Statistical analysis exports (JSON + CSV)
-|-- reports/                               # Generated reports
+|-- reports/                               # Generated reports (4 files)
 |-- docs/                                  # Documentation, architecture, analytical narrative
 |-- tests/                                 # 354 passing tests
 ```

@@ -40,12 +40,6 @@ htmlcov/
 
 # Generated output
 output/
-/*.json
-
-# Build orchestration metadata (kanban pipeline, not part of portfolio)
-artifacts/kanban-orchestration.json
-artifacts/run-manifest.md
-artifacts/pipeline-status.md
 
 # Type checking
 .mypy_cache/
