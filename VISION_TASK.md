@@ -135,8 +135,6 @@ A **single markdown file** at `docs/analytical_report.md` that:
 
 - **Language: English** (the existing Fable narrative is Indonesian; this is a
   separate English-language report for a broader audience)
-- **Tone: Professional analyst** — direct assertions with confidence levels,
-  no hedging, no "it is worth noting," no "let's dive in"
 - **Numbers: Exact** — use the verified statistics above, read from the data
   exports. Do not round unless the precision is noise
 - **Charts: Embedded** — every chart must appear in the relevant section with
@@ -149,6 +147,43 @@ A **single markdown file** at `docs/analytical_report.md` that:
   length. Some findings are more important and deserve more depth.
 - **No filler** — every paragraph must contain substance. No "in conclusion,"
   no restating the intro, no padding.
+
+### Communication style: stakeholder-friendly
+
+This report will be read by operations leaders, area managers, and campaign
+coordinators — not statisticians. Write for them.
+
+- **Lead with the business implication, not the statistical method.** A
+  stakeholder needs to know "drive-thru and kiosk formats generate 2.5x more
+  exceptions" before they need to know "Kruskal-Wallis H=29.36, p=1.9e-6."
+  State the finding in plain language first, then attach the statistical
+  evidence as support — not the other way around.
+- **Translate every statistical term on first use.** "Gini coefficient of
+  0.459 (a measure of inequality where 0 = perfectly even and 1 = all
+  exceptions in one store)" — not just "Gini 0.459." After the first
+  translation, the term can stand alone.
+- **No p-values in topic sentences.** They belong in the evidence paragraph,
+  not the opening line. "Store format is the strongest predictor of exception
+  volume" is the finding. "Kruskal-Wallis H=29.36, p=1.9×10⁻⁶" is the proof.
+- **One number per sentence in prose.** If a sentence has three statistics,
+  split it or use a table. Dense number-stew paragraphs are unreadable to
+  non-analysts.
+- **Always answer "so what?"** Every finding must connect to a decision or
+  action. If the reader can't tell what to do after reading a section, the
+  section failed.
+- **Use active voice and concrete subjects.** "Drive-thru stores generate
+  30 exceptions on average" — not "exceptions are generated at a higher rate
+  by the drive-thru format."
+- **Flag uncertainty honestly but briefly.** "Region is not a significant
+  predictor, though the test was underpowered (power=0.52)" — one clause,
+  then move on. Don't belabor methodological caveats.
+- **Avoid analyst jargon.** "Over-indexes" → "has a higher share than expected."
+  "Lift" → "X times the baseline rate." "BH-FDR correction" → "after
+  adjusting for false positives across 32 tests." The stakeholder doesn't
+  need to know the method name — they need to trust the result.
+- **Recommended actions must be specific and owned.** "Assign a dedicated
+  task force to the 47 highest-exception stores for weekly diagnostic reviews"
+  — not "consider targeted intervention."
 
 ## Visual Quality
 
