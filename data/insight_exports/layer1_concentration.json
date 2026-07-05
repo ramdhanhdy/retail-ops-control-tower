@@ -1,0 +1,40 @@
+{
+  "n_stores": 100,
+  "n_exceptions": 1603,
+  "stores_with_zero_exceptions": 16,
+  "mean_per_store": 16.03,
+  "median_per_store": 13.0,
+  "max_per_store": 55,
+  "pareto_n_stores": 47,
+  "pareto_store_share": 0.47,
+  "pareto_exception_share": 0.8028696194635059,
+  "gini_full_fleet": 0.459008109794136,
+  "gini_ci_95": [
+    0.3998954343049929,
+    0.5134924198335857
+  ],
+  "gini_bootstrap_iterations": 10000,
+  "gini_affected_stores_only": 0.3559620354692095,
+  "top5_stores": [
+    {
+      "store_id": "S-011",
+      "exceptions": 55
+    },
+    {
+      "store_id": "S-037",
+      "exceptions": 55
+    },
+    {
+      "store_id": "S-058",
+      "exceptions": 51
+    },
+    {
+      "store_id": "S-092",
+      "exceptions": 46
+    },
+    {
+      "store_id": "S-018",
+      "exceptions": 44
+    }
+  ]
+}

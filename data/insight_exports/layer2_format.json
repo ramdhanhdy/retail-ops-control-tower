@@ -1,0 +1,92 @@
+{
+  "factor": "store_format",
+  "groups": [
+    "drive-thru",
+    "kiosk",
+    "standard",
+    "flagship"
+  ],
+  "assumptions": {
+    "shapiro": [
+      {
+        "group": "drive-thru",
+        "n": 16,
+        "W": 0.9480683071677722,
+        "p": 0.45971803730824834,
+        "pass": true
+      },
+      {
+        "group": "kiosk",
+        "n": 9,
+        "W": 0.9129686811953043,
+        "p": 0.3372089367950699,
+        "pass": true
+      },
+      {
+        "group": "standard",
+        "n": 66,
+        "W": 0.9468797380075005,
+        "p": 0.006863275056407639,
+        "pass": false
+      },
+      {
+        "group": "flagship",
+        "n": 9,
+        "W": 0.7670944668320978,
+        "p": 0.008550386431539285,
+        "pass": false
+      }
+    ],
+    "levene": {
+      "W": 5.155973310998393,
+      "p": 0.00239166787484633,
+      "pass": false
+    },
+    "anova_assumptions_met": false,
+    "authoritative_test": "kruskal-wallis"
+  },
+  "anova": {
+    "F": 19.484002881927797,
+    "p": 6.018414795260771e-10,
+    "eta_squared": 0.37844770785620446
+  },
+  "alexander_govern": {
+    "A": 22.58257603769686,
+    "p": 4.933715919924833e-05
+  },
+  "kruskal_wallis": {
+    "H": 29.361558888318864,
+    "p": 1.8799596869175022e-06,
+    "epsilon_squared": 0.2745995717533215
+  },
+  "descriptives": [
+    {
+      "store_format": "drive-thru",
+      "count": 16,
+      "mean": 30.38,
+      "median": 30.0,
+      "std": 16.67
+    },
+    {
+      "store_format": "kiosk",
+      "count": 9,
+      "mean": 29.56,
+      "median": 32.0,
+      "std": 14.98
+    },
+    {
+      "store_format": "standard",
+      "count": 66,
+      "mean": 12.05,
+      "median": 10.5,
+      "std": 8.52
+    },
+    {
+      "store_format": "flagship",
+      "count": 9,
+      "mean": 6.22,
+      "median": 5.0,
+      "std": 8.44
+    }
+  ]
+}

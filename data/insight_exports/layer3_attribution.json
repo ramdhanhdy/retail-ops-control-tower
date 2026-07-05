@@ -1,0 +1,51 @@
+{
+  "field_reps_meta": {
+    "fleet_rate_per_store": 4.068965517241379,
+    "overdispersion_var_over_mean": 3.599527000394166,
+    "stores_without_rep": 13,
+    "compliance_exceptions_excluded_no_rep": 46,
+    "compliance_exceptions_total": 400,
+    "n_permutations": 20000
+  },
+  "upstream": {
+    "n_mismatches": 148,
+    "dc_id": {
+      "observed": {
+        "DC-01": 51,
+        "DC-02": 49,
+        "DC-03": 48
+      },
+      "expected": {
+        "DC-01": 47.0241134751773,
+        "DC-02": 51.01276595744681,
+        "DC-03": 49.96312056737589
+      },
+      "chi2": 0.4927106947633917,
+      "df": 2,
+      "p": 0.7816444202716617,
+      "cramers_v": 0.04079905829776505,
+      "min_expected": 47.0241134751773,
+      "expected_ge_5": true
+    },
+    "carrier": {
+      "observed": {
+        "FastFreight Co": 54,
+        "QuickShip Logistics": 49,
+        "Reliable Transport": 45
+      },
+      "expected": {
+        "FastFreight Co": 50.38297872340426,
+        "QuickShip Logistics": 51.43262411347518,
+        "Reliable Transport": 46.184397163120565
+      },
+      "chi2": 0.4050982800982798,
+      "df": 2,
+      "p": 0.8166463515702526,
+      "cramers_v": 0.036994259968301794,
+      "min_expected": 46.184397163120565,
+      "expected_ge_5": true
+    }
+  },
+  "hotspot_family_size": 32,
+  "hotspots_significant_fdr": 6
+}

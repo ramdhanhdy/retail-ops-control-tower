@@ -1,0 +1,93 @@
+{
+  "factor": "region",
+  "groups": [
+    "North",
+    "West",
+    "East",
+    "South"
+  ],
+  "assumptions": {
+    "shapiro": [
+      {
+        "group": "North",
+        "n": 23,
+        "W": 0.8505900296494117,
+        "p": 0.002788376193110084,
+        "pass": false
+      },
+      {
+        "group": "West",
+        "n": 25,
+        "W": 0.9343468318042787,
+        "p": 0.10953896465230056,
+        "pass": true
+      },
+      {
+        "group": "East",
+        "n": 27,
+        "W": 0.9354007124226614,
+        "p": 0.09383221401416891,
+        "pass": true
+      },
+      {
+        "group": "South",
+        "n": 25,
+        "W": 0.9154803247162713,
+        "p": 0.040461435161709504,
+        "pass": false
+      }
+    ],
+    "levene": {
+      "W": 1.459083052377827,
+      "p": 0.23059758366593025,
+      "pass": true
+    },
+    "anova_assumptions_met": false,
+    "authoritative_test": "kruskal-wallis"
+  },
+  "anova": {
+    "F": 0.8228604263634389,
+    "p": 0.4843970120934128,
+    "eta_squared": 0.025069735412289473
+  },
+  "alexander_govern": {
+    "A": 2.658987532031948,
+    "p": 0.44724198522855496
+  },
+  "kruskal_wallis": {
+    "H": 1.5334470222265415,
+    "p": 0.6745725662766857,
+    "epsilon_squared": -0.015276593518473528
+  },
+  "power_medium_effect_f025": 0.5181755038176586,
+  "descriptives": [
+    {
+      "region": "North",
+      "count": 23,
+      "mean": 18.61,
+      "median": 11.0,
+      "std": 18.39
+    },
+    {
+      "region": "West",
+      "count": 25,
+      "mean": 16.68,
+      "median": 17.0,
+      "std": 11.65
+    },
+    {
+      "region": "East",
+      "count": 27,
+      "mean": 16.37,
+      "median": 14.0,
+      "std": 12.61
+    },
+    {
+      "region": "South",
+      "count": 25,
+      "mean": 12.64,
+      "median": 10.0,
+      "std": 10.83
+    }
+  ]
+}

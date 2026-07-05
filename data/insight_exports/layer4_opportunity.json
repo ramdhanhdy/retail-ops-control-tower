@@ -1,0 +1,115 @@
+{
+  "rebalancing": {
+    "total_transferable_skus": 15,
+    "total_touchpoints": 64
+  },
+  "sla": {
+    "n_exceptions": 1603,
+    "breached": 160,
+    "breach_rate": 0.09981285090455397,
+    "breach_rate_wilson_ci": [
+      0.08608218669770214,
+      0.11545696145097113
+    ],
+    "approaching": 8,
+    "critical": 651,
+    "critical_share": 0.40611353711790393,
+    "critical_share_wilson_ci": [
+      0.3823244611180438,
+      0.4303515198583792
+    ],
+    "detected_at_snapshot": 1431,
+    "created_date_inconsistent_rows": 1423
+  },
+  "aging_buckets": [
+    {
+      "bucket": "0-5 hari (fresh)",
+      "count": 1488,
+      "breached": 45
+    },
+    {
+      "bucket": "6-15 hari (aging)",
+      "count": 62,
+      "breached": 62
+    },
+    {
+      "bucket": "16-30 hari (overdue)",
+      "count": 53,
+      "breached": 53
+    },
+    {
+      "bucket": "30+ hari (chronic)",
+      "count": 0,
+      "breached": 0
+    }
+  ],
+  "financial": {
+    "illustrative": true,
+    "parameters": {
+      "stockout_revenue_per_store_day": 4200,
+      "sla_penalty_per_breach": 1500,
+      "critical_expediting_cost": 800,
+      "transfer_cost_per_action": 250,
+      "rebalancing_savings_per_action": 3100
+    },
+    "drivers": {
+      "stockout_risk_exceptions": 99,
+      "stockout_risk_stores": 58,
+      "sla_breaches": 160,
+      "critical_exceptions": 651,
+      "rebalancing_actions": 15
+    },
+    "stockout_revenue_at_risk": 243600,
+    "sla_breach_penalties": 240000,
+    "critical_expediting": 520800,
+    "total_exposure": 1004400,
+    "transfer_cost": 3750,
+    "rebalancing_savings": 46500,
+    "net_rebalancing_value": 42750,
+    "roi_ratio": 12.4
+  },
+  "sensitivity": {
+    "score_reconstruction_verified": true,
+    "spearman": {
+      "original_vs_conservative": {
+        "rho": 0.9604395604395607,
+        "p": 5.08105389232908e-08
+      },
+      "original_vs_aggressive": {
+        "rho": 0.9868131868131869,
+        "p": 7.37950410933089e-11
+      }
+    },
+    "min_rho": 0.9604395604395607,
+    "verdict": "ROBUST",
+    "top5_by_scenario": {
+      "original": [
+        "INS-001",
+        "INS-002",
+        "INS-003",
+        "INS-004",
+        "INS-005"
+      ],
+      "conservative": [
+        "INS-001",
+        "INS-002",
+        "INS-004",
+        "INS-007",
+        "INS-003"
+      ],
+      "aggressive": [
+        "INS-001",
+        "INS-002",
+        "INS-003",
+        "INS-005",
+        "INS-004"
+      ]
+    },
+    "common_top5": [
+      "INS-001",
+      "INS-002",
+      "INS-003",
+      "INS-004"
+    ]
+  }
+}
