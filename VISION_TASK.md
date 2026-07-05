@@ -18,7 +18,7 @@ exception engine (9 exception types with severity, priority, SLA, aging),
 metrics layer (12 KPIs + area-manager scorecard), and a Streamlit dashboard.
 327 tests pass.
 
-A prior agent (Fable 5) rebuilt the analytical engine from a flawed V2
+A prior agent rebuilt the analytical engine from a flawed V2
 notebook. It produced modular Python scripts, chart PNGs, structured data
 exports, and an Indonesian markdown narrative. That work is done and committed.
 Your job is NOT to redo the analysis — the statistics are correct and final.
