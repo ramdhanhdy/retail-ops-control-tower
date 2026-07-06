@@ -1416,3 +1416,191 @@ def generate_actions(exceptions: pd.DataFrame, seed: int = 42) -> pd.DataFrame:
         })
 
     return pd.DataFrame(records)
+
+
+# ---------------------------------------------------------------------------
+# Intervention outcomes table generation (closed-loop module)
+# ---------------------------------------------------------------------------
+
+# Exception types where intervention genuinely doesn't work (null result)
+NULL_EFFECT_TYPES = {"low_sell_through"}
+
+# Daily revenue per store for impact calculation
+DAILY_REVENUE_PER_STORE = 4200.0
+
+
+def generate_intervention_outcomes(
+    actions: pd.DataFrame,
+    exceptions: pd.DataFrame,
+    stores: pd.DataFrame,
+    seed: int = 42,
+) -> pd.DataFrame:
+    """Generate intervention outcomes with matched control stores.
+
+    For each action, find a matched control exception from a store that
+    received no intervention. Compare resolution rates to measure the
+    intervention effect.
+
+    Matching hierarchy:
+    1. Exact: store_format + region + exception_type + priority +/- 50
+    2. Relaxed: store_format + region + exception_type + priority +/- 100
+    3. Minimal: store_format + exception_type (drop region/priority)
+    4. No match: exclude from analysis (tracked)
+
+    Noise injection:
+    - 3-5% of exception types: null result (intervention doesn't work)
+    - Control resolution: 30% baseline (no intervention effect)
+
+    Parameters
+    ----------
+    actions : pd.DataFrame
+        The actions table (data/sample/actions.csv).
+    exceptions : pd.DataFrame
+        The exceptions table (data/processed/exceptions.csv).
+    stores : pd.DataFrame
+        The stores table (data/sample/stores.csv).
+    seed : int
+        Random seed for deterministic output.
+
+    Returns
+    -------
+    pd.DataFrame
+        Intervention outcomes table with matched pairs.
+    """
+    import numpy as np
+
+    rng = np.random.RandomState(seed)
+
+    # Merge store info into exceptions for matching
+    exc_with_store = exceptions.merge(
+        stores[["store_id", "store_format", "region"]],
+        on="store_id",
+        how="left",
+        suffixes=("", "_store"),
+    )
+
+    # Identify exceptions that received actions (intervention group)
+    action_exc_ids = set(actions["exception_id"].unique())
+
+    # Control pool: exceptions that did NOT receive any action
+    control_pool = exc_with_store[~exc_with_store["exception_id"].isin(action_exc_ids)].copy()
+
+    # Track used control exceptions to avoid reuse
+    used_control_exc_ids: set[str] = set()
+
+    records: list[dict] = []
+    excluded = 0
+    match_levels = {"exact": 0, "relaxed": 0, "minimal": 0}
+
+    for i, (_, action) in enumerate(actions.iterrows()):
+        action_id = action["action_id"]
+        exc_id = action["exception_id"]
+        store_id = action["store_id"]
+        exc_type = action.get("action_type", "")
+
+        # Get the original exception details
+        orig_exc = exc_with_store[exc_with_store["exception_id"] == exc_id]
+        if orig_exc.empty:
+            excluded += 1
+            continue
+
+        orig = orig_exc.iloc[0]
+        exc_type_real = orig["exception_type"]
+        store_format = orig["store_format"]
+        region = orig["region"]
+        priority = orig["priority_score"]
+
+        # Try matching hierarchy
+        match_found = False
+        control_row = None
+        match_level = "none"
+
+        for level, mask_fn in [
+            ("exact", lambda df: (
+                (df["store_format"] == store_format)
+                & (df["region"] == region)
+                & (df["exception_type"] == exc_type_real)
+                & (df["priority_score"].between(priority - 50, priority + 50))
+            )),
+            ("relaxed", lambda df: (
+                (df["store_format"] == store_format)
+                & (df["region"] == region)
+                & (df["exception_type"] == exc_type_real)
+                & (df["priority_score"].between(priority - 100, priority + 100))
+            )),
+            ("minimal", lambda df: (
+                (df["store_format"] == store_format)
+                & (df["exception_type"] == exc_type_real)
+            )),
+        ]:
+            available = control_pool[
+                mask_fn(control_pool)
+                & ~control_pool["exception_id"].isin(used_control_exc_ids)
+            ]
+            if not available.empty:
+                # Pick the closest priority match
+                available = available.copy()
+                available["priority_diff"] = (available["priority_score"] - priority).abs()
+                control_row = available.sort_values("priority_diff").iloc[0]
+                used_control_exc_ids.add(control_row["exception_id"])
+                match_found = True
+                match_level = level
+                match_levels[level] += 1
+                break
+
+        if not match_found:
+            excluded += 1
+            continue
+
+        # Determine intervention outcome from the action
+        action_outcome = action["outcome"]
+        received_intervention = True
+
+        # Resolved = action outcome was "resolved"
+        resolved = action_outcome == "resolved"
+
+        # Null effect: for certain exception types, intervention has reduced effectiveness
+        # (~10% chance the intervention doesn't work for this type)
+        if exc_type_real in NULL_EFFECT_TYPES and rng.random() < 0.10:
+            resolved = False
+
+        # Control resolution: 30% baseline (no intervention effect)
+        control_resolved = bool(rng.random() < BASELINE_RESOLVE_RATE)
+
+        # Days to resolution
+        if resolved:
+            days_to_resolution = int(max(1, rng.lognormal(mean=1.5, sigma=0.7)))
+        else:
+            days_to_resolution = 14  # default unresolved
+
+        if control_resolved:
+            control_days_to_resolution = int(max(1, rng.lognormal(mean=2.5, sigma=0.8)))
+        else:
+            control_days_to_resolution = 14
+
+        # Revenue impact
+        days_saved = max(0, control_days_to_resolution - days_to_resolution) if resolved else 0
+        revenue_impact = DAILY_REVENUE_PER_STORE * days_saved
+        counterfactual_loss = DAILY_REVENUE_PER_STORE * control_days_to_resolution
+
+        records.append({
+            "outcome_id": f"OUT-{i + 1:04d}",
+            "exception_id": exc_id,
+            "action_id": action_id,
+            "store_id": store_id,
+            "exception_type": exc_type_real,
+            "received_intervention": received_intervention,
+            "matched_control_store_id": control_row["store_id"],
+            "matched_control_exception_id": control_row["exception_id"],
+            "resolved": resolved,
+            "control_resolved": control_resolved,
+            "days_to_resolution": days_to_resolution,
+            "control_days_to_resolution": control_days_to_resolution,
+            "revenue_impact_usd": round(revenue_impact, 2),
+            "counterfactual_revenue_loss_usd": round(counterfactual_loss, 2),
+        })
+
+    print(f"INTERVENTION_OUTCOMES generated={len(records)} excluded={excluded} "
+          f"match_levels={match_levels}", flush=True)
+
+    return pd.DataFrame(records)
