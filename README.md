@@ -91,6 +91,18 @@ Run `python scripts/build_verification.py` to regenerate.
 
 ---
 
+## Artifacts
+
+| Document | Path | Description |
+|----------|------|-------------|
+| Decision memo | `docs/decision_memo.md` | 3 recommendations with cost/ROI |
+| Walkthrough script | `docs/walkthrough_script.md` | 2-min video: one exception through the loop |
+| Verification results | `data/processed/verification_results.json` | Full analytics output |
+| Analytical report | `docs/analytical_report_hermes.html` | Statistical analysis narrative |
+| Insight engine story | `docs/insight_engine_story.md` | Root-cause findings narrative |
+
+---
+
 ## Workflow modeled
 
 The project models the four-quantity allocation lifecycle that real retail ops
@@ -200,9 +212,10 @@ transparent reporting of non-significant results:
   area manager; renders KPI tiles, reconciliation tables, exception backlog,
   ranked insight cards with a Pareto concentration chart, and the full weekly
   report inline.
-- **354 passing tests** - full unit and integration coverage of models,
-  validation, exception engine, metrics, insights, reporting, I/O, CLI, and
-  constants.
+- **367 passing tests** - full unit and integration coverage of models,
+  validation, exception engine, metrics, insights, reporting, I/O, CLI,
+  constants, and closed-loop verification (actions, intervention outcomes,
+  methodology validation, action queue).
 
 ---
 
@@ -477,7 +490,7 @@ analyst portfolio piece, not an operations specialist claim.
   statistical framework with full rigor: assumption checks, effect sizes,
   FDR correction, confidence intervals, and power analysis.
 - Rendering an interactive Streamlit dashboard and a structured weekly report.
-- Writing 354 passing tests that cover models, validation, exceptions, metrics,
+- Writing 367 passing tests that cover models, validation, exceptions, metrics,
   insights, reporting, I/O, and CLI.
 
 **What it does not claim:**
@@ -572,7 +585,7 @@ retail-ops-control-tower/
 |-- data/insight_exports/                  # Statistical analysis exports (JSON + CSV)
 |-- reports/                               # Generated reports (4 files)
 |-- docs/                                  # Documentation, architecture, analytical narrative
-|-- tests/                                 # 354 passing tests
+|-- tests/                                 # 367 passing tests
 ```
 
 ---
