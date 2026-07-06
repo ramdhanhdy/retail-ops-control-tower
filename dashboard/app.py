@@ -469,6 +469,59 @@ def render_verification(tables: dict[str, pd.DataFrame]) -> None:
 
 
 # ---------------------------------------------------------------------------
+# View 7: Action queue (assign/resolve)
+# ---------------------------------------------------------------------------
+
+def render_action_queue(tables: dict[str, pd.DataFrame]) -> None:
+    st.header("Action queue")
+    import sqlite3
+    from retail_ops_control_tower.dashboard.action_queue import (
+        init_db, assign_exception, resolve_exception, get_queue,
+    )
+
+    DB_PATH = ROOT / "data" / "processed" / "action_queue.db"
+    conn = sqlite3.connect(str(DB_PATH))
+    init_db(conn)
+
+    st.subheader("Assign new action")
+    exceptions = tables["exceptions"]
+    if not exceptions.empty:
+        exc_ids = sorted(exceptions["exception_id"].unique().tolist())
+        am_options = options_from(tables["stores"], "area_manager")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            sel_exc = st.selectbox("Exception ID", exc_ids, key="aq_exc")
+        with col2:
+            sel_am = st.selectbox("Assign to", am_options, key="aq_am")
+        with col3:
+            sel_action = st.selectbox("Action type", ["phone_call", "site_visit", "dc_count_verification", "sku_transfer", "escalation"], key="aq_type")
+        if st.button("Assign", key="aq_assign"):
+            assign_exception(conn, sel_exc, sel_am, sel_action)
+            st.success(f"Assigned {sel_exc} to {sel_am}")
+            st.rerun()
+
+    st.subheader("Queue")
+    queue = get_queue(conn)
+    if queue:
+        queue_df = pd.DataFrame(queue)
+        st.dataframe(queue_df, use_container_width=True, hide_index=True)
+
+        st.subheader("Resolve action")
+        queue_exc_ids = [q["exception_id"] for q in queue]
+        sel_resolve = st.selectbox("Exception to resolve", queue_exc_ids, key="aq_resolve")
+        resolve_status = st.selectbox("Outcome", ["resolved", "unresolved", "failed"], key="aq_status")
+        resolve_notes = st.text_input("Notes", key="aq_notes")
+        if st.button("Resolve", key="aq_resolve_btn"):
+            resolve_exception(conn, sel_resolve, resolve_status, resolve_notes)
+            st.success(f"Resolved {sel_resolve}: {resolve_status}")
+            st.rerun()
+    else:
+        st.info("No actions in queue. Assign one above.")
+
+    conn.close()
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -509,6 +562,7 @@ def main() -> None:
         "Which AM needs a call?",
         "Are campaigns on track?",
         "Did interventions work?",
+        "Action queue",
     ]
     tabs = st.tabs(views)
     with tabs[0]:
@@ -523,6 +577,8 @@ def main() -> None:
         render_campaigns_on_track(filtered)
     with tabs[5]:
         render_verification(filtered)
+    with tabs[6]:
+        render_action_queue(filtered)
 
 
 if __name__ == "__main__":
