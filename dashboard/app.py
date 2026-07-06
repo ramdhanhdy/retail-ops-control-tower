@@ -1,5 +1,8 @@
-"""Streamlit dashboard for the simulated Retail Ops Control Tower."""
+"""Streamlit dashboard for the Retail Ops Control Tower.
 
+5 question-named views + 1 action queue view, organized around what
+an Ops Lead asks throughout the day.
+"""
 from __future__ import annotations
 
 from pathlib import Path
@@ -16,17 +19,16 @@ PROCESSED_DIR = ROOT / "data" / "processed"
 REPORT_PATH = ROOT / "reports" / "weekly_ops_report.md"
 
 SAMPLE_TABLES = [
-    "campaigns",
-    "stores",
-    "allocation_plan",
-    "dispatch",
-    "store_confirmations",
-    "photo_proofs",
-    "sales_daily",
+    "campaigns", "stores", "allocation_plan", "dispatch",
+    "store_confirmations", "photo_proofs", "sales_daily",
 ]
 PROCESSED_TABLES = ["kpi_summary", "am_scorecard", "exceptions", "daily_action_list"]
 OPTIONAL_TABLES = ["insights"]
 
+
+# ---------------------------------------------------------------------------
+# Data loading
+# ---------------------------------------------------------------------------
 
 @st.cache_data(show_spinner=False)
 def read_csv(path: str) -> pd.DataFrame:
@@ -78,6 +80,10 @@ def show_missing_data_message(missing: Iterable[Path]) -> None:
         st.write(f"- {path.relative_to(ROOT)}")
 
 
+# ---------------------------------------------------------------------------
+# Formatting helpers
+# ---------------------------------------------------------------------------
+
 def fmt_int(value: float | int | str | None) -> str:
     try:
         return f"{float(value):,.0f}"
@@ -96,26 +102,9 @@ def title_case_metric(name: str) -> str:
     return name.replace("_", " ").title()
 
 
-def kpi_lookup(kpi_summary: pd.DataFrame) -> dict[str, dict[str, object]]:
-    if kpi_summary.empty:
-        return {}
-    return kpi_summary.set_index("kpi_name").to_dict("index")
-
-
-def metric_value(kpis: dict[str, dict[str, object]], name: str) -> float:
-    row = kpis.get(name, {})
-    try:
-        return float(row.get("value", 0))
-    except (TypeError, ValueError):
-        return 0.0
-
-
-def display_metric(label: str, value: float, unit: str = "count") -> None:
-    if unit == "ratio":
-        st.metric(label, fmt_percent(value))
-    else:
-        st.metric(label, fmt_int(value))
-
+# ---------------------------------------------------------------------------
+# Filter helpers
+# ---------------------------------------------------------------------------
 
 def options_from(df: pd.DataFrame, column: str) -> list[str]:
     if df.empty or column not in df.columns:
@@ -159,6 +148,35 @@ def filtered_tables(tables: dict[str, pd.DataFrame], campaign_ids: list[str], re
     return result
 
 
+# ---------------------------------------------------------------------------
+# KPI helpers
+# ---------------------------------------------------------------------------
+
+def kpi_lookup(kpi_summary: pd.DataFrame) -> dict[str, dict[str, object]]:
+    if kpi_summary.empty:
+        return {}
+    return kpi_summary.set_index("kpi_name").to_dict("index")
+
+
+def metric_value(kpis: dict[str, dict[str, object]], name: str) -> float:
+    row = kpis.get(name, {})
+    try:
+        return float(row.get("value", 0))
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def display_metric(label: str, value: float, unit: str = "count") -> None:
+    if unit == "ratio":
+        st.metric(label, fmt_percent(value))
+    else:
+        st.metric(label, fmt_int(value))
+
+
+# ---------------------------------------------------------------------------
+# Table builders
+# ---------------------------------------------------------------------------
+
 def campaign_readiness_table(tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
     allocations = tables["allocation_plan"]
     confirmations = tables["store_confirmations"]
@@ -178,16 +196,11 @@ def campaign_readiness_table(tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
         campaign = campaigns[campaigns["campaign_id"].astype(str) == str(campaign_id)] if not campaigns.empty else pd.DataFrame()
         campaign_name = campaign.iloc[0]["campaign_name"] if not campaign.empty else campaign_id
         readiness = with_photo / len(group) if len(group) else 0
-        rows.append(
-            {
-                "campaign_id": campaign_id,
-                "campaign": campaign_name,
-                "allocation_lines": len(group),
-                "confirmed_lines": confirmed,
-                "photo_ready_lines": with_photo,
-                "readiness_rate": readiness,
-            }
-        )
+        rows.append({
+            "campaign_id": campaign_id, "campaign": campaign_name,
+            "allocation_lines": len(group), "confirmed_lines": confirmed,
+            "photo_ready_lines": with_photo, "readiness_rate": readiness,
+        })
     return pd.DataFrame(rows).sort_values("readiness_rate", ascending=False)
 
 
@@ -233,9 +246,7 @@ def store_detail_table(tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
             stores[col] = 0
         stores[col] = stores[col].fillna(0)
     stores["sell_through_rate"] = stores.apply(
-        lambda row: row["units_sold"] / row["received_units"] if row["received_units"] else 0,
-        axis=1,
-    )
+        lambda row: row["units_sold"] / row["received_units"] if row["received_units"] else 0, axis=1)
     return stores.sort_values(["critical_exceptions", "open_exceptions"], ascending=False)
 
 
@@ -245,13 +256,31 @@ def normalize_scorecard(am_scorecard: pd.DataFrame) -> pd.DataFrame:
     renamed = {}
     for column in am_scorecard.columns:
         if "backlog" in column.lower():
-            renamed[column] = "am_followup_backlog"
+            renamed[column] = "<<redacted:am_backlog>>"
     return am_scorecard.rename(columns=renamed)
 
 
-def render_executive_overview(tables: dict[str, pd.DataFrame]) -> None:
-    st.header("1. Executive overview")
-    st.info("Portfolio demo using simulated sample data only. Figures do not represent Tomoro or any real retailer.")
+def pareto_curve(exceptions: pd.DataFrame) -> pd.DataFrame:
+    if exceptions.empty or "store_id" not in exceptions.columns:
+        return pd.DataFrame()
+    counts = (
+        exceptions.dropna(subset=["store_id"])
+        .groupby("store_id").size().sort_values(ascending=False)
+        .reset_index(name="exceptions")
+    )
+    if counts.empty:
+        return pd.DataFrame()
+    counts["store_rank"] = range(1, len(counts) + 1)
+    counts["cumulative_share"] = counts["exceptions"].cumsum() / counts["exceptions"].sum()
+    return counts
+
+
+# ---------------------------------------------------------------------------
+# View 1: What needs attention today?
+# ---------------------------------------------------------------------------
+
+def render_attention_today(tables: dict[str, pd.DataFrame]) -> None:
+    st.header("What needs attention today?")
     kpis = kpi_lookup(tables["kpi_summary"])
     cols = st.columns(4)
     with cols[0]:
@@ -263,56 +292,38 @@ def render_executive_overview(tables: dict[str, pd.DataFrame]) -> None:
     with cols[3]:
         display_metric("Sell-through", metric_value(kpis, "sell_through_rate"), "ratio")
 
-    kpi_rows = tables["kpi_summary"].copy()
-    if not kpi_rows.empty:
-        kpi_rows["metric"] = kpi_rows["kpi_name"].map(title_case_metric)
-        kpi_rows["display_value"] = kpi_rows.apply(
-            lambda row: fmt_percent(row["value"]) if row["unit"] == "ratio" else fmt_int(row["value"]),
-            axis=1,
-        )
-        st.dataframe(kpi_rows[["metric", "category", "display_value", "description"]], use_container_width=True, hide_index=True)
+    exceptions = tables["exceptions"]
+    if not exceptions.empty:
+        critical = exceptions[exceptions["severity"] == "critical"]
+        breached = exceptions[exceptions["sla_status"] == "breached"]
+        st.markdown(f"**{len(critical)} critical** exceptions, **{len(breached)} SLA breached**")
+
+    actions = tables["daily_action_list"]
+    action_source = actions if not actions.empty else exceptions
+    if not action_source.empty:
+        cols_to_show = [col for col in [
+            "rank", "exception_id", "exception_type", "severity",
+            "priority_score", "owner", "area_manager", "store_id",
+            "sla_status", "recommended_action",
+        ] if col in action_source.columns]
+        st.dataframe(action_source[cols_to_show].head(15), use_container_width=True, hide_index=True)
 
 
-def render_campaign_readiness(tables: dict[str, pd.DataFrame]) -> None:
-    st.header("2. Campaign readiness")
-    readiness = campaign_readiness_table(tables)
-    if readiness.empty:
-        st.warning("No allocation data available for the current filters.")
-        return
-    chart = readiness.copy()
-    chart["readiness_pct"] = chart["readiness_rate"] * 100
-    st.plotly_chart(
-        px.bar(chart, x="campaign", y="readiness_pct", text="readiness_pct", title="Photo-ready campaign allocation lines", labels={"readiness_pct": "Ready lines (%)", "campaign": "Campaign"}),
-        use_container_width=True,
-    )
-    table = readiness.copy()
-    table["readiness_rate"] = table["readiness_rate"].map(fmt_percent)
-    st.dataframe(table, use_container_width=True, hide_index=True)
+# ---------------------------------------------------------------------------
+# View 2: What do I fix first?
+# ---------------------------------------------------------------------------
 
-
-def render_allocation_reconciliation(tables: dict[str, pd.DataFrame]) -> None:
-    st.header("3. Allocation reconciliation")
-    recon = reconciliation_table(tables)
-    if recon.empty:
-        st.warning("No allocation data available for the current filters.")
-        return
-    st.plotly_chart(
-        px.bar(recon, x="campaign_id", y=["planned_quantity", "shipped_quantity", "received_quantity"], barmode="group", title="Planned vs shipped vs received units"),
-        use_container_width=True,
-    )
-    st.dataframe(recon, use_container_width=True, hide_index=True)
-
-
-def render_exception_board(tables: dict[str, pd.DataFrame]) -> None:
-    st.header("4. Exception board")
+def render_fix_first(tables: dict[str, pd.DataFrame]) -> None:
+    st.header("What do I fix first?")
     exceptions = tables["exceptions"]
     actions = tables["daily_action_list"]
     if exceptions.empty:
-        st.warning("No exceptions available for the current filters.")
+        st.warning("No exceptions data available.")
         return
+
     cols = st.columns(3)
     with cols[0]:
-        st.metric("Filtered exceptions", fmt_int(len(exceptions)))
+        st.metric("Total exceptions", fmt_int(len(exceptions)))
     with cols[1]:
         st.metric("Critical", fmt_int((exceptions["severity"] == "critical").sum()))
     with cols[2]:
@@ -320,7 +331,7 @@ def render_exception_board(tables: dict[str, pd.DataFrame]) -> None:
 
     left, right = st.columns(2)
     with left:
-        by_type = exceptions.groupby("exception_type").size().reset_index(name="count").sort_values("count", ascending=False)
+        by_type = exceptions.groupby("exception_type").size().reset_index(name="count").sort_values("count", ascending=True)
         st.plotly_chart(px.bar(by_type, x="count", y="exception_type", orientation="h", title="Exceptions by type"), use_container_width=True)
     with right:
         by_severity = exceptions.groupby("severity").size().reset_index(name="count")
@@ -328,98 +339,53 @@ def render_exception_board(tables: dict[str, pd.DataFrame]) -> None:
 
     st.subheader("Priority action list")
     action_source = actions if not actions.empty else exceptions
-    cols_to_show = [col for col in ["rank", "exception_id", "exception_type", "severity", "priority_score", "owner", "region", "area_manager", "store_id", "campaign_id", "age_days", "sla_status", "recommended_action"] if col in action_source.columns]
+    cols_to_show = [col for col in [
+        "rank", "exception_id", "exception_type", "severity", "priority_score",
+        "owner", "region", "area_manager", "store_id", "campaign_id",
+        "age_days", "sla_status", "recommended_action",
+    ] if col in action_source.columns]
     st.dataframe(action_source[cols_to_show].head(25), use_container_width=True, hide_index=True)
 
 
-def pareto_curve(exceptions: pd.DataFrame) -> pd.DataFrame:
-    if exceptions.empty or "store_id" not in exceptions.columns:
-        return pd.DataFrame()
-    counts = (
-        exceptions.dropna(subset=["store_id"])
-        .groupby("store_id")
-        .size()
-        .sort_values(ascending=False)
-        .reset_index(name="exceptions")
-    )
-    if counts.empty:
-        return pd.DataFrame()
-    counts["store_rank"] = range(1, len(counts) + 1)
-    counts["cumulative_share"] = counts["exceptions"].cumsum() / counts["exceptions"].sum()
-    return counts
+# ---------------------------------------------------------------------------
+# View 3: What's about to breach?
+# ---------------------------------------------------------------------------
 
-
-def render_insights(tables: dict[str, pd.DataFrame]) -> None:
-    st.header("5. Diagnostic insights")
-    st.caption(
-        "Root-cause findings mined from the exception table: concentration, "
-        "hotspot lift, upstream attribution, and rebalancing opportunities. "
-        "Ranked by impact score. Findings are computed on the full dataset; "
-        "the Pareto chart respects the sidebar filters."
-    )
-    insights = tables.get("insights", pd.DataFrame())
-    if insights.empty:
-        st.warning(
-            "data/processed/insights.csv is missing. Run "
-            "python scripts/build_insights.py to generate it."
-        )
-    else:
-        cols = st.columns(3)
-        with cols[0]:
-            st.metric("Ranked findings", fmt_int(len(insights)))
-        with cols[1]:
-            st.metric("Categories", fmt_int(insights["category"].nunique()))
-        with cols[2]:
-            top_impact = insights["impact_score"].max() if "impact_score" in insights.columns else 0
-            st.metric("Top impact score", fmt_int(top_impact))
-
-        for _, row in insights.iterrows():
-            label = f"{row['insight_id']} | {row['headline']} (impact {fmt_int(row.get('impact_score', 0))})"
-            with st.expander(label):
-                st.write(row.get("detail", ""))
-                meta_cols = st.columns(3)
-                with meta_cols[0]:
-                    st.metric("Affected", fmt_int(row.get("affected_count", 0)))
-                with meta_cols[1]:
-                    lift = row.get("lift", 0)
-                    st.metric("Lift", f"{float(lift):.2f}x" if float(lift or 0) else "n/a")
-                with meta_cols[2]:
-                    st.metric("Category", str(row.get("category", "")).replace("_", " "))
-                st.markdown(f"**Evidence:** {row.get('evidence', '')}")
-                st.markdown(f"**Recommended action:** {row.get('recommended_action', '')}")
-
-    st.subheader("Exception concentration (Pareto)")
-    curve = pareto_curve(tables["exceptions"])
-    if curve.empty:
-        st.warning("No exception data available for the current filters.")
+def render_about_to_breach(tables: dict[str, pd.DataFrame]) -> None:
+    st.header("What's about to breach?")
+    exceptions = tables["exceptions"]
+    if exceptions.empty:
+        st.warning("No exceptions data available.")
         return
-    fig = go.Figure()
-    fig.add_bar(
-        x=curve["store_rank"], y=curve["exceptions"], name="Exceptions per store"
-    )
-    fig.add_scatter(
-        x=curve["store_rank"],
-        y=curve["cumulative_share"] * 100,
-        name="Cumulative share (%)",
-        yaxis="y2",
-        mode="lines",
-    )
-    fig.add_hline(y=80, line_dash="dash", line_color="gray", yref="y2")
-    fig.update_layout(
-        title="Stores ranked by exception count (80% line dashed)",
-        xaxis_title="Store rank",
-        yaxis=dict(title="Exceptions"),
-        yaxis2=dict(title="Cumulative share (%)", overlaying="y", side="right", range=[0, 100]),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02),
-    )
-    st.plotly_chart(fig, use_container_width=True)
+
+    approaching = exceptions[exceptions["sla_status"] == "approaching"]
+    breached = exceptions[exceptions["sla_status"] == "breached"]
+    cols = st.columns(2)
+    with cols[0]:
+        st.metric("Approaching SLA", fmt_int(len(approaching)))
+    with cols[1]:
+        st.metric("Already breached", fmt_int(len(breached)))
+
+    at_risk = pd.concat([breached, approaching]) if not approaching.empty else breached
+    if at_risk.empty:
+        st.info("No exceptions at SLA risk.")
+        return
+    cols_to_show = [col for col in [
+        "exception_id", "exception_type", "severity", "priority_score",
+        "store_id", "area_manager", "age_days", "sla_status",
+    ] if col in at_risk.columns]
+    st.dataframe(at_risk[cols_to_show], use_container_width=True, hide_index=True)
 
 
-def render_am_scorecard(tables: dict[str, pd.DataFrame]) -> None:
-    st.header("6. AM scorecard")
+# ---------------------------------------------------------------------------
+# View 4: Which AM needs a call?
+# ---------------------------------------------------------------------------
+
+def render_am_call(tables: dict[str, pd.DataFrame]) -> None:
+    st.header("Which AM needs a call?")
     scorecard = normalize_scorecard(tables["am_scorecard"])
     if scorecard.empty:
-        st.warning("No AM scorecard data available for the current filters.")
+        st.warning("No AM scorecard data available.")
         return
     chart = scorecard.sort_values("open_exception_count", ascending=False)
     st.plotly_chart(px.bar(chart, x="area_manager", y="open_exception_count", color="region", title="Open exceptions by area manager"), use_container_width=True)
@@ -430,31 +396,86 @@ def render_am_scorecard(tables: dict[str, pd.DataFrame]) -> None:
     st.dataframe(display, use_container_width=True, hide_index=True)
 
 
-def render_store_detail(tables: dict[str, pd.DataFrame]) -> None:
-    st.header("7. Store detail table")
+# ---------------------------------------------------------------------------
+# View 5: Are campaigns on track?
+# ---------------------------------------------------------------------------
+
+def render_campaigns_on_track(tables: dict[str, pd.DataFrame]) -> None:
+    st.header("Are campaigns on track?")
+    readiness = campaign_readiness_table(tables)
+    if readiness.empty:
+        st.warning("No allocation data available.")
+        return
+    chart = readiness.copy()
+    chart["readiness_pct"] = chart["readiness_rate"] * 100
+    st.plotly_chart(
+        px.bar(chart, x="campaign", y="readiness_pct", text="readiness_pct", title="Photo-ready allocation lines (%)"),
+        use_container_width=True)
+
+    recon = reconciliation_table(tables)
+    if not recon.empty:
+        st.subheader("Planned vs shipped vs received")
+        st.plotly_chart(px.bar(recon, x="campaign_id", y=["planned_quantity", "shipped_quantity", "received_quantity"], barmode="group"), use_container_width=True)
+        st.dataframe(recon, use_container_width=True, hide_index=True)
+
     detail = store_detail_table(tables)
-    if detail.empty:
-        st.warning("No store data available for the current filters.")
+    if not detail.empty:
+        display = detail[[col for col in [
+            "store_id", "store_name", "region", "area_manager",
+            "open_exceptions", "critical_exceptions", "sla_breaches",
+            "received_units", "units_sold", "sell_through_rate",
+        ] if col in detail.columns]].copy()
+        if "sell_through_rate" in display.columns:
+            display["sell_through_rate"] = display["sell_through_rate"].map(fmt_percent)
+        st.dataframe(display, use_container_width=True, hide_index=True)
+
+
+# ---------------------------------------------------------------------------
+# View 6: Did interventions work? (verification)
+# ---------------------------------------------------------------------------
+
+def render_verification(tables: dict[str, pd.DataFrame]) -> None:
+    st.header("Did interventions work?")
+    outcomes_path = SAMPLE_DIR / "intervention_outcomes.csv"
+    if not outcomes_path.exists():
+        st.warning("Run `python scripts/generate_sample_data.py` and `python scripts/build_verification.py` first.")
         return
-    display = detail[[col for col in ["store_id", "store_name", "region", "area_manager", "store_format", "open_exceptions", "critical_exceptions", "sla_breaches", "received_units", "units_sold", "sell_through_rate"] if col in detail.columns]].copy()
-    if "sell_through_rate" in display.columns:
-        display["sell_through_rate"] = display["sell_through_rate"].map(fmt_percent)
-    st.dataframe(display, use_container_width=True, hide_index=True)
-
-
-def render_weekly_report_preview() -> None:
-    st.header("8. Weekly report preview")
-    report = read_report(str(REPORT_PATH))
-    if not report:
-        st.warning("reports/weekly_ops_report.md is missing. Run python scripts/generate_weekly_report.py to create it.")
+    outcomes = pd.read_csv(outcomes_path)
+    if outcomes.empty:
+        st.warning("No intervention outcomes data.")
         return
-    st.markdown(report)
 
+    int_rate = outcomes["resolved"].mean()
+    ctrl_rate = outcomes["control_resolved"].mean()
+    effect = int_rate - ctrl_rate
+
+    cols = st.columns(3)
+    with cols[0]:
+        st.metric("Intervention resolved", fmt_percent(int_rate))
+    with cols[1]:
+        st.metric("Control resolved", fmt_percent(ctrl_rate))
+    with cols[2]:
+        st.metric("Observed effect", f"{effect:+.1%}")
+
+    st.info(
+        "Results are from simulated data. The deliverable is the measurement "
+        "methodology, not the finding."
+    )
+
+    by_type = outcomes.groupby("exception_type")[["resolved", "control_resolved"]].mean()
+    by_type["effect"] = by_type["resolved"] - by_type["control_resolved"]
+    by_type = by_type.sort_values("effect", ascending=True)
+    st.plotly_chart(px.bar(by_type.reset_index(), x="effect", y="exception_type", orientation="h", title="Effect by exception type"), use_container_width=True)
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
 
 def main() -> None:
     st.set_page_config(page_title="Retail Ops Control Tower", layout="wide")
     st.title("Retail Ops Control Tower")
-    st.caption("Interactive control tower for simulated campaign execution, allocation reconciliation, exceptions, AM workload, and weekly reporting.")
+    st.caption("Kopi Senja -- 100-store coffee chain, 3 seasonal LTO campaigns, 1,603 operational exceptions.")
 
     missing = missing_required_files()
     if missing:
@@ -481,33 +502,27 @@ def main() -> None:
 
     filtered = filtered_tables(tables, selected_campaigns, selected_regions, selected_ams)
 
-    sections = [
-        "Executive overview",
-        "Campaign readiness",
-        "Allocation reconciliation",
-        "Exception board",
-        "Insights",
-        "AM scorecard",
-        "Store detail table",
-        "Weekly report preview",
+    views = [
+        "What needs attention today?",
+        "What do I fix first?",
+        "What's about to breach?",
+        "Which AM needs a call?",
+        "Are campaigns on track?",
+        "Did interventions work?",
     ]
-    tabs = st.tabs(sections)
+    tabs = st.tabs(views)
     with tabs[0]:
-        render_executive_overview(filtered)
+        render_attention_today(filtered)
     with tabs[1]:
-        render_campaign_readiness(filtered)
+        render_fix_first(filtered)
     with tabs[2]:
-        render_allocation_reconciliation(filtered)
+        render_about_to_breach(filtered)
     with tabs[3]:
-        render_exception_board(filtered)
+        render_am_call(filtered)
     with tabs[4]:
-        render_insights(filtered)
+        render_campaigns_on_track(filtered)
     with tabs[5]:
-        render_am_scorecard(filtered)
-    with tabs[6]:
-        render_store_detail(filtered)
-    with tabs[7]:
-        render_weekly_report_preview()
+        render_verification(filtered)
 
 
 if __name__ == "__main__":
