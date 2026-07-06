@@ -33,6 +33,8 @@ import os
 import random
 from datetime import date, datetime, timedelta
 
+import pandas as pd
+
 
 # ---------------------------------------------------------------------------
 # Name pools (fictional)
@@ -1282,3 +1284,135 @@ def generate_sample_data(
     if write_csv:
         write_csv_tables(tables, output_dir)
     return tables
+
+
+# ---------------------------------------------------------------------------
+# Actions table generation (closed-loop module)
+# ---------------------------------------------------------------------------
+
+ACTION_TYPE_MAP: dict[str, str] = {
+    "missing_confirmation": "phone_call",
+    "late_confirmation": "phone_call",
+    "quantity_mismatch": "dc_count_verification",
+    "missing_photo_proof": "site_visit",
+    "late_photo_proof": "site_visit",
+    "stockout_risk": "sku_transfer",
+    "overstock_risk": "sku_transfer",
+    "low_sell_through": "sku_transfer",
+    "unresolved_issue_sla_breach": "escalation",
+}
+
+# Mean time-to-action by severity (hours)
+SEVERITY_ACTION_HOURS: dict[str, float] = {
+    "critical": 4.0,
+    "watch": 12.0,
+    "info": 24.0,
+}
+
+# Known injected intervention effect: 60% resolve with action vs 30% baseline
+INTERVENTION_RESOLVE_RATE = 0.60
+BASELINE_RESOLVE_RATE = 0.30
+
+
+def generate_actions(exceptions: pd.DataFrame, seed: int = 42) -> pd.DataFrame:
+    """Generate intervention actions for critical or breached exceptions.
+
+    Injects a known effect: 60% resolve rate with intervention vs 30% baseline.
+    Noise: 8% failed actions, 5% assignment errors, 5% reopen within 48h.
+
+    Parameters
+    ----------
+    exceptions : pd.DataFrame
+        The exceptions table (data/processed/exceptions.csv).
+    seed : int
+        Random seed for deterministic output.
+
+    Returns
+    -------
+    pd.DataFrame
+        Actions table with one row per intervention action.
+    """
+    import numpy as np
+
+    rng = np.random.RandomState(seed)
+
+    # Select exceptions eligible for action: critical severity or SLA breached
+    mask = (exceptions["severity"] == "critical") | (exceptions["sla_status"] == "breached")
+    eligible = exceptions[mask].copy()
+
+    if eligible.empty:
+        return pd.DataFrame(columns=[
+            "action_id", "exception_id", "campaign_id", "store_id",
+            "assigned_by", "assigned_to", "action_type", "action_timestamp",
+            "action_status", "outcome", "time_to_action_hours", "notes",
+        ])
+
+    records: list[dict] = []
+    for i, (_, row) in enumerate(eligible.iterrows()):
+        action_id = f"ACT-{i + 1:04d}"
+        exc_type = row["exception_type"]
+        action_type = ACTION_TYPE_MAP.get(exc_type, "phone_call")
+        assigned_to = row.get("area_manager", "Unassigned")
+        campaign_id = row.get("campaign_id", "")
+        store_id = row.get("store_id", "")
+        exception_id = row.get("exception_id", "")
+
+        # Time to action: log-normal, mean by severity
+        severity = row.get("severity", "watch")
+        mean_hours = SEVERITY_ACTION_HOURS.get(severity, 12.0)
+        time_to_action = float(rng.lognormal(mean=np.log(mean_hours), sigma=0.5))
+
+        # Timestamp: created_date + time_to_action
+        created = str(row.get("created_date", "2026-06-25"))
+        try:
+            from datetime import datetime, timedelta
+            base_dt = datetime.fromisoformat(created)
+            action_dt = base_dt + timedelta(hours=time_to_action)
+            action_timestamp = action_dt.isoformat()
+        except Exception:
+            action_timestamp = created
+
+        # Determine outcome with known injected effect
+        # 5% assignment error -> unresolved
+        if rng.random() < 0.05:
+            outcome = "unresolved"
+            action_status = "completed"
+            notes = f"Assignment error: action routed to wrong rep. {exc_type} remains open."
+        # 8% failed action
+        elif rng.random() < 0.08:
+            outcome = "failed"
+            action_status = "completed"
+            notes = f"Action attempted but failed. {exc_type} not resolved by {action_type}."
+        else:
+            # 60% resolve rate (known intervention effect)
+            if rng.random() < INTERVENTION_RESOLVE_RATE:
+                # 5% of resolved reopen within 48h
+                if rng.random() < 0.05:
+                    outcome = "reopened"
+                    action_status = "completed"
+                    notes = f"Initially resolved via {action_type}, but exception reopened within 48h."
+                else:
+                    outcome = "resolved"
+                    action_status = "completed"
+                    notes = f"{action_type.replace('_', ' ').title()} completed. {exc_type} resolved."
+            else:
+                outcome = "unresolved"
+                action_status = "completed"
+                notes = f"Action completed but {exc_type} remains unresolved."
+
+        records.append({
+            "action_id": action_id,
+            "exception_id": exception_id,
+            "campaign_id": campaign_id,
+            "store_id": store_id,
+            "assigned_by": "Ops Lead",
+            "assigned_to": assigned_to,
+            "action_type": action_type,
+            "action_timestamp": action_timestamp,
+            "action_status": action_status,
+            "outcome": outcome,
+            "time_to_action_hours": round(time_to_action, 1),
+            "notes": notes,
+        })
+
+    return pd.DataFrame(records)
