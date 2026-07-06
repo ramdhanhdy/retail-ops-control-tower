@@ -1309,8 +1309,10 @@ SEVERITY_ACTION_HOURS: dict[str, float] = {
     "info": 24.0,
 }
 
-# Known injected intervention effect: 60% resolve with action vs 30% baseline
-INTERVENTION_RESOLVE_RATE = 0.60
+# Known injected intervention effect: 75% resolve with action vs 30% baseline
+# (set above 60% to compensate for noise: 8% failed, 5% assignment errors, null effects)
+# Net observed effect after noise should be ~30pp
+INTERVENTION_RESOLVE_RATE = 0.75
 BASELINE_RESOLVE_RATE = 0.30
 
 
