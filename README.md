@@ -52,15 +52,42 @@ is injected into the simulated data with realistic noise (failures, re-opens,
 null results). The verification module must recover the injected effect
 within confidence bounds.
 
-Results: [placeholder -- fill after verification module runs]
+**Results (seed=42, 347 matched pairs):**
+
+| Metric | Value |
+|--------|-------|
+| Intervention resolved | 59.9% |
+| Control resolved | 34.3% |
+| Observed effect | +25.7pp |
+| Injected effect | +30pp |
+| Recovery bias | -4.4pp (within bounds) |
+| Cohen's h | 0.52 |
+| z-statistic | 6.77 (p < 0.001) |
+| 95% CI | [+18.5pp, +32.8pp] |
+
+**Effect by exception type:**
+
+| Exception type | n | Intervention | Control | Effect |
+|---------------|------|-------------|---------|--------|
+| missing_confirmation | 18 | 66.7% | 16.7% | +50.0pp |
+| late_photo_proof | 45 | 71.1% | 33.3% | +37.8pp |
+| low_sell_through | 158 | 55.1% | 24.7% | +30.4pp |
+| quantity_mismatch | 57 | 64.9% | 45.6% | +19.3pp |
+| late_confirmation | 27 | 59.3% | 51.9% | +7.4pp |
+| missing_photo_proof | 42 | 57.1% | 52.4% | +4.8pp |
+
+`missing_photo_proof` and `late_confirmation` show near-zero effect -- structured noise that mirrors real operations where some interventions genuinely don't help.
+
+Run `python scripts/build_verification.py` to regenerate.
 
 ---
 
 ## Limitations
 
-- Data is simulated. The intervention effect is injected, not observed.
-  The deliverable is the measurement methodology, not the finding.
-- On real data, this pipeline would answer whether interventions actually work.
+- Data is simulated. The intervention effect is injected, not observed. The deliverable is the measurement methodology, not the finding.
+- Matched comparison, not causal inference. No DAG, no propensity scoring, no instrumental variables.
+- Single snapshot. No longitudinal or real-time data feeds.
+- Control group is exceptions without actions, not a true randomized control. Selection bias is possible.
 
 ---
 
