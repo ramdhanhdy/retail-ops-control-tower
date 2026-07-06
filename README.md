@@ -21,7 +21,7 @@ retail operations. The deliverable is a decision memo, not just a dashboard.
 
 ## The closed loop
 
-```
+```text
     Detect          Rank           Assign         Act            Verify
   (9 rules)  ->  (priority)  ->  (to AM/rep) -> (intervention) -> (did it work?)
       ^                                                              |

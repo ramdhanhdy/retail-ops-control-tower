@@ -12,6 +12,11 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
+import sqlite3
+
+from retail_ops_control_tower.dashboard.action_queue import (
+    init_db, assign_exception, resolve_exception, get_queue,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 SAMPLE_DIR = ROOT / "data" / "sample"
@@ -253,26 +258,13 @@ def store_detail_table(tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
 def normalize_scorecard(am_scorecard: pd.DataFrame) -> pd.DataFrame:
     if am_scorecard.empty:
         return am_scorecard
-    renamed = {}
+    result = am_scorecard.copy()
     for column in am_scorecard.columns:
         if "backlog" in column.lower():
-            renamed[column] = "<<redacted:am_backlog>>"
-    return am_scorecard.rename(columns=renamed)
+            result[column] = "<<redacted>>"
+    return result
 
 
-def pareto_curve(exceptions: pd.DataFrame) -> pd.DataFrame:
-    if exceptions.empty or "store_id" not in exceptions.columns:
-        return pd.DataFrame()
-    counts = (
-        exceptions.dropna(subset=["store_id"])
-        .groupby("store_id").size().sort_values(ascending=False)
-        .reset_index(name="exceptions")
-    )
-    if counts.empty:
-        return pd.DataFrame()
-    counts["store_rank"] = range(1, len(counts) + 1)
-    counts["cumulative_share"] = counts["exceptions"].cumsum() / counts["exceptions"].sum()
-    return counts
 
 
 # ---------------------------------------------------------------------------
@@ -476,10 +468,6 @@ def render_verification(tables: dict[str, pd.DataFrame]) -> None:
 
 def render_action_queue(tables: dict[str, pd.DataFrame]) -> None:
     st.header("Action queue")
-    import sqlite3
-    from retail_ops_control_tower.dashboard.action_queue import (
-        init_db, assign_exception, resolve_exception, get_queue,
-    )
 
     DB_PATH = ROOT / "data" / "processed" / "action_queue.db"
     conn = sqlite3.connect(str(DB_PATH))

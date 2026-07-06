@@ -31,7 +31,7 @@ def test_methodology_survives_noise():
         "data looks trivially injected. Real data has spontaneous resolution."
     )
     # Must have failed interventions
-    failed_share = (outcomes["resolved"] == False).mean()
+    failed_share = (~outcomes["resolved"]).mean()
     assert failed_share > 0.10, (
         f"Only {failed_share:.1%} unresolved — need ~20%+ for realistic noise"
     )

@@ -1319,7 +1319,8 @@ BASELINE_RESOLVE_RATE = 0.30
 def generate_actions(exceptions: pd.DataFrame, seed: int = 42) -> pd.DataFrame:
     """Generate intervention actions for critical or breached exceptions.
 
-    Injects a known effect: 60% resolve rate with intervention vs 30% baseline.
+    Injects a known effect: raw 75% resolve rate with intervention (net ~60%
+    after noise) vs 30% baseline.
     Noise: 8% failed actions, 5% assignment errors, 5% reopen within 48h.
 
     Parameters
@@ -1367,11 +1368,10 @@ def generate_actions(exceptions: pd.DataFrame, seed: int = 42) -> pd.DataFrame:
         # Timestamp: created_date + time_to_action
         created = str(row.get("created_date", "2026-06-25"))
         try:
-            from datetime import datetime, timedelta
             base_dt = datetime.fromisoformat(created)
             action_dt = base_dt + timedelta(hours=time_to_action)
             action_timestamp = action_dt.isoformat()
-        except Exception:
+        except ValueError:
             action_timestamp = created
 
         # Determine outcome with known injected effect
@@ -1386,7 +1386,7 @@ def generate_actions(exceptions: pd.DataFrame, seed: int = 42) -> pd.DataFrame:
             action_status = "completed"
             notes = f"Action attempted but failed. {exc_type} not resolved by {action_type}."
         else:
-            # 60% resolve rate (known intervention effect)
+            # Raw 75% resolve rate (INTERVENTION_RESOLVE_RATE), net ~60% after noise
             if rng.random() < INTERVENTION_RESOLVE_RATE:
                 # 5% of resolved reopen within 48h
                 if rng.random() < 0.05:

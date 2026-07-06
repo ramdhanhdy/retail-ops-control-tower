@@ -101,11 +101,13 @@ def main() -> int:
         print(f"  actions outcomes: {dict(actions['outcome'].value_counts())}")
 
         # Generate intervention outcomes (matched comparison)
-        stores = pd.read_csv(output_path / "stores.csv")
+        stores = tables["stores"]
         outcomes = generate_intervention_outcomes(actions, exceptions, stores, seed=args.seed)
         outcomes.to_csv(output_path / "intervention_outcomes.csv", index=False)
         print(f"  {'intervention_outcomes':<25} {len(outcomes):>6} rows")
         print(f"  intervention: {outcomes['resolved'].mean():.1%}, control: {outcomes['control_resolved'].mean():.1%}")
+    else:
+        print(f"  Skipping actions/intervention_outcomes: {exceptions_csv} not found")
     print()
     print(f"Seed: {args.seed}")
     return 0

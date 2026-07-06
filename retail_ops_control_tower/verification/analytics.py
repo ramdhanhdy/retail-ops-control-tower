@@ -93,7 +93,7 @@ def compute_effect_size(outcomes: pd.DataFrame) -> dict[str, Any]:
     }
 
 
-def recover_injected_effect(outcomes: pd.DataFrame, injected_effect: float) -> dict[str, Any]:
+def recover_injected_effect(outcomes: pd.DataFrame, injected_effect: float, tolerance: float = 0.15) -> dict[str, Any]:
     """Check whether the verification module recovers the injected effect.
 
     The data generator injects a known intervention effect (e.g., 30pp).
@@ -117,8 +117,7 @@ def recover_injected_effect(outcomes: pd.DataFrame, injected_effect: float) -> d
 
     # The observed effect will differ from injected due to noise
     # (failed actions, assignment errors, null results, exclusions)
-    # Check if within reasonable bounds (±0.15 of injected)
-    tolerance = 0.15
+    # Check if within reasonable bounds (tolerance of injected, default ±0.15)
     within_bounds = abs(estimated - injected_effect) < tolerance
     bias = estimated - injected_effect
 
