@@ -22,9 +22,14 @@ def init_db(conn: sqlite3.Connection) -> None:
 
 
 def assign_exception(conn: sqlite3.Connection, exception_id: str, assigned_to: str, action_type: str) -> None:
+    # True UPSERT: update only assignment fields, preserve notes/created_at/resolved_at
     conn.execute(
-        "INSERT OR REPLACE INTO action_queue (exception_id, assigned_to, action_type, status) "
-        "VALUES (?, ?, ?, 'assigned')",
+        "INSERT INTO action_queue (exception_id, assigned_to, action_type, status) "
+        "VALUES (?, ?, ?, 'assigned') "
+        "ON CONFLICT(exception_id) DO UPDATE SET "
+        "  assigned_to = excluded.assigned_to, "
+        "  action_type = excluded.action_type, "
+        "  status = 'assigned'",
         (exception_id, assigned_to, action_type),
     )
     conn.commit()

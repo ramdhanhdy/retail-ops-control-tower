@@ -445,6 +445,8 @@ def render_verification(tables: dict[str, pd.DataFrame]) -> None:
         st.warning("No intervention outcomes data.")
         return
 
+    st.caption("Verification metrics are computed from the full dataset and are not affected by sidebar filters. They reflect methodology-level results, not store-specific slices.")
+
     int_rate = outcomes["resolved"].mean()
     ctrl_rate = outcomes["control_resolved"].mean()
     effect = int_rate - ctrl_rate

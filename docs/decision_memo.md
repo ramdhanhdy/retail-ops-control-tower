@@ -22,7 +22,7 @@ Three actions address 80% of risk for an estimated $3,750 cost and $46,500 in re
 **Problem:** 99 stockout-risk and 291 overstock-risk exceptions across 83 stores.
 **Action:** Transfer 15 high-priority SKUs from overstock stores to stockout stores. DC count verification + dispatch within 48 hours.
 **Cost:** $250 per transfer (DC labor + dispatch) = $3,750
-**Revenue recovered:** $46,500 (avg 11 days saved x $4,200/day x 15 stores, adjusted for 65% success rate)
+**Revenue recovered:** $46,500 (15 transfers × $3,100 avg savings per transfer)
 **ROI:** 12.4x
 **Owner:** Supply chain team, coordinated with DC Jakarta
 
