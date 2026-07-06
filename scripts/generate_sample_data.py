@@ -25,6 +25,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from retail_ops_control_tower.data_generation import (
     TABLE_NAMES,
     generate_actions,
+    generate_intervention_outcomes,
     generate_sample_data,
 )
 
@@ -98,6 +99,13 @@ def main() -> int:
         actions.to_csv(output_path / "actions.csv", index=False)
         print(f"  {'actions':<25} {len(actions):>6} rows")
         print(f"  actions outcomes: {dict(actions['outcome'].value_counts())}")
+
+        # Generate intervention outcomes (matched comparison)
+        stores = pd.read_csv(output_path / "stores.csv")
+        outcomes = generate_intervention_outcomes(actions, exceptions, stores, seed=args.seed)
+        outcomes.to_csv(output_path / "intervention_outcomes.csv", index=False)
+        print(f"  {'intervention_outcomes':<25} {len(outcomes):>6} rows")
+        print(f"  intervention: {outcomes['resolved'].mean():.1%}, control: {outcomes['control_resolved'].mean():.1%}")
     print()
     print(f"Seed: {args.seed}")
     return 0
