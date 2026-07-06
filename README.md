@@ -1,12 +1,32 @@
-# Retail Operations Control Tower
+# Retail Ops Control Tower
 
-A Python control tower for multi-store retail campaign execution. It simulates a
-coffee chain running a seasonal limited-time-offer campaign, validates the data,
-detects exceptions, ranks them by priority, and renders a Streamlit dashboard
-plus a weekly operations report so the ops team knows what to fix first.
+A control tower for **Kopi Senja**, a fictional 100-store Indonesian coffee chain
+launching three seasonal limited-time-offer campaigns. The system detects 1,603
+operational exceptions across 100 stores, ranks them by business impact, and
+closes the loop: detect -> rank -> assign -> act -> verify.
 
 > **Simulated data.** All data is synthetic. No real company data, internal
 > knowledge, or real-world retail operations experience is claimed.
+
+---
+
+## Why this project
+
+Built by a data analyst who has briefed Indonesian parliament decision-makers
+(DPR RI, Komisi VIII) on social program outcomes. This project applies the same
+skill -- turning complex data into a brief a decision-maker can act on -- to
+retail operations. The deliverable is a decision memo, not just a dashboard.
+
+---
+
+## The closed loop
+
+```
+    Detect          Rank           Assign         Act            Verify
+  (9 rules)  ->  (priority)  ->  (to AM/rep) -> (intervention) -> (did it work?)
+      ^                                                              |
+      +---------------- feedback: reopen if unresolved ---------------+
+```
 
 ---
 
@@ -25,29 +45,22 @@ outputs with `python scripts/render_architecture_diagram.py`.
 
 ---
 
-## Why this project exists
+## Verification analytics
 
-Multi-store retail chains run seasonal campaigns that require coordinated
-execution across HQ planning, distribution centers, field reps, and store staff.
-The operational reality is that execution gaps are the default, not the
-exception. This project models the five failure modes that eat campaign margin:
+The system includes a methodology validation: a known intervention effect
+is injected into the simulated data with realistic noise (failures, re-opens,
+null results). The verification module must recover the injected effect
+within confidence bounds.
 
-1. **Late campaign activation** - promotions go live days late because there is
-   no task verification or escalation when a store has not executed.
-2. **Quantity mismatches** - planned vs. shipped vs. received vs. sold
-   quantities diverge at every handoff and nobody reconciles them until the
-   campaign window has closed.
-3. **Pencil-whipping** - store teams check off tasks that were never done
-   because checklists have no proof layer.
-4. **Stockout and overstock risk** - weeks-of-cover is not evaluated against
-   supplier lead time, so stockouts happen mid-campaign and overstock lands at
-   clearance.
-5. **No prioritized action queue** - exceptions exist but are not ranked by
-   urgency, impact, or campaign window, so the ops team does not know what to
-   fix first.
+Results: [placeholder -- fill after verification module runs]
 
-The control tower turns raw operational data into a prioritized, actionable
-work queue - not just a status report.
+---
+
+## Limitations
+
+- Data is simulated. The intervention effect is injected, not observed.
+  The deliverable is the measurement methodology, not the finding.
+- On real data, this pipeline would answer whether interventions actually work.
 
 ---
 
