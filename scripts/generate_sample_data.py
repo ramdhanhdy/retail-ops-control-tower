@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from retail_ops_control_tower.data_generation import (
     TABLE_NAMES,
+    generate_actions,
     generate_sample_data,
 )
 
@@ -82,6 +83,21 @@ def main() -> int:
     print()
     for name in TABLE_NAMES:
         print(f"  {name:<25} {len(tables[name]):>6} rows")
+    print()
+
+    # Generate actions table (closed-loop module)
+    import pandas as pd
+    from pathlib import Path
+
+    output_path = Path(args.output)
+    processed_dir = output_path.parent / "processed"
+    exceptions_csv = processed_dir / "exceptions.csv"
+    if exceptions_csv.exists():
+        exceptions = pd.read_csv(exceptions_csv)
+        actions = generate_actions(exceptions, seed=args.seed)
+        actions.to_csv(output_path / "actions.csv", index=False)
+        print(f"  {'actions':<25} {len(actions):>6} rows")
+        print(f"  actions outcomes: {dict(actions['outcome'].value_counts())}")
     print()
     print(f"Seed: {args.seed}")
     return 0
