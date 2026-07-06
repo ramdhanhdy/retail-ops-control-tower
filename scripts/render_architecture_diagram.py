@@ -42,7 +42,7 @@ ACCENTS = [
     "#f0883e",  # 1 intake     - orange
     "#d29922",  # 2 normalize  - yellow
     "#3fb950",  # 3 validate   - green
-    "#f85149",  # 4 prioritize - red
+    "#ff6b6b",  # 4 prioritize - red (lightened for WCAG AA)
     "#58a6ff",  # 5 report     - blue
 ]
 
@@ -50,7 +50,7 @@ ACCENT_NAMES = [
     "#f0883e",
     "#d29922",
     "#3fb950",
-    "#f85149",
+    "#ff6b6b",
     "#58a6ff",
 ]
 
