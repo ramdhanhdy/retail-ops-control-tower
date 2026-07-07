@@ -1,0 +1,775 @@
+action_id,exception_id,campaign_id,store_id,assigned_by,assigned_to,action_type,action_timestamp,action_status,outcome,time_to_action_hours,notes
+ACT-0001,EXC-007,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,phone_call,2026-06-25T05:07:39.613341,completed,resolved,5.1,Phone Call completed. missing_confirmation resolved.
+ACT-0002,EXC-159,C-2026-PEACH,S-048,Ops Lead,David Park,dc_count_verification,2026-06-27T03:43:58.128219,completed,resolved,3.7,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0003,EXC-1598,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,escalation,2026-07-01T11:39:47.212481-07:00,completed,resolved,3.2,Escalation completed. unresolved_issue_sla_breach resolved.
+ACT-0004,EXC-1600,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,escalation,2026-07-01T17:44:47.649226-05:00,completed,resolved,5.2,Escalation completed. unresolved_issue_sla_breach resolved.
+ACT-0005,EXC-1602,C-2026-PEACH,S-011,Ops Lead,James Okoro,escalation,2026-07-01T19:17:25.081272-05:00,completed,resolved,2.5,Escalation completed. unresolved_issue_sla_breach resolved.
+ACT-0006,EXC-1603,C-2026-PEACH,S-011,Ops Lead,James Okoro,escalation,2026-07-01T15:13:26.972582-05:00,completed,failed,2.0,Action attempted but failed. unresolved_issue_sla_breach not resolved by escalation.
+ACT-0007,EXC-277,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,site_visit,2026-07-01T02:14:58.925656,completed,unresolved,2.2,Action completed but missing_photo_proof remains unresolved.
+ACT-0008,EXC-280,C-2026-PEACH,S-016,Ops Lead,Emma Wilson,site_visit,2026-07-02T04:49:35.778840,completed,resolved,4.8,Site Visit completed. missing_photo_proof resolved.
+ACT-0009,EXC-276,C-2026-PEACH,S-014,Ops Lead,Marcus Lee,site_visit,2026-07-03T02:24:00.427919,completed,failed,2.4,Action attempted but failed. missing_photo_proof not resolved by site_visit.
+ACT-0010,EXC-287,C-2026-PEACH,S-099,Ops Lead,Robert Taylor,site_visit,2026-07-03T03:41:21.213440,completed,resolved,3.7,Site Visit completed. missing_photo_proof resolved.
+ACT-0011,EXC-297,C-2026-PEACH,S-095,Ops Lead,Maria Rodriguez,site_visit,2026-07-03T16:02:45.096550,completed,unresolved,16.0,Action completed but missing_photo_proof remains unresolved.
+ACT-0012,EXC-309,C-2026-PEACH,S-096,Ops Lead,Robert Taylor,site_visit,2026-07-03T07:15:55.201182,completed,resolved,7.3,Site Visit completed. missing_photo_proof resolved.
+ACT-0013,EXC-284,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,site_visit,2026-07-04T03:46:30.949121,completed,unresolved,3.8,Action completed but missing_photo_proof remains unresolved.
+ACT-0014,EXC-290,C-2026-PEACH,S-054,Ops Lead,Marcus Lee,site_visit,2026-07-04T03:26:27.357038,completed,resolved,3.4,Site Visit completed. missing_photo_proof resolved.
+ACT-0015,EXC-295,C-2026-PEACH,S-048,Ops Lead,David Park,site_visit,2026-07-05T05:21:04.992792,completed,resolved,5.4,Site Visit completed. missing_photo_proof resolved.
+ACT-0016,EXC-296,C-2026-PEACH,S-048,Ops Lead,David Park,site_visit,2026-07-06T06:14:05.775806,completed,resolved,6.2,Site Visit completed. missing_photo_proof resolved.
+ACT-0017,EXC-299,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,site_visit,2026-07-06T03:39:35.540865,completed,resolved,3.7,Site Visit completed. missing_photo_proof resolved.
+ACT-0018,EXC-281,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,site_visit,2026-07-07T03:15:28.673290,completed,resolved,3.3,Site Visit completed. missing_photo_proof resolved.
+ACT-0019,EXC-292,C-2026-PEACH,S-051,Ops Lead,Ahmed Hassan,site_visit,2026-07-09T08:26:55.286670,completed,reopened,8.4,"Initially resolved via site_visit, but exception reopened within 48h."
+ACT-0020,EXC-300,C-2026-PEACH,S-084,Ops Lead,Ahmed Hassan,site_visit,2026-07-11T04:44:12.875364,completed,failed,4.7,Action attempted but failed. missing_photo_proof not resolved by site_visit.
+ACT-0021,EXC-306,C-2026-PEACH,S-005,Ops Lead,Emma Wilson,site_visit,2026-07-11T01:58:04.101000,completed,resolved,2.0,Site Visit completed. missing_photo_proof resolved.
+ACT-0022,EXC-046,C-2026-PEACH,S-021,Ops Lead,Maria Rodriguez,phone_call,2026-07-12T06:44:11.391938,completed,resolved,6.7,Phone Call completed. late_confirmation resolved.
+ACT-0023,EXC-048,C-2026-PEACH,S-019,Ops Lead,Robert Taylor,phone_call,2026-07-12T05:08:23.360650,completed,resolved,5.1,Phone Call completed. late_confirmation resolved.
+ACT-0024,EXC-052,C-2026-PEACH,S-004,Ops Lead,Lisa Wong,phone_call,2026-07-12T07:08:15.645276,completed,unresolved,7.1,Action completed but late_confirmation remains unresolved.
+ACT-0025,EXC-053,C-2026-PEACH,S-004,Ops Lead,Lisa Wong,phone_call,2026-07-12T02:48:57.096943,completed,unresolved,2.8,Action completed but late_confirmation remains unresolved.
+ACT-0026,EXC-058,C-2026-PEACH,S-087,Ops Lead,Maria Rodriguez,phone_call,2026-07-12T03:23:43.949892,completed,failed,3.4,Action attempted but failed. late_confirmation not resolved by phone_call.
+ACT-0027,EXC-388,C-2026-PEACH,S-021,Ops Lead,Maria Rodriguez,site_visit,2026-07-12T15:33:37.669595-05:00,completed,resolved,1.1,Site Visit completed. late_photo_proof resolved.
+ACT-0028,EXC-389,C-2026-PEACH,S-021,Ops Lead,Maria Rodriguez,site_visit,2026-07-12T13:45:15.546089-05:00,completed,resolved,4.8,Site Visit completed. late_photo_proof resolved.
+ACT-0029,EXC-393,C-2026-PEACH,S-019,Ops Lead,Robert Taylor,site_visit,2026-07-12T22:12:47.051735-05:00,completed,resolved,4.0,Site Visit completed. late_photo_proof resolved.
+ACT-0030,EXC-394,C-2026-PEACH,S-019,Ops Lead,Robert Taylor,site_visit,2026-07-12T17:13:56.854044-05:00,completed,failed,1.7,Action attempted but failed. late_photo_proof not resolved by site_visit.
+ACT-0031,EXC-395,C-2026-PEACH,S-019,Ops Lead,Robert Taylor,site_visit,2026-07-12T21:49:45.442588-05:00,completed,resolved,5.1,Site Visit completed. late_photo_proof resolved.
+ACT-0032,EXC-396,C-2026-PEACH,S-019,Ops Lead,Robert Taylor,site_visit,2026-07-12T17:30:50.716884-05:00,completed,unresolved,3.5,Action completed but late_photo_proof remains unresolved.
+ACT-0033,EXC-403,C-2026-PEACH,S-004,Ops Lead,Lisa Wong,site_visit,2026-07-12T19:26:26.164197-04:00,completed,resolved,5.9,Site Visit completed. late_photo_proof resolved.
+ACT-0034,EXC-404,C-2026-PEACH,S-004,Ops Lead,Lisa Wong,site_visit,2026-07-12T16:47:18.849289-04:00,completed,resolved,2.5,Site Visit completed. late_photo_proof resolved.
+ACT-0035,EXC-414,C-2026-PEACH,S-087,Ops Lead,Maria Rodriguez,site_visit,2026-07-12T14:57:15.665147-07:00,completed,failed,4.2,Action attempted but failed. late_photo_proof not resolved by site_visit.
+ACT-0036,EXC-415,C-2026-PEACH,S-087,Ops Lead,Maria Rodriguez,site_visit,2026-07-12T15:51:35.258937-07:00,completed,resolved,3.1,Site Visit completed. late_photo_proof resolved.
+ACT-0037,EXC-416,C-2026-PEACH,S-087,Ops Lead,Maria Rodriguez,site_visit,2026-07-12T12:01:33.101867-07:00,completed,resolved,2.5,Site Visit completed. late_photo_proof resolved.
+ACT-0038,EXC-056,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,phone_call,2026-07-13T08:40:55.501513,completed,resolved,8.7,Phone Call completed. late_confirmation resolved.
+ACT-0039,EXC-063,C-2026-PEACH,S-090,Ops Lead,Emma Wilson,phone_call,2026-07-13T04:28:54.473175,completed,resolved,4.5,Phone Call completed. late_confirmation resolved.
+ACT-0040,EXC-408,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,site_visit,2026-07-13T19:26:22.476169-05:00,completed,resolved,7.7,Site Visit completed. late_photo_proof resolved.
+ACT-0041,EXC-409,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,site_visit,2026-07-13T14:41:33.932190-05:00,completed,resolved,5.2,Site Visit completed. late_photo_proof resolved.
+ACT-0042,EXC-410,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,site_visit,2026-07-13T19:08:25.208269-05:00,completed,reopened,4.6,"Initially resolved via site_visit, but exception reopened within 48h."
+ACT-0043,EXC-411,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,site_visit,2026-07-13T18:07:52.563151-05:00,completed,unresolved,4.6,Assignment error: action routed to wrong rep. late_photo_proof remains open.
+ACT-0044,EXC-421,C-2026-PEACH,S-090,Ops Lead,Emma Wilson,site_visit,2026-07-13T14:17:54.953552-05:00,completed,resolved,2.8,Site Visit completed. late_photo_proof resolved.
+ACT-0045,EXC-422,C-2026-PEACH,S-090,Ops Lead,Emma Wilson,site_visit,2026-07-13T23:31:30.137987-05:00,completed,resolved,5.8,Site Visit completed. late_photo_proof resolved.
+ACT-0046,EXC-045,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,phone_call,2026-07-14T02:28:55.030620,completed,resolved,2.5,Phone Call completed. late_confirmation resolved.
+ACT-0047,EXC-061,C-2026-PEACH,S-041,Ops Lead,Ahmed Hassan,phone_call,2026-07-14T02:00:59.367314,completed,resolved,2.0,Phone Call completed. late_confirmation resolved.
+ACT-0048,EXC-301,C-2026-PEACH,S-041,Ops Lead,Ahmed Hassan,site_visit,2026-07-14T02:43:09.768717,completed,resolved,2.7,Site Visit completed. missing_photo_proof resolved.
+ACT-0049,EXC-387,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,site_visit,2026-07-14T20:28:47.963525-04:00,completed,resolved,2.0,Site Visit completed. late_photo_proof resolved.
+ACT-0050,EXC-016,C-2026-BTS,S-090,Ops Lead,Emma Wilson,phone_call,2026-07-25T03:55:53.520313,completed,unresolved,3.9,Action completed but missing_confirmation remains unresolved.
+ACT-0051,EXC-019,C-2026-BTS,S-071,Ops Lead,Jennifer Kim,phone_call,2026-07-27T03:34:37.695887,completed,unresolved,3.6,Assignment error: action routed to wrong rep. missing_confirmation remains open.
+ACT-0052,EXC-024,C-2026-BTS,S-055,Ops Lead,Ahmed Hassan,phone_call,2026-07-26T05:42:58.121610,completed,unresolved,5.7,Action completed but missing_confirmation remains unresolved.
+ACT-0053,EXC-027,C-2026-BTS,S-043,Ops Lead,Marcus Lee,phone_call,2026-07-28T02:37:09.389436,completed,resolved,2.6,Phone Call completed. missing_confirmation resolved.
+ACT-0054,EXC-040,C-2026-FCL,S-045,Ops Lead,Lisa Wong,phone_call,2026-08-26T01:52:31.769335,completed,resolved,1.9,Phone Call completed. missing_confirmation resolved.
+ACT-0055,EXC-049,C-2026-PEACH,S-056,Ops Lead,Marcus Lee,phone_call,2026-07-15T04:07:05.261232,completed,resolved,4.1,Phone Call completed. late_confirmation resolved.
+ACT-0056,EXC-060,C-2026-PEACH,S-041,Ops Lead,Ahmed Hassan,phone_call,2026-07-15T02:15:31.480885,completed,unresolved,2.3,Action completed but late_confirmation remains unresolved.
+ACT-0057,EXC-066,C-2026-PEACH,S-096,Ops Lead,Robert Taylor,phone_call,2026-07-15T04:39:27.672329,completed,resolved,4.7,Phone Call completed. late_confirmation resolved.
+ACT-0058,EXC-070,C-2026-BTS,S-038,Ops Lead,Ahmed Hassan,phone_call,2026-08-14T04:32:56.247340,completed,unresolved,4.5,Action completed but late_confirmation remains unresolved.
+ACT-0059,EXC-071,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,phone_call,2026-08-12T03:24:59.930159,completed,reopened,3.4,"Initially resolved via phone_call, but exception reopened within 48h."
+ACT-0060,EXC-072,C-2026-BTS,S-039,Ops Lead,Emma Wilson,phone_call,2026-08-13T05:50:46.048374,completed,resolved,5.8,Phone Call completed. late_confirmation resolved.
+ACT-0061,EXC-073,C-2026-BTS,S-094,Ops Lead,Jennifer Kim,phone_call,2026-08-12T03:09:33.229151,completed,unresolved,3.2,Action completed but late_confirmation remains unresolved.
+ACT-0062,EXC-075,C-2026-BTS,S-091,Ops Lead,Ahmed Hassan,phone_call,2026-08-13T06:53:41.333497,completed,resolved,6.9,Phone Call completed. late_confirmation resolved.
+ACT-0063,EXC-078,C-2026-BTS,S-027,Ops Lead,Lisa Wong,phone_call,2026-08-14T13:12:28.307074,completed,unresolved,13.2,Action completed but late_confirmation remains unresolved.
+ACT-0064,EXC-079,C-2026-BTS,S-027,Ops Lead,Lisa Wong,phone_call,2026-08-12T10:03:15.510281,completed,unresolved,10.1,Action completed but late_confirmation remains unresolved.
+ACT-0065,EXC-082,C-2026-BTS,S-062,Ops Lead,Jennifer Kim,phone_call,2026-08-15T03:12:10.305551,completed,failed,3.2,Action attempted but failed. late_confirmation not resolved by phone_call.
+ACT-0066,EXC-085,C-2026-BTS,S-002,Ops Lead,Robert Taylor,phone_call,2026-08-13T01:44:10.503541,completed,resolved,1.7,Phone Call completed. late_confirmation resolved.
+ACT-0067,EXC-086,C-2026-BTS,S-014,Ops Lead,Marcus Lee,phone_call,2026-08-13T03:23:03.769060,completed,resolved,3.4,Phone Call completed. late_confirmation resolved.
+ACT-0068,EXC-087,C-2026-BTS,S-010,Ops Lead,Jennifer Kim,phone_call,2026-08-15T03:24:44.087840,completed,resolved,3.4,Phone Call completed. late_confirmation resolved.
+ACT-0069,EXC-091,C-2026-BTS,S-083,Ops Lead,Robert Taylor,phone_call,2026-08-12T02:03:37.279335,completed,unresolved,2.1,Action completed but late_confirmation remains unresolved.
+ACT-0070,EXC-092,C-2026-BTS,S-083,Ops Lead,Robert Taylor,phone_call,2026-08-14T10:03:20.976929,completed,unresolved,10.1,Assignment error: action routed to wrong rep. late_confirmation remains open.
+ACT-0071,EXC-093,C-2026-BTS,S-083,Ops Lead,Robert Taylor,phone_call,2026-08-14T03:33:08.319637,completed,resolved,3.6,Phone Call completed. late_confirmation resolved.
+ACT-0072,EXC-094,C-2026-FCL,S-025,Ops Lead,Robert Taylor,phone_call,2026-09-14T10:11:56.676295,completed,resolved,10.2,Phone Call completed. late_confirmation resolved.
+ACT-0073,EXC-097,C-2026-FCL,S-003,Ops Lead,Emma Wilson,phone_call,2026-09-14T03:45:04.488792,completed,unresolved,3.8,Action completed but late_confirmation remains unresolved.
+ACT-0074,EXC-099,C-2026-FCL,S-087,Ops Lead,Maria Rodriguez,phone_call,2026-09-15T03:10:08.923598,completed,resolved,3.2,Phone Call completed. late_confirmation resolved.
+ACT-0075,EXC-100,C-2026-FCL,S-086,Ops Lead,Sarah Chen,phone_call,2026-09-13T04:08:31.448134,completed,resolved,4.1,Phone Call completed. late_confirmation resolved.
+ACT-0076,EXC-1001,C-2026-PEACH,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T03:17:56.615801,completed,unresolved,3.3,Action completed but low_sell_through remains unresolved.
+ACT-0077,EXC-1003,C-2026-PEACH,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T04:58:57.469203,completed,resolved,5.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0078,EXC-1004,C-2026-PEACH,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T03:47:19.626404,completed,unresolved,3.8,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0079,EXC-1005,C-2026-PEACH,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T04:36:12.159361,completed,unresolved,4.6,Action completed but low_sell_through remains unresolved.
+ACT-0080,EXC-1006,C-2026-PEACH,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T02:55:47.390113,completed,unresolved,2.9,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0081,EXC-1008,C-2026-PEACH,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T02:58:44.660702,completed,resolved,3.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0082,EXC-1012,C-2026-PEACH,S-019,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T06:07:01.720353,completed,resolved,6.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0083,EXC-1016,C-2026-PEACH,S-056,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T05:48:43.543519,completed,resolved,5.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0084,EXC-1019,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T05:25:39.017020,completed,unresolved,5.4,Action completed but low_sell_through remains unresolved.
+ACT-0085,EXC-1022,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T08:41:41.251930,completed,unresolved,8.7,Action completed but low_sell_through remains unresolved.
+ACT-0086,EXC-1023,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T03:12:39.056807,completed,resolved,3.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0087,EXC-1024,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T04:42:13.795906,completed,resolved,4.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0088,EXC-1025,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T03:44:52.806336,completed,resolved,3.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0089,EXC-1027,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T05:27:53.806173,completed,resolved,5.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0090,EXC-1028,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T05:28:35.417842,completed,resolved,5.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0091,EXC-1030,C-2026-PEACH,S-029,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T04:55:02.288654,completed,resolved,4.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0092,EXC-1034,C-2026-PEACH,S-099,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T03:01:03.037051,completed,resolved,3.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0093,EXC-1035,C-2026-PEACH,S-099,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T01:56:20.957157,completed,unresolved,1.9,Action completed but low_sell_through remains unresolved.
+ACT-0094,EXC-1037,C-2026-PEACH,S-099,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T01:58:44.192023,completed,resolved,2.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0095,EXC-1038,C-2026-PEACH,S-099,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T01:26:40.164393,completed,reopened,1.4,"Initially resolved via sku_transfer, but exception reopened within 48h."
+ACT-0096,EXC-104,C-2026-FCL,S-100,Ops Lead,Ahmed Hassan,phone_call,2026-09-14T08:46:11.169510,completed,failed,8.8,Action attempted but failed. late_confirmation not resolved by phone_call.
+ACT-0097,EXC-1040,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T07:33:08.587813,completed,resolved,7.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0098,EXC-1042,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T05:52:51.580869,completed,unresolved,5.9,Action completed but low_sell_through remains unresolved.
+ACT-0099,EXC-1046,C-2026-PEACH,S-054,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T04:28:27.329994,completed,unresolved,4.5,Action completed but low_sell_through remains unresolved.
+ACT-0100,EXC-1048,C-2026-PEACH,S-054,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T04:01:30.951309,completed,resolved,4.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0101,EXC-105,C-2026-FCL,S-078,Ops Lead,Sarah Chen,phone_call,2026-09-12T07:17:23.910490,completed,failed,7.3,Action attempted but failed. late_confirmation not resolved by phone_call.
+ACT-0102,EXC-1055,C-2026-PEACH,S-051,Ops Lead,Ahmed Hassan,sku_transfer,2026-07-28T09:55:04.334704,completed,unresolved,9.9,Action completed but low_sell_through remains unresolved.
+ACT-0103,EXC-1057,C-2026-PEACH,S-051,Ops Lead,Ahmed Hassan,sku_transfer,2026-07-28T11:57:19.989556,completed,resolved,12.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0104,EXC-1060,C-2026-PEACH,S-065,Ops Lead,James Okoro,sku_transfer,2026-07-28T02:40:12.641584,completed,failed,2.7,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0105,EXC-1063,C-2026-PEACH,S-065,Ops Lead,James Okoro,sku_transfer,2026-07-28T04:44:43.382279,completed,resolved,4.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0106,EXC-1064,C-2026-PEACH,S-065,Ops Lead,James Okoro,sku_transfer,2026-07-28T10:13:13.221366,completed,unresolved,10.2,Action completed but low_sell_through remains unresolved.
+ACT-0107,EXC-1067,C-2026-PEACH,S-065,Ops Lead,James Okoro,sku_transfer,2026-07-28T05:47:47.850370,completed,unresolved,5.8,Action completed but low_sell_through remains unresolved.
+ACT-0108,EXC-107,C-2026-FCL,S-082,Ops Lead,Marcus Lee,phone_call,2026-09-13T08:22:11.089706,completed,unresolved,8.4,Assignment error: action routed to wrong rep. late_confirmation remains open.
+ACT-0109,EXC-1073,C-2026-PEACH,S-048,Ops Lead,David Park,sku_transfer,2026-07-28T03:51:19.634872,completed,resolved,3.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0110,EXC-1079,C-2026-PEACH,S-031,Ops Lead,David Park,sku_transfer,2026-07-28T03:28:24.863043,completed,unresolved,3.5,Action completed but low_sell_through remains unresolved.
+ACT-0111,EXC-108,C-2026-FCL,S-082,Ops Lead,Marcus Lee,phone_call,2026-09-13T03:46:38.483565,completed,resolved,3.8,Phone Call completed. late_confirmation resolved.
+ACT-0112,EXC-1083,C-2026-PEACH,S-050,Ops Lead,Sarah Chen,sku_transfer,2026-07-28T07:25:39.352656,completed,unresolved,7.4,Action completed but low_sell_through remains unresolved.
+ACT-0113,EXC-1088,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T08:32:13.241937,completed,resolved,8.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0114,EXC-1090,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T04:40:34.956137,completed,resolved,4.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0115,EXC-1093,C-2026-PEACH,S-087,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T06:47:50.091425,completed,resolved,6.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0116,EXC-1094,C-2026-PEACH,S-087,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T08:38:41.960800,completed,unresolved,8.6,Action completed but low_sell_through remains unresolved.
+ACT-0117,EXC-1095,C-2026-PEACH,S-087,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T11:12:30.434746,completed,reopened,11.2,"Initially resolved via sku_transfer, but exception reopened within 48h."
+ACT-0118,EXC-1097,C-2026-PEACH,S-087,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T09:37:16.174019,completed,resolved,9.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0119,EXC-1104,C-2026-PEACH,S-013,Ops Lead,Sarah Chen,sku_transfer,2026-07-28T06:47:25.360664,completed,unresolved,6.8,Action completed but low_sell_through remains unresolved.
+ACT-0120,EXC-1105,C-2026-PEACH,S-013,Ops Lead,Sarah Chen,sku_transfer,2026-07-28T01:39:36.639559,completed,unresolved,1.7,Action completed but low_sell_through remains unresolved.
+ACT-0121,EXC-1106,C-2026-PEACH,S-013,Ops Lead,Sarah Chen,sku_transfer,2026-07-28T09:01:49.617849,completed,resolved,9.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0122,EXC-1107,C-2026-PEACH,S-043,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T02:00:22.329003,completed,resolved,2.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0123,EXC-1113,C-2026-PEACH,S-090,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T01:25:21.806232,completed,resolved,1.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0124,EXC-1115,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T03:49:32.421999,completed,resolved,3.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0125,EXC-1116,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T03:05:37.243341,completed,resolved,3.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0126,EXC-1117,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T02:21:19.245278,completed,failed,2.4,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0127,EXC-1118,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T03:04:06.342718,completed,resolved,3.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0128,EXC-1119,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T02:41:27.067906,completed,resolved,2.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0129,EXC-112,C-2026-FCL,S-090,Ops Lead,Emma Wilson,phone_call,2026-09-15T02:49:08.901293,completed,resolved,2.8,Phone Call completed. late_confirmation resolved.
+ACT-0130,EXC-1120,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T04:27:06.092287,completed,resolved,4.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0131,EXC-1121,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T03:29:09.770242,completed,resolved,3.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0132,EXC-1122,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T01:15:55.191740,completed,unresolved,1.3,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0133,EXC-1123,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T06:07:21.548772,completed,resolved,6.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0134,EXC-1124,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T02:26:26.885130,completed,resolved,2.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0135,EXC-1125,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T03:38:35.249607,completed,resolved,3.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0136,EXC-1127,C-2026-PEACH,S-096,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T03:54:19.984274,completed,resolved,3.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0137,EXC-1131,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T02:35:02.108983,completed,resolved,2.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0138,EXC-1132,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T03:59:36.288916,completed,resolved,4.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0139,EXC-1133,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T01:32:10.838417,completed,resolved,1.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0140,EXC-1134,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T06:24:14.719421,completed,resolved,6.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0141,EXC-1135,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T02:38:35.635817,completed,resolved,2.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0142,EXC-1136,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T03:02:44.289766,completed,resolved,3.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0143,EXC-1139,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T04:30:14.248601,completed,resolved,4.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0144,EXC-114,C-2026-FCL,S-047,Ops Lead,Lisa Wong,phone_call,2026-09-14T04:35:10.836256,completed,resolved,4.6,Phone Call completed. late_confirmation resolved.
+ACT-0145,EXC-1140,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T03:00:58.516522,completed,resolved,3.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0146,EXC-1141,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T02:25:25.107987,completed,resolved,2.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0147,EXC-1142,C-2026-PEACH,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T16:05:23.137626,completed,resolved,16.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0148,EXC-1143,C-2026-PEACH,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T01:47:14.829864,completed,unresolved,1.8,Action completed but low_sell_through remains unresolved.
+ACT-0149,EXC-1144,C-2026-PEACH,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T06:04:29.090838,completed,resolved,6.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0150,EXC-1145,C-2026-PEACH,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T02:16:25.585809,completed,unresolved,2.3,Action completed but low_sell_through remains unresolved.
+ACT-0151,EXC-1146,C-2026-PEACH,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T04:21:15.403829,completed,failed,4.4,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0152,EXC-1147,C-2026-PEACH,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T04:10:58.237237,completed,unresolved,4.2,Action completed but low_sell_through remains unresolved.
+ACT-0153,EXC-1148,C-2026-PEACH,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T04:44:07.942767,completed,resolved,4.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0154,EXC-1149,C-2026-PEACH,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T03:15:19.917250,completed,resolved,3.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0155,EXC-1150,C-2026-PEACH,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T07:17:34.441315,completed,resolved,7.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0156,EXC-1151,C-2026-PEACH,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T03:15:42.215614,completed,resolved,3.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0157,EXC-1152,C-2026-PEACH,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T06:03:20.458402,completed,resolved,6.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0158,EXC-1154,C-2026-PEACH,S-046,Ops Lead,David Park,sku_transfer,2026-07-28T01:19:26.730080,completed,resolved,1.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0159,EXC-1156,C-2026-PEACH,S-078,Ops Lead,Sarah Chen,sku_transfer,2026-07-28T05:29:19.198695,completed,resolved,5.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0160,EXC-1158,C-2026-PEACH,S-078,Ops Lead,Sarah Chen,sku_transfer,2026-07-28T12:26:56.422033,completed,resolved,12.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0161,EXC-1165,C-2026-BTS,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T05:04:56.652497,completed,resolved,5.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0162,EXC-1166,C-2026-BTS,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T04:43:34.386642,completed,unresolved,4.7,Action completed but low_sell_through remains unresolved.
+ACT-0163,EXC-1167,C-2026-BTS,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T03:13:49.258830,completed,resolved,3.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0164,EXC-1169,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T03:02:03.378620,completed,resolved,3.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0165,EXC-117,C-2026-FCL,S-055,Ops Lead,Ahmed Hassan,phone_call,2026-09-15T04:21:22.184273,completed,unresolved,4.4,Action completed but late_confirmation remains unresolved.
+ACT-0166,EXC-1170,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T06:04:27.705325,completed,resolved,6.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0167,EXC-1171,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T04:13:29.581694,completed,resolved,4.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0168,EXC-1172,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T05:44:59.540843,completed,resolved,5.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0169,EXC-1173,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T02:26:19.555645,completed,resolved,2.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0170,EXC-1174,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T03:45:22.226602,completed,resolved,3.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0171,EXC-1175,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T03:41:46.122362,completed,failed,3.7,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0172,EXC-1176,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T03:13:52.322802,completed,resolved,3.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0173,EXC-1177,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T02:05:55.288312,completed,resolved,2.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0174,EXC-1186,C-2026-BTS,S-078,Ops Lead,Sarah Chen,sku_transfer,2026-08-28T02:05:35.979527,completed,resolved,2.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0175,EXC-119,C-2026-FCL,S-048,Ops Lead,David Park,phone_call,2026-09-14T03:33:49.676211,completed,resolved,3.6,Phone Call completed. late_confirmation resolved.
+ACT-0176,EXC-1191,C-2026-BTS,S-066,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T05:39:55.848780,completed,resolved,5.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0177,EXC-1194,C-2026-BTS,S-039,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T14:28:58.732998,completed,resolved,14.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0178,EXC-1195,C-2026-BTS,S-039,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T04:07:12.747771,completed,resolved,4.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0179,EXC-1196,C-2026-BTS,S-039,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T02:48:02.541010,completed,resolved,2.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0180,EXC-1197,C-2026-BTS,S-039,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T04:13:07.053484,completed,resolved,4.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0181,EXC-1199,C-2026-BTS,S-039,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T01:58:44.021328,completed,resolved,2.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0182,EXC-120,C-2026-FCL,S-091,Ops Lead,Ahmed Hassan,phone_call,2026-09-15T02:42:40.268036,completed,resolved,2.7,Phone Call completed. late_confirmation resolved.
+ACT-0183,EXC-1205,C-2026-BTS,S-094,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T05:44:17.206439,completed,unresolved,5.7,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0184,EXC-1208,C-2026-BTS,S-041,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T02:16:28.267369,completed,resolved,2.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0185,EXC-121,C-2026-FCL,S-088,Ops Lead,Lisa Wong,phone_call,2026-09-12T03:21:24.062585,completed,unresolved,3.4,Action completed but late_confirmation remains unresolved.
+ACT-0186,EXC-1212,C-2026-BTS,S-028,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T03:34:00.704711,completed,resolved,3.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0187,EXC-1215,C-2026-BTS,S-027,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T05:22:51.033575,completed,unresolved,5.4,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0188,EXC-1216,C-2026-BTS,S-027,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T03:25:35.175614,completed,resolved,3.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0189,EXC-1217,C-2026-BTS,S-027,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T01:44:08.482414,completed,resolved,1.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0190,EXC-1219,C-2026-BTS,S-027,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T09:39:58.409222,completed,resolved,9.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0191,EXC-1220,C-2026-BTS,S-027,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T07:27:38.318180,completed,unresolved,7.5,Action completed but low_sell_through remains unresolved.
+ACT-0192,EXC-1222,C-2026-BTS,S-027,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T01:21:06.083300,completed,unresolved,1.4,Action completed but low_sell_through remains unresolved.
+ACT-0193,EXC-1228,C-2026-BTS,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T06:30:09.444491,completed,resolved,6.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0194,EXC-1229,C-2026-BTS,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T03:56:18.816872,completed,resolved,3.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0195,EXC-1230,C-2026-BTS,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T02:06:01.008016,completed,failed,2.1,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0196,EXC-1231,C-2026-BTS,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T04:12:24.492246,completed,resolved,4.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0197,EXC-1232,C-2026-BTS,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T10:54:12.503648,completed,resolved,10.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0198,EXC-1233,C-2026-BTS,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T05:43:35.103700,completed,resolved,5.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0199,EXC-1234,C-2026-BTS,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T02:25:17.646117,completed,resolved,2.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0200,EXC-1235,C-2026-BTS,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T05:09:45.401396,completed,unresolved,5.2,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0201,EXC-1236,C-2026-BTS,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T05:10:53.946211,completed,resolved,5.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0202,EXC-1237,C-2026-BTS,S-045,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T02:46:57.727765,completed,resolved,2.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0203,EXC-1239,C-2026-BTS,S-045,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T02:29:17.836736,completed,resolved,2.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0204,EXC-1241,C-2026-BTS,S-017,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T14:55:00.334954,completed,unresolved,14.9,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0205,EXC-1245,C-2026-BTS,S-065,Ops Lead,James Okoro,sku_transfer,2026-08-28T05:25:11.648355,completed,resolved,5.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0206,EXC-1246,C-2026-BTS,S-065,Ops Lead,James Okoro,sku_transfer,2026-08-28T01:52:17.158275,completed,resolved,1.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0207,EXC-1247,C-2026-BTS,S-065,Ops Lead,James Okoro,sku_transfer,2026-08-28T10:44:17.541674,completed,unresolved,10.7,Action completed but low_sell_through remains unresolved.
+ACT-0208,EXC-1250,C-2026-BTS,S-065,Ops Lead,James Okoro,sku_transfer,2026-08-28T03:54:23.684117,completed,resolved,3.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0209,EXC-1252,C-2026-BTS,S-065,Ops Lead,James Okoro,sku_transfer,2026-08-28T02:46:50.751032,completed,unresolved,2.8,Action completed but low_sell_through remains unresolved.
+ACT-0210,EXC-1253,C-2026-BTS,S-070,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T03:32:03.731716,completed,resolved,3.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0211,EXC-1254,C-2026-BTS,S-070,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T06:01:02.387581,completed,unresolved,6.0,Action completed but low_sell_through remains unresolved.
+ACT-0212,EXC-1255,C-2026-BTS,S-070,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T05:27:00.190949,completed,resolved,5.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0213,EXC-1256,C-2026-BTS,S-070,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T04:57:30.603482,completed,unresolved,5.0,Action completed but low_sell_through remains unresolved.
+ACT-0214,EXC-1257,C-2026-BTS,S-070,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T04:26:15.751640,completed,unresolved,4.4,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0215,EXC-1258,C-2026-BTS,S-070,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T02:19:47.142986,completed,unresolved,2.3,Action completed but low_sell_through remains unresolved.
+ACT-0216,EXC-1259,C-2026-BTS,S-070,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T06:46:21.012015,completed,unresolved,6.8,Action completed but low_sell_through remains unresolved.
+ACT-0217,EXC-126,C-2026-FCL,S-052,Ops Lead,Maria Rodriguez,phone_call,2026-09-13T06:23:40.154379,completed,unresolved,6.4,Assignment error: action routed to wrong rep. late_confirmation remains open.
+ACT-0218,EXC-1260,C-2026-BTS,S-070,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T03:05:25.122536,completed,resolved,3.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0219,EXC-1261,C-2026-BTS,S-070,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T02:22:30.465872,completed,failed,2.4,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0220,EXC-1263,C-2026-BTS,S-042,Ops Lead,James Okoro,sku_transfer,2026-08-28T07:34:41.030882,completed,unresolved,7.6,Action completed but low_sell_through remains unresolved.
+ACT-0221,EXC-1268,C-2026-BTS,S-046,Ops Lead,David Park,sku_transfer,2026-08-28T06:42:02.631743,completed,reopened,6.7,"Initially resolved via sku_transfer, but exception reopened within 48h."
+ACT-0222,EXC-127,C-2026-FCL,S-061,Ops Lead,Jennifer Kim,phone_call,2026-09-12T01:54:11.365806,completed,failed,1.9,Action attempted but failed. late_confirmation not resolved by phone_call.
+ACT-0223,EXC-1271,C-2026-BTS,S-072,Ops Lead,David Park,sku_transfer,2026-08-28T04:10:04.800770,completed,unresolved,4.2,Action completed but low_sell_through remains unresolved.
+ACT-0224,EXC-1272,C-2026-BTS,S-072,Ops Lead,David Park,sku_transfer,2026-08-28T06:48:51.754837,completed,resolved,6.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0225,EXC-1273,C-2026-BTS,S-072,Ops Lead,David Park,sku_transfer,2026-08-28T06:20:08.698165,completed,resolved,6.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0226,EXC-1274,C-2026-BTS,S-072,Ops Lead,David Park,sku_transfer,2026-08-28T04:40:46.774065,completed,resolved,4.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0227,EXC-1275,C-2026-BTS,S-072,Ops Lead,David Park,sku_transfer,2026-08-28T02:25:07.374062,completed,failed,2.4,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0228,EXC-1276,C-2026-BTS,S-072,Ops Lead,David Park,sku_transfer,2026-08-28T02:21:54.513923,completed,unresolved,2.4,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0229,EXC-1277,C-2026-BTS,S-072,Ops Lead,David Park,sku_transfer,2026-08-28T03:55:52.421821,completed,resolved,3.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0230,EXC-1278,C-2026-BTS,S-072,Ops Lead,David Park,sku_transfer,2026-08-28T04:29:49.057853,completed,resolved,4.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0231,EXC-1279,C-2026-BTS,S-072,Ops Lead,David Park,sku_transfer,2026-08-28T03:54:08.229193,completed,unresolved,3.9,Action completed but low_sell_through remains unresolved.
+ACT-0232,EXC-1280,C-2026-BTS,S-062,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T05:36:18.909053,completed,resolved,5.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0233,EXC-1282,C-2026-BTS,S-062,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T01:49:28.253961,completed,resolved,1.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0234,EXC-1283,C-2026-BTS,S-062,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T04:09:02.502793,completed,failed,4.2,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0235,EXC-1284,C-2026-BTS,S-062,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T03:19:07.577909,completed,resolved,3.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0236,EXC-1285,C-2026-BTS,S-062,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T02:13:28.016505,completed,resolved,2.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0237,EXC-1286,C-2026-BTS,S-062,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T02:37:40.953467,completed,resolved,2.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0238,EXC-1287,C-2026-BTS,S-062,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T04:20:36.018331,completed,unresolved,4.3,Action completed but low_sell_through remains unresolved.
+ACT-0239,EXC-1288,C-2026-BTS,S-062,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T05:33:35.367288,completed,resolved,5.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0240,EXC-1293,C-2026-BTS,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T10:55:43.488157,completed,resolved,10.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0241,EXC-1294,C-2026-BTS,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T03:05:16.411802,completed,resolved,3.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0242,EXC-1295,C-2026-BTS,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T04:28:24.877596,completed,resolved,4.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0243,EXC-1296,C-2026-BTS,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T05:21:22.391062,completed,unresolved,5.4,Action completed but low_sell_through remains unresolved.
+ACT-0244,EXC-1298,C-2026-BTS,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T03:20:32.149125,completed,unresolved,3.3,Action completed but low_sell_through remains unresolved.
+ACT-0245,EXC-1299,C-2026-BTS,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T06:49:06.408527,completed,resolved,6.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0246,EXC-1300,C-2026-BTS,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T07:10:38.768053,completed,failed,7.2,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0247,EXC-1301,C-2026-BTS,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T03:40:45.649600,completed,resolved,3.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0248,EXC-1302,C-2026-BTS,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T04:18:16.048405,completed,resolved,4.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0249,EXC-1303,C-2026-BTS,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T04:24:03.791824,completed,resolved,4.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0250,EXC-1304,C-2026-BTS,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T04:05:38.254797,completed,unresolved,4.1,Action completed but low_sell_through remains unresolved.
+ACT-0251,EXC-1305,C-2026-BTS,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T05:14:04.844666,completed,unresolved,5.2,Action completed but low_sell_through remains unresolved.
+ACT-0252,EXC-1306,C-2026-BTS,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T04:05:49.441707,completed,resolved,4.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0253,EXC-1308,C-2026-BTS,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T06:50:31.942629,completed,resolved,6.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0254,EXC-1310,C-2026-BTS,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T02:23:39.012827,completed,unresolved,2.4,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0255,EXC-1311,C-2026-BTS,S-055,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T04:48:21.260151,completed,unresolved,4.8,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0256,EXC-1312,C-2026-BTS,S-055,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T03:04:30.960544,completed,unresolved,3.1,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0257,EXC-1313,C-2026-BTS,S-002,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T03:44:46.767278,completed,resolved,3.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0258,EXC-1319,C-2026-BTS,S-014,Ops Lead,Marcus Lee,sku_transfer,2026-08-28T01:26:44.939540,completed,resolved,1.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0259,EXC-1324,C-2026-BTS,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-08-28T05:31:56.456981,completed,resolved,5.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0260,EXC-1325,C-2026-BTS,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-08-28T06:33:11.409846,completed,resolved,6.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0261,EXC-1327,C-2026-BTS,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-08-28T03:46:38.140513,completed,resolved,3.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0262,EXC-1328,C-2026-BTS,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-08-28T05:29:23.997169,completed,resolved,5.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0263,EXC-1329,C-2026-BTS,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-08-28T04:09:04.320283,completed,resolved,4.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0264,EXC-1330,C-2026-BTS,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-08-28T03:33:59.507043,completed,unresolved,3.6,Action completed but low_sell_through remains unresolved.
+ACT-0265,EXC-1331,C-2026-BTS,S-049,Ops Lead,Marcus Lee,sku_transfer,2026-08-28T05:19:06.345209,completed,reopened,5.3,"Initially resolved via sku_transfer, but exception reopened within 48h."
+ACT-0266,EXC-1332,C-2026-BTS,S-010,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T05:00:12.797664,completed,unresolved,5.0,Action completed but low_sell_through remains unresolved.
+ACT-0267,EXC-1333,C-2026-BTS,S-010,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T02:23:20.922416,completed,resolved,2.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0268,EXC-1334,C-2026-BTS,S-010,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T03:54:06.102452,completed,failed,3.9,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0269,EXC-1336,C-2026-BTS,S-010,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T01:48:18.204337,completed,reopened,1.8,"Initially resolved via sku_transfer, but exception reopened within 48h."
+ACT-0270,EXC-1337,C-2026-BTS,S-010,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T05:18:17.906808,completed,resolved,5.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0271,EXC-1338,C-2026-BTS,S-010,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T06:40:22.453796,completed,resolved,6.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0272,EXC-1339,C-2026-BTS,S-010,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T02:18:54.585072,completed,unresolved,2.3,Action completed but low_sell_through remains unresolved.
+ACT-0273,EXC-1340,C-2026-BTS,S-010,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T03:59:34.085065,completed,reopened,4.0,"Initially resolved via sku_transfer, but exception reopened within 48h."
+ACT-0274,EXC-1343,C-2026-BTS,S-043,Ops Lead,Marcus Lee,sku_transfer,2026-08-28T02:14:29.131551,completed,resolved,2.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0275,EXC-1347,C-2026-BTS,S-013,Ops Lead,Sarah Chen,sku_transfer,2026-08-28T02:25:26.969747,completed,unresolved,2.4,Action completed but low_sell_through remains unresolved.
+ACT-0276,EXC-1353,C-2026-BTS,S-064,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T03:28:31.873333,completed,resolved,3.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0277,EXC-1354,C-2026-BTS,S-064,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T09:53:51.079215,completed,unresolved,9.9,Action completed but low_sell_through remains unresolved.
+ACT-0278,EXC-1355,C-2026-BTS,S-064,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T04:47:02.059152,completed,resolved,4.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0279,EXC-1356,C-2026-BTS,S-064,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T07:43:44.731274,completed,resolved,7.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0280,EXC-1357,C-2026-BTS,S-064,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T04:24:55.372179,completed,failed,4.4,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0281,EXC-1358,C-2026-BTS,S-064,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T02:53:17.019773,completed,unresolved,2.9,Action completed but low_sell_through remains unresolved.
+ACT-0282,EXC-1359,C-2026-BTS,S-064,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T03:08:25.454287,completed,unresolved,3.1,Action completed but low_sell_through remains unresolved.
+ACT-0283,EXC-1360,C-2026-BTS,S-064,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T03:57:05.710278,completed,resolved,4.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0284,EXC-1363,C-2026-BTS,S-051,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T11:40:29.148349,completed,resolved,11.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0285,EXC-1364,C-2026-BTS,S-011,Ops Lead,James Okoro,sku_transfer,2026-08-28T03:31:01.171372,completed,resolved,3.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0286,EXC-1366,C-2026-BTS,S-011,Ops Lead,James Okoro,sku_transfer,2026-08-28T01:44:12.217305,completed,unresolved,1.7,Action completed but low_sell_through remains unresolved.
+ACT-0287,EXC-1369,C-2026-BTS,S-011,Ops Lead,James Okoro,sku_transfer,2026-08-28T01:49:55.085668,completed,unresolved,1.8,Action completed but low_sell_through remains unresolved.
+ACT-0288,EXC-1370,C-2026-BTS,S-011,Ops Lead,James Okoro,sku_transfer,2026-08-28T10:52:57.271025,completed,resolved,10.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0289,EXC-1386,C-2026-FCL,S-075,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T08:22:09.307871,completed,resolved,8.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0290,EXC-1387,C-2026-FCL,S-075,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T07:58:30.815075,completed,unresolved,8.0,Action completed but low_sell_through remains unresolved.
+ACT-0291,EXC-1388,C-2026-FCL,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T04:42:10.695401,completed,unresolved,4.7,Action completed but low_sell_through remains unresolved.
+ACT-0292,EXC-1390,C-2026-FCL,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T03:27:27.044648,completed,resolved,3.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0293,EXC-1391,C-2026-FCL,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T03:20:13.220310,completed,resolved,3.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0294,EXC-1392,C-2026-FCL,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T02:17:06.768258,completed,unresolved,2.3,Action completed but low_sell_through remains unresolved.
+ACT-0295,EXC-1393,C-2026-FCL,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T01:50:14.597051,completed,resolved,1.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0296,EXC-1394,C-2026-FCL,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T03:29:26.445691,completed,resolved,3.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0297,EXC-1395,C-2026-FCL,S-068,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T02:37:49.105637,completed,failed,2.6,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0298,EXC-1396,C-2026-FCL,S-029,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T05:11:21.998569,completed,resolved,5.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0299,EXC-1398,C-2026-FCL,S-029,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T04:47:42.836604,completed,resolved,4.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0300,EXC-1402,C-2026-FCL,S-036,Ops Lead,David Park,sku_transfer,2026-09-28T07:39:26.395004,completed,unresolved,7.7,Action completed but low_sell_through remains unresolved.
+ACT-0301,EXC-1404,C-2026-FCL,S-036,Ops Lead,David Park,sku_transfer,2026-09-28T05:46:10.801889,completed,resolved,5.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0302,EXC-1405,C-2026-FCL,S-026,Ops Lead,David Park,sku_transfer,2026-09-28T03:50:30.411737,completed,resolved,3.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0303,EXC-1408,C-2026-FCL,S-026,Ops Lead,David Park,sku_transfer,2026-09-28T06:19:28.819722,completed,resolved,6.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0304,EXC-1410,C-2026-FCL,S-003,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T04:45:23.853697,completed,failed,4.8,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0305,EXC-1412,C-2026-FCL,S-003,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T06:57:41.169464,completed,unresolved,7.0,Action completed but low_sell_through remains unresolved.
+ACT-0306,EXC-1415,C-2026-FCL,S-011,Ops Lead,James Okoro,sku_transfer,2026-09-28T02:22:41.498584,completed,resolved,2.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0307,EXC-1417,C-2026-FCL,S-011,Ops Lead,James Okoro,sku_transfer,2026-09-28T05:15:31.669896,completed,resolved,5.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0308,EXC-1418,C-2026-FCL,S-011,Ops Lead,James Okoro,sku_transfer,2026-09-28T02:31:43.403039,completed,reopened,2.5,"Initially resolved via sku_transfer, but exception reopened within 48h."
+ACT-0309,EXC-1419,C-2026-FCL,S-011,Ops Lead,James Okoro,sku_transfer,2026-09-28T04:24:55.105023,completed,resolved,4.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0310,EXC-1420,C-2026-FCL,S-011,Ops Lead,James Okoro,sku_transfer,2026-09-28T05:00:26.491466,completed,resolved,5.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0311,EXC-1421,C-2026-FCL,S-011,Ops Lead,James Okoro,sku_transfer,2026-09-28T06:36:42.711273,completed,resolved,6.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0312,EXC-1424,C-2026-FCL,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T03:31:32.841649,completed,resolved,3.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0313,EXC-1426,C-2026-FCL,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T05:44:15.081022,completed,resolved,5.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0314,EXC-1428,C-2026-FCL,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T05:29:45.051399,completed,unresolved,5.5,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0315,EXC-1429,C-2026-FCL,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T02:18:43.565121,completed,resolved,2.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0316,EXC-1430,C-2026-FCL,S-069,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T01:56:49.054164,completed,resolved,1.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0317,EXC-1431,C-2026-FCL,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-09-28T09:05:28.157292,completed,resolved,9.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0318,EXC-1433,C-2026-FCL,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-09-28T06:37:38.409416,completed,resolved,6.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0319,EXC-1434,C-2026-FCL,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-09-28T01:59:48.208486,completed,resolved,2.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0320,EXC-1435,C-2026-FCL,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-09-28T01:45:25.118902,completed,unresolved,1.8,Action completed but low_sell_through remains unresolved.
+ACT-0321,EXC-1437,C-2026-FCL,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-09-28T03:31:30.902048,completed,failed,3.5,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0322,EXC-1439,C-2026-FCL,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-09-28T04:51:58.727848,completed,resolved,4.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0323,EXC-1442,C-2026-FCL,S-087,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T02:35:17.943021,completed,resolved,2.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0324,EXC-1443,C-2026-FCL,S-086,Ops Lead,Sarah Chen,sku_transfer,2026-09-28T02:26:42.995127,completed,resolved,2.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0325,EXC-1448,C-2026-FCL,S-086,Ops Lead,Sarah Chen,sku_transfer,2026-09-28T03:44:25.005772,completed,resolved,3.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0326,EXC-1449,C-2026-FCL,S-086,Ops Lead,Sarah Chen,sku_transfer,2026-09-28T03:41:38.034835,completed,resolved,3.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0327,EXC-1450,C-2026-FCL,S-086,Ops Lead,Sarah Chen,sku_transfer,2026-09-28T08:02:40.578933,completed,failed,8.0,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0328,EXC-1455,C-2026-FCL,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T03:51:08.999854,completed,resolved,3.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0329,EXC-1456,C-2026-FCL,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T03:28:14.109599,completed,resolved,3.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0330,EXC-1457,C-2026-FCL,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T04:53:18.687312,completed,resolved,4.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0331,EXC-1459,C-2026-FCL,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T05:58:33.464946,completed,resolved,6.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0332,EXC-1460,C-2026-FCL,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T03:01:20.847470,completed,resolved,3.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0333,EXC-1465,C-2026-FCL,S-066,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T03:21:03.379620,completed,failed,3.4,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0334,EXC-1473,C-2026-FCL,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T05:01:05.375013,completed,resolved,5.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0335,EXC-1474,C-2026-FCL,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T08:17:53.595849,completed,resolved,8.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0336,EXC-1475,C-2026-FCL,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T01:43:20.145362,completed,resolved,1.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0337,EXC-1476,C-2026-FCL,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T04:39:12.891682,completed,resolved,4.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0338,EXC-1477,C-2026-FCL,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T03:03:44.874430,completed,resolved,3.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0339,EXC-1478,C-2026-FCL,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T02:58:59.689379,completed,failed,3.0,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0340,EXC-1480,C-2026-FCL,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T03:37:25.726302,completed,resolved,3.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0341,EXC-1481,C-2026-FCL,S-100,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T05:02:27.655418,completed,resolved,5.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0342,EXC-1484,C-2026-FCL,S-041,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T11:31:59.208742,completed,resolved,11.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0343,EXC-1486,C-2026-FCL,S-041,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T04:11:51.334116,completed,resolved,4.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0344,EXC-1491,C-2026-FCL,S-082,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T02:50:44.946561,completed,resolved,2.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0345,EXC-1492,C-2026-FCL,S-082,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T07:42:57.683427,completed,resolved,7.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0346,EXC-1493,C-2026-FCL,S-082,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T02:10:45.628218,completed,unresolved,2.2,Action completed but low_sell_through remains unresolved.
+ACT-0347,EXC-1494,C-2026-FCL,S-082,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T07:20:10.906678,completed,resolved,7.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0348,EXC-1495,C-2026-FCL,S-082,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T04:17:37.381611,completed,unresolved,4.3,Action completed but low_sell_through remains unresolved.
+ACT-0349,EXC-1496,C-2026-FCL,S-082,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T02:20:31.131934,completed,unresolved,2.3,Action completed but low_sell_through remains unresolved.
+ACT-0350,EXC-1497,C-2026-FCL,S-082,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T02:33:49.041119,completed,resolved,2.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0351,EXC-1503,C-2026-FCL,S-008,Ops Lead,Jennifer Kim,sku_transfer,2026-09-28T04:51:28.045074,completed,unresolved,4.9,Action completed but low_sell_through remains unresolved.
+ACT-0352,EXC-1506,C-2026-FCL,S-047,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T13:54:45.320707,completed,unresolved,13.9,Action completed but low_sell_through remains unresolved.
+ACT-0353,EXC-1507,C-2026-FCL,S-019,Ops Lead,Robert Taylor,sku_transfer,2026-09-28T04:10:01.390336,completed,unresolved,4.2,Action completed but low_sell_through remains unresolved.
+ACT-0354,EXC-1511,C-2026-FCL,S-019,Ops Lead,Robert Taylor,sku_transfer,2026-09-28T03:48:25.310425,completed,resolved,3.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0355,EXC-1518,C-2026-FCL,S-048,Ops Lead,David Park,sku_transfer,2026-09-28T02:12:30.794035,completed,unresolved,2.2,Action completed but low_sell_through remains unresolved.
+ACT-0356,EXC-1525,C-2026-FCL,S-074,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T03:21:09.965517,completed,resolved,3.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0357,EXC-1526,C-2026-FCL,S-074,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T03:57:00.928637,completed,resolved,4.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0358,EXC-1527,C-2026-FCL,S-074,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T06:01:13.956017,completed,resolved,6.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0359,EXC-1528,C-2026-FCL,S-074,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T04:06:53.710973,completed,resolved,4.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0360,EXC-1529,C-2026-FCL,S-074,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T05:12:46.522864,completed,resolved,5.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0361,EXC-1530,C-2026-FCL,S-074,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T08:35:57.138624,completed,failed,8.6,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0362,EXC-1531,C-2026-FCL,S-074,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T07:21:25.810385,completed,resolved,7.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0363,EXC-1532,C-2026-FCL,S-074,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T04:18:31.193664,completed,resolved,4.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0364,EXC-1535,C-2026-FCL,S-002,Ops Lead,Robert Taylor,sku_transfer,2026-09-28T03:22:46.487199,completed,resolved,3.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0365,EXC-1537,C-2026-FCL,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-09-28T04:20:03.811278,completed,resolved,4.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0366,EXC-1538,C-2026-FCL,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-09-28T04:00:21.948054,completed,resolved,4.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0367,EXC-1540,C-2026-FCL,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-09-28T02:01:10.236757,completed,unresolved,2.0,Action completed but low_sell_through remains unresolved.
+ACT-0368,EXC-1543,C-2026-FCL,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-09-28T03:34:29.311268,completed,resolved,3.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0369,EXC-1544,C-2026-FCL,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-09-28T03:17:19.552148,completed,resolved,3.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0370,EXC-1547,C-2026-FCL,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T03:58:11.023919,completed,failed,4.0,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0371,EXC-1548,C-2026-FCL,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T02:25:59.817663,completed,unresolved,2.4,Action completed but low_sell_through remains unresolved.
+ACT-0372,EXC-1549,C-2026-FCL,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T03:56:18.953369,completed,resolved,3.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0373,EXC-1550,C-2026-FCL,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T03:40:07.108094,completed,resolved,3.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0374,EXC-1551,C-2026-FCL,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T09:24:48.727828,completed,unresolved,9.4,Action completed but low_sell_through remains unresolved.
+ACT-0375,EXC-1552,C-2026-FCL,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T07:04:52.682083,completed,unresolved,7.1,Action completed but low_sell_through remains unresolved.
+ACT-0376,EXC-1554,C-2026-FCL,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T02:17:02.029068,completed,unresolved,2.3,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0377,EXC-1555,C-2026-FCL,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T03:49:37.776246,completed,unresolved,3.8,Action completed but low_sell_through remains unresolved.
+ACT-0378,EXC-1557,C-2026-FCL,S-040,Ops Lead,David Park,sku_transfer,2026-09-28T06:20:26.063250,completed,resolved,6.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0379,EXC-1561,C-2026-FCL,S-088,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T05:02:03.587706,completed,resolved,5.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0380,EXC-1565,C-2026-FCL,S-081,Ops Lead,Jennifer Kim,sku_transfer,2026-09-28T02:51:01.207488,completed,failed,2.9,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0381,EXC-1567,C-2026-FCL,S-057,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T02:02:22.394839,completed,resolved,2.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0382,EXC-1571,C-2026-FCL,S-097,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T02:27:38.887455,completed,resolved,2.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0383,EXC-1573,C-2026-FCL,S-072,Ops Lead,David Park,sku_transfer,2026-09-28T06:34:54.715521,completed,resolved,6.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0384,EXC-1574,C-2026-FCL,S-072,Ops Lead,David Park,sku_transfer,2026-09-28T02:44:23.397293,completed,resolved,2.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0385,EXC-1575,C-2026-FCL,S-072,Ops Lead,David Park,sku_transfer,2026-09-28T02:53:58.168034,completed,resolved,2.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0386,EXC-1576,C-2026-FCL,S-072,Ops Lead,David Park,sku_transfer,2026-09-28T06:21:40.260147,completed,resolved,6.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0387,EXC-1577,C-2026-FCL,S-072,Ops Lead,David Park,sku_transfer,2026-09-28T02:22:20.534636,completed,unresolved,2.4,Action completed but low_sell_through remains unresolved.
+ACT-0388,EXC-1578,C-2026-FCL,S-072,Ops Lead,David Park,sku_transfer,2026-09-28T01:29:47.330062,completed,resolved,1.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0389,EXC-1580,C-2026-FCL,S-072,Ops Lead,David Park,sku_transfer,2026-09-28T02:02:46.565720,completed,unresolved,2.0,Action completed but low_sell_through remains unresolved.
+ACT-0390,EXC-1581,C-2026-FCL,S-072,Ops Lead,David Park,sku_transfer,2026-09-28T06:18:50.970111,completed,unresolved,6.3,Action completed but low_sell_through remains unresolved.
+ACT-0391,EXC-1582,C-2026-FCL,S-027,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T07:20:19.276798,completed,resolved,7.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0392,EXC-1584,C-2026-FCL,S-027,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T03:43:46.183335,completed,unresolved,3.7,Action completed but low_sell_through remains unresolved.
+ACT-0393,EXC-1588,C-2026-FCL,S-027,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T04:53:05.455748,completed,resolved,4.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0394,EXC-1594,C-2026-FCL,S-061,Ops Lead,Jennifer Kim,sku_transfer,2026-09-28T02:53:17.337458,completed,resolved,2.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0395,EXC-181,C-2026-BTS,S-058,Ops Lead,Robert Taylor,dc_count_verification,2026-07-30T05:18:25.629491,completed,resolved,5.3,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0396,EXC-210,C-2026-BTS,S-062,Ops Lead,Jennifer Kim,dc_count_verification,2026-07-30T01:39:30.596430,completed,resolved,1.7,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0397,EXC-225,C-2026-BTS,S-013,Ops Lead,Sarah Chen,dc_count_verification,2026-08-01T03:36:11.006247,completed,resolved,3.6,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0398,EXC-250,C-2026-FCL,S-082,Ops Lead,Marcus Lee,dc_count_verification,2026-08-31T02:36:51.835372,completed,resolved,2.6,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0399,EXC-255,C-2026-FCL,S-047,Ops Lead,Lisa Wong,dc_count_verification,2026-08-30T03:44:26.695310,completed,failed,3.7,Action attempted but failed. quantity_mismatch not resolved by dc_count_verification.
+ACT-0400,EXC-262,C-2026-FCL,S-050,Ops Lead,Sarah Chen,dc_count_verification,2026-08-29T04:01:46.144292,completed,unresolved,4.0,Action completed but quantity_mismatch remains unresolved.
+ACT-0401,EXC-312,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,site_visit,2026-08-02T01:56:14.773987,completed,unresolved,1.9,Action completed but missing_photo_proof remains unresolved.
+ACT-0402,EXC-313,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,site_visit,2026-08-02T02:18:01.914123,completed,resolved,2.3,Site Visit completed. missing_photo_proof resolved.
+ACT-0403,EXC-315,C-2026-BTS,S-066,Ops Lead,Maria Rodriguez,site_visit,2026-08-07T04:28:32.100434,completed,reopened,4.5,"Initially resolved via site_visit, but exception reopened within 48h."
+ACT-0404,EXC-316,C-2026-BTS,S-039,Ops Lead,Emma Wilson,site_visit,2026-08-05T06:22:34.720979,completed,unresolved,6.4,Action completed but missing_photo_proof remains unresolved.
+ACT-0405,EXC-319,C-2026-BTS,S-094,Ops Lead,Jennifer Kim,site_visit,2026-08-12T04:22:44.908070,completed,resolved,4.4,Site Visit completed. missing_photo_proof resolved.
+ACT-0406,EXC-320,C-2026-BTS,S-041,Ops Lead,Ahmed Hassan,site_visit,2026-08-07T02:38:01.543686,completed,resolved,2.6,Site Visit completed. missing_photo_proof resolved.
+ACT-0407,EXC-323,C-2026-BTS,S-081,Ops Lead,Jennifer Kim,site_visit,2026-08-04T02:55:36.373705,completed,resolved,2.9,Site Visit completed. missing_photo_proof resolved.
+ACT-0408,EXC-325,C-2026-BTS,S-026,Ops Lead,David Park,site_visit,2026-08-07T06:03:03.509848,completed,resolved,6.1,Site Visit completed. missing_photo_proof resolved.
+ACT-0409,EXC-328,C-2026-BTS,S-045,Ops Lead,Lisa Wong,site_visit,2026-08-02T00:59:58.246974,completed,resolved,1.0,Site Visit completed. missing_photo_proof resolved.
+ACT-0410,EXC-332,C-2026-BTS,S-065,Ops Lead,James Okoro,site_visit,2026-08-07T05:58:12.338578,completed,resolved,6.0,Site Visit completed. missing_photo_proof resolved.
+ACT-0411,EXC-333,C-2026-BTS,S-042,Ops Lead,James Okoro,site_visit,2026-08-06T04:23:53.882796,completed,unresolved,4.4,Action completed but missing_photo_proof remains unresolved.
+ACT-0412,EXC-335,C-2026-BTS,S-055,Ops Lead,Ahmed Hassan,site_visit,2026-08-03T05:20:13.386309,completed,unresolved,5.3,Action completed but missing_photo_proof remains unresolved.
+ACT-0413,EXC-341,C-2026-BTS,S-073,Ops Lead,Robert Taylor,site_visit,2026-08-03T07:17:00.692591,completed,resolved,7.3,Site Visit completed. missing_photo_proof resolved.
+ACT-0414,EXC-343,C-2026-BTS,S-013,Ops Lead,Sarah Chen,site_visit,2026-08-02T01:31:05.999786,completed,unresolved,1.5,Assignment error: action routed to wrong rep. missing_photo_proof remains open.
+ACT-0415,EXC-344,C-2026-BTS,S-097,Ops Lead,Emma Wilson,site_visit,2026-08-01T04:17:30.962977,completed,resolved,4.3,Site Visit completed. missing_photo_proof resolved.
+ACT-0416,EXC-345,C-2026-BTS,S-011,Ops Lead,James Okoro,site_visit,2026-08-02T01:39:07.723396,completed,resolved,1.7,Site Visit completed. missing_photo_proof resolved.
+ACT-0417,EXC-346,C-2026-BTS,S-044,Ops Lead,Marcus Lee,site_visit,2026-08-02T02:13:42.658002,completed,resolved,2.2,Site Visit completed. missing_photo_proof resolved.
+ACT-0418,EXC-351,C-2026-FCL,S-075,Ops Lead,Emma Wilson,site_visit,2026-09-07T00:57:04.985027,completed,unresolved,1.0,Action completed but missing_photo_proof remains unresolved.
+ACT-0419,EXC-355,C-2026-FCL,S-069,Ops Lead,Emma Wilson,site_visit,2026-09-01T04:46:34.979431,completed,resolved,4.8,Site Visit completed. missing_photo_proof resolved.
+ACT-0420,EXC-357,C-2026-FCL,S-087,Ops Lead,Maria Rodriguez,site_visit,2026-09-03T02:18:36.961863,completed,failed,2.3,Action attempted but failed. missing_photo_proof not resolved by site_visit.
+ACT-0421,EXC-361,C-2026-FCL,S-051,Ops Lead,Ahmed Hassan,site_visit,2026-09-09T02:27:17.822926,completed,resolved,2.5,Site Visit completed. missing_photo_proof resolved.
+ACT-0422,EXC-362,C-2026-FCL,S-063,Ops Lead,Maria Rodriguez,site_visit,2026-09-08T02:33:36.545446,completed,unresolved,2.6,Action completed but missing_photo_proof remains unresolved.
+ACT-0423,EXC-364,C-2026-FCL,S-078,Ops Lead,Sarah Chen,site_visit,2026-09-09T03:57:26.974372,completed,unresolved,4.0,Assignment error: action routed to wrong rep. missing_photo_proof remains open.
+ACT-0424,EXC-365,C-2026-FCL,S-078,Ops Lead,Sarah Chen,site_visit,2026-09-02T02:45:10.773195,completed,resolved,2.8,Site Visit completed. missing_photo_proof resolved.
+ACT-0425,EXC-372,C-2026-FCL,S-048,Ops Lead,David Park,site_visit,2026-09-01T01:39:24.420881,completed,failed,1.7,Action attempted but failed. missing_photo_proof not resolved by site_visit.
+ACT-0426,EXC-380,C-2026-FCL,S-091,Ops Lead,Ahmed Hassan,site_visit,2026-09-05T02:23:38.472280,completed,resolved,2.4,Site Visit completed. missing_photo_proof resolved.
+ACT-0427,EXC-381,C-2026-FCL,S-088,Ops Lead,Lisa Wong,site_visit,2026-09-07T03:47:12.457917,completed,unresolved,3.8,Action completed but missing_photo_proof remains unresolved.
+ACT-0428,EXC-383,C-2026-FCL,S-081,Ops Lead,Jennifer Kim,site_visit,2026-09-07T02:57:26.402792,completed,resolved,3.0,Site Visit completed. missing_photo_proof resolved.
+ACT-0429,EXC-384,C-2026-FCL,S-097,Ops Lead,Emma Wilson,site_visit,2026-09-06T05:03:02.201896,completed,resolved,5.1,Site Visit completed. missing_photo_proof resolved.
+ACT-0430,EXC-385,C-2026-FCL,S-072,Ops Lead,David Park,site_visit,2026-09-04T03:55:45.654372,completed,unresolved,3.9,Action completed but missing_photo_proof remains unresolved.
+ACT-0431,EXC-386,C-2026-FCL,S-052,Ops Lead,Maria Rodriguez,site_visit,2026-09-04T06:39:10.251411,completed,resolved,6.7,Site Visit completed. missing_photo_proof resolved.
+ACT-0432,EXC-397,C-2026-PEACH,S-056,Ops Lead,Marcus Lee,site_visit,2026-07-16T06:38:53.728491-04:00,completed,resolved,15.1,Site Visit completed. late_photo_proof resolved.
+ACT-0433,EXC-398,C-2026-PEACH,S-056,Ops Lead,Marcus Lee,site_visit,2026-07-15T11:37:25.046745-04:00,completed,resolved,2.1,Site Visit completed. late_photo_proof resolved.
+ACT-0434,EXC-417,C-2026-PEACH,S-041,Ops Lead,Ahmed Hassan,site_visit,2026-07-15T20:08:08.509364-07:00,completed,resolved,3.9,Site Visit completed. late_photo_proof resolved.
+ACT-0435,EXC-424,C-2026-PEACH,S-096,Ops Lead,Robert Taylor,site_visit,2026-07-15T17:47:37.852706-07:00,completed,failed,8.0,Action attempted but failed. late_photo_proof not resolved by site_visit.
+ACT-0436,EXC-425,C-2026-PEACH,S-096,Ops Lead,Robert Taylor,site_visit,2026-07-15T20:51:56.401473-07:00,completed,resolved,4.1,Site Visit completed. late_photo_proof resolved.
+ACT-0437,EXC-436,C-2026-BTS,S-038,Ops Lead,Ahmed Hassan,site_visit,2026-08-14T21:54:03.833258-04:00,completed,unresolved,7.2,Action completed but late_photo_proof remains unresolved.
+ACT-0438,EXC-437,C-2026-BTS,S-018,Ops Lead,Maria Rodriguez,site_visit,2026-08-12T17:13:26.502960-05:00,completed,resolved,2.7,Site Visit completed. late_photo_proof resolved.
+ACT-0439,EXC-438,C-2026-BTS,S-039,Ops Lead,Emma Wilson,site_visit,2026-08-13T19:58:13.776718-05:00,completed,resolved,6.2,Site Visit completed. late_photo_proof resolved.
+ACT-0440,EXC-439,C-2026-BTS,S-039,Ops Lead,Emma Wilson,site_visit,2026-08-13T21:20:50.337604-05:00,completed,unresolved,3.8,Action completed but late_photo_proof remains unresolved.
+ACT-0441,EXC-440,C-2026-BTS,S-039,Ops Lead,Emma Wilson,site_visit,2026-08-13T19:51:05.223852-05:00,completed,resolved,1.6,Site Visit completed. late_photo_proof resolved.
+ACT-0442,EXC-441,C-2026-BTS,S-039,Ops Lead,Emma Wilson,site_visit,2026-08-13T23:10:19.648620-05:00,completed,resolved,4.4,Site Visit completed. late_photo_proof resolved.
+ACT-0443,EXC-443,C-2026-BTS,S-091,Ops Lead,Ahmed Hassan,site_visit,2026-08-13T14:32:15.618121-07:00,completed,unresolved,6.5,Action completed but late_photo_proof remains unresolved.
+ACT-0444,EXC-444,C-2026-BTS,S-091,Ops Lead,Ahmed Hassan,site_visit,2026-08-13T19:48:13.528406-07:00,completed,resolved,5.6,Site Visit completed. late_photo_proof resolved.
+ACT-0445,EXC-445,C-2026-BTS,S-091,Ops Lead,Ahmed Hassan,site_visit,2026-08-13T13:13:52.237442-07:00,completed,resolved,2.5,Site Visit completed. late_photo_proof resolved.
+ACT-0446,EXC-451,C-2026-BTS,S-027,Ops Lead,Lisa Wong,site_visit,2026-08-14T17:41:36.961480-04:00,completed,unresolved,4.9,Action completed but late_photo_proof remains unresolved.
+ACT-0447,EXC-452,C-2026-BTS,S-027,Ops Lead,Lisa Wong,site_visit,2026-08-14T22:04:00.638532-04:00,completed,resolved,4.6,Site Visit completed. late_photo_proof resolved.
+ACT-0448,EXC-453,C-2026-BTS,S-027,Ops Lead,Lisa Wong,site_visit,2026-08-14T12:24:39.428989-04:00,completed,resolved,3.9,Site Visit completed. late_photo_proof resolved.
+ACT-0449,EXC-454,C-2026-BTS,S-027,Ops Lead,Lisa Wong,site_visit,2026-08-13T00:33:13.171463-04:00,completed,failed,9.8,Action attempted but failed. late_photo_proof not resolved by site_visit.
+ACT-0450,EXC-455,C-2026-BTS,S-027,Ops Lead,Lisa Wong,site_visit,2026-08-12T16:28:26.225039-04:00,completed,unresolved,4.5,Action completed but late_photo_proof remains unresolved.
+ACT-0451,EXC-456,C-2026-BTS,S-027,Ops Lead,Lisa Wong,site_visit,2026-08-12T18:51:05.466359-04:00,completed,resolved,4.4,Site Visit completed. late_photo_proof resolved.
+ACT-0452,EXC-459,C-2026-BTS,S-062,Ops Lead,Jennifer Kim,site_visit,2026-08-16T01:13:47.562167-04:00,completed,resolved,7.7,Site Visit completed. late_photo_proof resolved.
+ACT-0453,EXC-465,C-2026-BTS,S-002,Ops Lead,Robert Taylor,site_visit,2026-08-13T19:25:37.089198-05:00,completed,resolved,2.4,Site Visit completed. late_photo_proof resolved.
+ACT-0454,EXC-466,C-2026-BTS,S-002,Ops Lead,Robert Taylor,site_visit,2026-08-13T13:21:27.988483-05:00,completed,resolved,3.1,Site Visit completed. late_photo_proof resolved.
+ACT-0455,EXC-467,C-2026-BTS,S-010,Ops Lead,Jennifer Kim,site_visit,2026-08-16T01:06:04.586135-05:00,completed,resolved,7.4,Site Visit completed. late_photo_proof resolved.
+ACT-0456,EXC-475,C-2026-BTS,S-083,Ops Lead,Robert Taylor,site_visit,2026-08-13T00:48:31.445637-04:00,completed,resolved,8.6,Site Visit completed. late_photo_proof resolved.
+ACT-0457,EXC-476,C-2026-BTS,S-083,Ops Lead,Robert Taylor,site_visit,2026-08-12T15:40:14.900438-04:00,completed,resolved,3.2,Site Visit completed. late_photo_proof resolved.
+ACT-0458,EXC-477,C-2026-BTS,S-083,Ops Lead,Robert Taylor,site_visit,2026-08-12T22:10:23.691545-04:00,completed,resolved,4.4,Site Visit completed. late_photo_proof resolved.
+ACT-0459,EXC-478,C-2026-BTS,S-083,Ops Lead,Robert Taylor,site_visit,2026-08-14T20:55:32.594718-04:00,completed,unresolved,2.4,Assignment error: action routed to wrong rep. late_photo_proof remains open.
+ACT-0460,EXC-479,C-2026-BTS,S-083,Ops Lead,Robert Taylor,site_visit,2026-08-14T20:21:01.055619-04:00,completed,unresolved,2.9,Action completed but late_photo_proof remains unresolved.
+ACT-0461,EXC-480,C-2026-BTS,S-083,Ops Lead,Robert Taylor,site_visit,2026-08-14T21:15:59.350715-04:00,completed,resolved,4.8,Site Visit completed. late_photo_proof resolved.
+ACT-0462,EXC-481,C-2026-BTS,S-083,Ops Lead,Robert Taylor,site_visit,2026-08-14T18:36:30.270943-04:00,completed,resolved,5.1,Site Visit completed. late_photo_proof resolved.
+ACT-0463,EXC-482,C-2026-BTS,S-083,Ops Lead,Robert Taylor,site_visit,2026-08-14T15:12:27.362717-04:00,completed,unresolved,7.0,Action completed but late_photo_proof remains unresolved.
+ACT-0464,EXC-483,C-2026-BTS,S-083,Ops Lead,Robert Taylor,site_visit,2026-08-14T22:00:58.824970-04:00,completed,resolved,3.8,Site Visit completed. late_photo_proof resolved.
+ACT-0465,EXC-484,C-2026-FCL,S-025,Ops Lead,Robert Taylor,site_visit,2026-09-14T17:34:48.014290-05:00,completed,unresolved,3.6,Action completed but late_photo_proof remains unresolved.
+ACT-0466,EXC-486,C-2026-FCL,S-003,Ops Lead,Emma Wilson,site_visit,2026-09-14T22:41:19.932625-04:00,completed,resolved,4.9,Site Visit completed. late_photo_proof resolved.
+ACT-0467,EXC-487,C-2026-FCL,S-003,Ops Lead,Emma Wilson,site_visit,2026-09-14T10:30:20.582003-04:00,completed,unresolved,2.5,Action completed but late_photo_proof remains unresolved.
+ACT-0468,EXC-488,C-2026-FCL,S-003,Ops Lead,Emma Wilson,site_visit,2026-09-15T01:08:04.519998-04:00,completed,resolved,6.9,Site Visit completed. late_photo_proof resolved.
+ACT-0469,EXC-493,C-2026-FCL,S-087,Ops Lead,Maria Rodriguez,site_visit,2026-09-15T10:03:30.434573-07:00,completed,resolved,1.6,Site Visit completed. late_photo_proof resolved.
+ACT-0470,EXC-494,C-2026-FCL,S-086,Ops Lead,Sarah Chen,site_visit,2026-09-13T19:41:57.347475-04:00,completed,unresolved,3.4,Assignment error: action routed to wrong rep. late_photo_proof remains open.
+ACT-0471,EXC-495,C-2026-FCL,S-086,Ops Lead,Sarah Chen,site_visit,2026-09-13T18:40:58.965926-04:00,completed,resolved,6.4,Site Visit completed. late_photo_proof resolved.
+ACT-0472,EXC-496,C-2026-FCL,S-086,Ops Lead,Sarah Chen,site_visit,2026-09-13T18:09:30.177007-04:00,completed,failed,9.4,Action attempted but failed. late_photo_proof not resolved by site_visit.
+ACT-0473,EXC-497,C-2026-FCL,S-086,Ops Lead,Sarah Chen,site_visit,2026-09-13T13:08:33.312764-04:00,completed,resolved,4.1,Site Visit completed. late_photo_proof resolved.
+ACT-0474,EXC-500,C-2026-FCL,S-100,Ops Lead,Ahmed Hassan,site_visit,2026-09-14T15:09:03.118737-04:00,completed,resolved,7.2,Site Visit completed. late_photo_proof resolved.
+ACT-0475,EXC-501,C-2026-FCL,S-100,Ops Lead,Ahmed Hassan,site_visit,2026-09-14T20:38:51.775291-04:00,completed,resolved,4.4,Site Visit completed. late_photo_proof resolved.
+ACT-0476,EXC-502,C-2026-FCL,S-078,Ops Lead,Sarah Chen,site_visit,2026-09-12T16:05:54.007495-05:00,completed,unresolved,6.6,Action completed but late_photo_proof remains unresolved.
+ACT-0477,EXC-503,C-2026-FCL,S-082,Ops Lead,Marcus Lee,site_visit,2026-09-13T20:12:37.355300-05:00,completed,resolved,11.5,Site Visit completed. late_photo_proof resolved.
+ACT-0478,EXC-504,C-2026-FCL,S-082,Ops Lead,Marcus Lee,site_visit,2026-09-13T19:02:34.025271-05:00,completed,resolved,2.3,Site Visit completed. late_photo_proof resolved.
+ACT-0479,EXC-505,C-2026-FCL,S-082,Ops Lead,Marcus Lee,site_visit,2026-09-13T22:26:42.614641-05:00,completed,resolved,4.9,Site Visit completed. late_photo_proof resolved.
+ACT-0480,EXC-506,C-2026-FCL,S-082,Ops Lead,Marcus Lee,site_visit,2026-09-13T13:17:49.924596-05:00,completed,resolved,4.3,Site Visit completed. late_photo_proof resolved.
+ACT-0481,EXC-507,C-2026-FCL,S-082,Ops Lead,Marcus Lee,site_visit,2026-09-13T13:04:58.756264-05:00,completed,resolved,3.6,Site Visit completed. late_photo_proof resolved.
+ACT-0482,EXC-513,C-2026-FCL,S-090,Ops Lead,Emma Wilson,site_visit,2026-09-15T10:25:20.749645-05:00,completed,failed,1.4,Action attempted but failed. late_photo_proof not resolved by site_visit.
+ACT-0483,EXC-514,C-2026-FCL,S-090,Ops Lead,Emma Wilson,site_visit,2026-09-15T21:52:45.907210-05:00,completed,resolved,6.9,Site Visit completed. late_photo_proof resolved.
+ACT-0484,EXC-515,C-2026-FCL,S-090,Ops Lead,Emma Wilson,site_visit,2026-09-15T17:59:48.310209-05:00,completed,resolved,3.0,Site Visit completed. late_photo_proof resolved.
+ACT-0485,EXC-516,C-2026-FCL,S-090,Ops Lead,Emma Wilson,site_visit,2026-09-15T12:57:45.153694-05:00,completed,resolved,4.2,Site Visit completed. late_photo_proof resolved.
+ACT-0486,EXC-519,C-2026-FCL,S-047,Ops Lead,Lisa Wong,site_visit,2026-09-14T11:36:24.752389-04:00,completed,resolved,1.4,Site Visit completed. late_photo_proof resolved.
+ACT-0487,EXC-520,C-2026-FCL,S-047,Ops Lead,Lisa Wong,site_visit,2026-09-14T21:03:41.655322-04:00,completed,resolved,6.1,Site Visit completed. late_photo_proof resolved.
+ACT-0488,EXC-521,C-2026-FCL,S-047,Ops Lead,Lisa Wong,site_visit,2026-09-14T16:24:10.884803-04:00,completed,resolved,3.7,Site Visit completed. late_photo_proof resolved.
+ACT-0489,EXC-522,C-2026-FCL,S-047,Ops Lead,Lisa Wong,site_visit,2026-09-14T18:18:01.751982-04:00,completed,resolved,4.3,Site Visit completed. late_photo_proof resolved.
+ACT-0490,EXC-527,C-2026-FCL,S-055,Ops Lead,Ahmed Hassan,site_visit,2026-09-15T12:26:29.275821-07:00,completed,resolved,2.9,Site Visit completed. late_photo_proof resolved.
+ACT-0491,EXC-528,C-2026-FCL,S-055,Ops Lead,Ahmed Hassan,site_visit,2026-09-15T20:40:00.533295-07:00,completed,resolved,5.2,Site Visit completed. late_photo_proof resolved.
+ACT-0492,EXC-529,C-2026-FCL,S-055,Ops Lead,Ahmed Hassan,site_visit,2026-09-15T12:25:37.769765-07:00,completed,unresolved,3.7,Assignment error: action routed to wrong rep. late_photo_proof remains open.
+ACT-0493,EXC-531,C-2026-FCL,S-048,Ops Lead,David Park,site_visit,2026-09-14T13:41:58.674408-05:00,completed,resolved,5.7,Site Visit completed. late_photo_proof resolved.
+ACT-0494,EXC-532,C-2026-FCL,S-048,Ops Lead,David Park,site_visit,2026-09-14T17:44:40.976664-05:00,completed,failed,4.5,Action attempted but failed. late_photo_proof not resolved by site_visit.
+ACT-0495,EXC-533,C-2026-FCL,S-091,Ops Lead,Ahmed Hassan,site_visit,2026-09-15T19:45:28.408134-07:00,completed,unresolved,2.3,Assignment error: action routed to wrong rep. late_photo_proof remains open.
+ACT-0496,EXC-534,C-2026-FCL,S-091,Ops Lead,Ahmed Hassan,site_visit,2026-09-15T15:58:23.232344-07:00,completed,resolved,4.2,Site Visit completed. late_photo_proof resolved.
+ACT-0497,EXC-535,C-2026-FCL,S-091,Ops Lead,Ahmed Hassan,site_visit,2026-09-15T19:45:06.127830-07:00,completed,unresolved,1.5,Action completed but late_photo_proof remains unresolved.
+ACT-0498,EXC-536,C-2026-FCL,S-088,Ops Lead,Lisa Wong,site_visit,2026-09-12T14:46:10.898302-04:00,completed,resolved,5.8,Site Visit completed. late_photo_proof resolved.
+ACT-0499,EXC-537,C-2026-FCL,S-088,Ops Lead,Lisa Wong,site_visit,2026-09-12T22:05:48.499882-04:00,completed,unresolved,6.6,Action completed but late_photo_proof remains unresolved.
+ACT-0500,EXC-538,C-2026-FCL,S-088,Ops Lead,Lisa Wong,site_visit,2026-09-12T12:06:37.674593-04:00,completed,resolved,2.9,Site Visit completed. late_photo_proof resolved.
+ACT-0501,EXC-545,C-2026-FCL,S-052,Ops Lead,Maria Rodriguez,site_visit,2026-09-13T19:20:51.147443-05:00,completed,resolved,1.6,Site Visit completed. late_photo_proof resolved.
+ACT-0502,EXC-546,C-2026-FCL,S-061,Ops Lead,Jennifer Kim,site_visit,2026-09-13T01:11:03.975709-05:00,completed,resolved,7.2,Site Visit completed. late_photo_proof resolved.
+ACT-0503,EXC-547,C-2026-FCL,S-061,Ops Lead,Jennifer Kim,site_visit,2026-09-12T10:43:10.880418-05:00,completed,unresolved,2.5,Assignment error: action routed to wrong rep. late_photo_proof remains open.
+ACT-0504,EXC-548,C-2026-FCL,S-061,Ops Lead,Jennifer Kim,site_visit,2026-09-12T17:28:33.287176-05:00,completed,resolved,3.2,Site Visit completed. late_photo_proof resolved.
+ACT-0505,EXC-549,C-2026-PEACH,S-067,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T01:43:25.953731,completed,resolved,1.7,Sku Transfer completed. stockout_risk resolved.
+ACT-0506,EXC-550,C-2026-PEACH,S-016,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T02:40:24.319471,completed,resolved,2.7,Sku Transfer completed. stockout_risk resolved.
+ACT-0507,EXC-551,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T03:09:22.387211,completed,reopened,3.2,"Initially resolved via sku_transfer, but exception reopened within 48h."
+ACT-0508,EXC-552,C-2026-PEACH,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T03:58:16.318708,completed,unresolved,4.0,Assignment error: action routed to wrong rep. stockout_risk remains open.
+ACT-0509,EXC-553,C-2026-PEACH,S-066,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T02:18:35.784598,completed,unresolved,2.3,Assignment error: action routed to wrong rep. stockout_risk remains open.
+ACT-0510,EXC-554,C-2026-PEACH,S-019,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T03:20:17.002680,completed,resolved,3.3,Sku Transfer completed. stockout_risk resolved.
+ACT-0511,EXC-555,C-2026-PEACH,S-056,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T05:40:03.478659,completed,unresolved,5.7,Action completed but stockout_risk remains unresolved.
+ACT-0512,EXC-556,C-2026-PEACH,S-029,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T03:23:06.374236,completed,resolved,3.4,Sku Transfer completed. stockout_risk resolved.
+ACT-0513,EXC-557,C-2026-PEACH,S-099,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T05:12:39.629141,completed,resolved,5.2,Sku Transfer completed. stockout_risk resolved.
+ACT-0514,EXC-558,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T01:26:35.264658,completed,resolved,1.4,Sku Transfer completed. stockout_risk resolved.
+ACT-0515,EXC-559,C-2026-PEACH,S-051,Ops Lead,Ahmed Hassan,sku_transfer,2026-07-28T02:07:43.745169,completed,resolved,2.1,Sku Transfer completed. stockout_risk resolved.
+ACT-0516,EXC-560,C-2026-PEACH,S-048,Ops Lead,David Park,sku_transfer,2026-07-28T02:35:43.758623,completed,resolved,2.6,Sku Transfer completed. stockout_risk resolved.
+ACT-0517,EXC-561,C-2026-PEACH,S-031,Ops Lead,David Park,sku_transfer,2026-07-28T04:37:42.473375,completed,resolved,4.6,Sku Transfer completed. stockout_risk resolved.
+ACT-0518,EXC-562,C-2026-PEACH,S-050,Ops Lead,Sarah Chen,sku_transfer,2026-07-28T06:16:17.654815,completed,unresolved,6.3,Assignment error: action routed to wrong rep. stockout_risk remains open.
+ACT-0519,EXC-563,C-2026-PEACH,S-095,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T15:00:22.459680,completed,unresolved,15.0,Action completed but stockout_risk remains unresolved.
+ACT-0520,EXC-564,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T01:53:11.983654,completed,unresolved,1.9,Action completed but stockout_risk remains unresolved.
+ACT-0521,EXC-565,C-2026-PEACH,S-084,Ops Lead,Ahmed Hassan,sku_transfer,2026-07-28T04:39:57.893243,completed,resolved,4.7,Sku Transfer completed. stockout_risk resolved.
+ACT-0522,EXC-566,C-2026-PEACH,S-013,Ops Lead,Sarah Chen,sku_transfer,2026-07-28T03:17:19.056312,completed,resolved,3.3,Sku Transfer completed. stockout_risk resolved.
+ACT-0523,EXC-567,C-2026-PEACH,S-043,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T07:01:26.061927,completed,resolved,7.0,Sku Transfer completed. stockout_risk resolved.
+ACT-0524,EXC-568,C-2026-PEACH,S-090,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T03:53:54.679093,completed,resolved,3.9,Sku Transfer completed. stockout_risk resolved.
+ACT-0525,EXC-569,C-2026-PEACH,S-005,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T06:46:56.438418,completed,unresolved,6.8,Action completed but stockout_risk remains unresolved.
+ACT-0526,EXC-570,C-2026-PEACH,S-096,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T04:28:20.457112,completed,unresolved,4.5,Action completed but stockout_risk remains unresolved.
+ACT-0527,EXC-571,C-2026-PEACH,S-061,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T03:37:27.010100,completed,unresolved,3.6,Action completed but stockout_risk remains unresolved.
+ACT-0528,EXC-572,C-2026-PEACH,S-046,Ops Lead,David Park,sku_transfer,2026-07-28T03:42:31.003690,completed,failed,3.7,Action attempted but failed. stockout_risk not resolved by sku_transfer.
+ACT-0529,EXC-573,C-2026-BTS,S-038,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T03:44:18.367666,completed,unresolved,3.7,Action completed but stockout_risk remains unresolved.
+ACT-0530,EXC-574,C-2026-BTS,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T06:36:23.961969,completed,unresolved,6.6,Assignment error: action routed to wrong rep. stockout_risk remains open.
+ACT-0531,EXC-575,C-2026-BTS,S-098,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T10:38:31.879847,completed,resolved,10.6,Sku Transfer completed. stockout_risk resolved.
+ACT-0532,EXC-576,C-2026-BTS,S-053,Ops Lead,David Park,sku_transfer,2026-08-28T03:32:42.625301,completed,resolved,3.5,Sku Transfer completed. stockout_risk resolved.
+ACT-0533,EXC-577,C-2026-BTS,S-078,Ops Lead,Sarah Chen,sku_transfer,2026-08-28T03:03:36.801729,completed,unresolved,3.1,Assignment error: action routed to wrong rep. stockout_risk remains open.
+ACT-0534,EXC-578,C-2026-BTS,S-090,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T06:08:19.097242,completed,resolved,6.1,Sku Transfer completed. stockout_risk resolved.
+ACT-0535,EXC-579,C-2026-BTS,S-066,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T05:58:06.674863,completed,unresolved,6.0,Action completed but stockout_risk remains unresolved.
+ACT-0536,EXC-580,C-2026-BTS,S-039,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T05:49:56.880341,completed,resolved,5.8,Sku Transfer completed. stockout_risk resolved.
+ACT-0537,EXC-581,C-2026-BTS,S-071,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T01:45:41.370339,completed,resolved,1.8,Sku Transfer completed. stockout_risk resolved.
+ACT-0538,EXC-582,C-2026-BTS,S-071,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T01:46:05.857888,completed,failed,1.8,Action attempted but failed. stockout_risk not resolved by sku_transfer.
+ACT-0539,EXC-583,C-2026-BTS,S-071,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T04:03:39.022625,completed,failed,4.1,Action attempted but failed. stockout_risk not resolved by sku_transfer.
+ACT-0540,EXC-584,C-2026-BTS,S-091,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T05:25:21.802692,completed,resolved,5.4,Sku Transfer completed. stockout_risk resolved.
+ACT-0541,EXC-585,C-2026-BTS,S-091,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T03:41:23.810260,completed,resolved,3.7,Sku Transfer completed. stockout_risk resolved.
+ACT-0542,EXC-586,C-2026-BTS,S-091,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T02:48:19.057070,completed,unresolved,2.8,Action completed but stockout_risk remains unresolved.
+ACT-0543,EXC-587,C-2026-BTS,S-091,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T03:30:16.062276,completed,unresolved,3.5,Action completed but stockout_risk remains unresolved.
+ACT-0544,EXC-588,C-2026-BTS,S-091,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T01:28:07.243457,completed,resolved,1.5,Sku Transfer completed. stockout_risk resolved.
+ACT-0545,EXC-589,C-2026-BTS,S-091,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T04:00:57.457160,completed,resolved,4.0,Sku Transfer completed. stockout_risk resolved.
+ACT-0546,EXC-590,C-2026-BTS,S-081,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T06:36:25.662150,completed,resolved,6.6,Sku Transfer completed. stockout_risk resolved.
+ACT-0547,EXC-591,C-2026-BTS,S-028,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T04:30:08.229094,completed,unresolved,4.5,Action completed but stockout_risk remains unresolved.
+ACT-0548,EXC-592,C-2026-BTS,S-028,Ops Lead,Emma Wilson,sku_transfer,2026-08-28T07:56:02.155165,completed,resolved,7.9,Sku Transfer completed. stockout_risk resolved.
+ACT-0549,EXC-593,C-2026-BTS,S-026,Ops Lead,David Park,sku_transfer,2026-08-28T03:04:40.468985,completed,resolved,3.1,Sku Transfer completed. stockout_risk resolved.
+ACT-0550,EXC-594,C-2026-BTS,S-080,Ops Lead,Sarah Chen,sku_transfer,2026-08-28T04:18:59.818147,completed,unresolved,4.3,Assignment error: action routed to wrong rep. stockout_risk remains open.
+ACT-0551,EXC-595,C-2026-BTS,S-045,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T06:26:54.484048,completed,resolved,6.4,Sku Transfer completed. stockout_risk resolved.
+ACT-0552,EXC-596,C-2026-BTS,S-017,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T02:23:11.673979,completed,resolved,2.4,Sku Transfer completed. stockout_risk resolved.
+ACT-0553,EXC-597,C-2026-BTS,S-023,Ops Lead,James Okoro,sku_transfer,2026-08-28T05:45:29.765312,completed,unresolved,5.8,Action completed but stockout_risk remains unresolved.
+ACT-0554,EXC-598,C-2026-BTS,S-023,Ops Lead,James Okoro,sku_transfer,2026-08-28T03:08:01.110705,completed,resolved,3.1,Sku Transfer completed. stockout_risk resolved.
+ACT-0555,EXC-599,C-2026-BTS,S-023,Ops Lead,James Okoro,sku_transfer,2026-08-28T04:34:03.156646,completed,resolved,4.6,Sku Transfer completed. stockout_risk resolved.
+ACT-0556,EXC-600,C-2026-BTS,S-065,Ops Lead,James Okoro,sku_transfer,2026-08-28T02:59:20.143357,completed,unresolved,3.0,Assignment error: action routed to wrong rep. stockout_risk remains open.
+ACT-0557,EXC-601,C-2026-BTS,S-046,Ops Lead,David Park,sku_transfer,2026-08-28T05:11:36.756268,completed,unresolved,5.2,Action completed but stockout_risk remains unresolved.
+ACT-0558,EXC-602,C-2026-BTS,S-055,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T02:39:33.761826,completed,resolved,2.7,Sku Transfer completed. stockout_risk resolved.
+ACT-0559,EXC-603,C-2026-BTS,S-002,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T05:26:31.852312,completed,unresolved,5.4,Assignment error: action routed to wrong rep. stockout_risk remains open.
+ACT-0560,EXC-604,C-2026-BTS,S-004,Ops Lead,Lisa Wong,sku_transfer,2026-08-28T07:18:09.521169,completed,resolved,7.3,Sku Transfer completed. stockout_risk resolved.
+ACT-0561,EXC-605,C-2026-BTS,S-010,Ops Lead,Jennifer Kim,sku_transfer,2026-08-28T01:56:44.040353,completed,resolved,1.9,Sku Transfer completed. stockout_risk resolved.
+ACT-0562,EXC-606,C-2026-BTS,S-095,Ops Lead,Maria Rodriguez,sku_transfer,2026-08-28T03:36:08.222265,completed,unresolved,3.6,Action completed but stockout_risk remains unresolved.
+ACT-0563,EXC-607,C-2026-BTS,S-073,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T05:27:35.000388,completed,resolved,5.5,Sku Transfer completed. stockout_risk resolved.
+ACT-0564,EXC-608,C-2026-BTS,S-073,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T02:15:48.318995,completed,resolved,2.3,Sku Transfer completed. stockout_risk resolved.
+ACT-0565,EXC-609,C-2026-BTS,S-073,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T02:35:22.181482,completed,resolved,2.6,Sku Transfer completed. stockout_risk resolved.
+ACT-0566,EXC-610,C-2026-BTS,S-073,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T07:01:18.281764,completed,resolved,7.0,Sku Transfer completed. stockout_risk resolved.
+ACT-0567,EXC-611,C-2026-BTS,S-073,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T04:04:57.652605,completed,resolved,4.1,Sku Transfer completed. stockout_risk resolved.
+ACT-0568,EXC-612,C-2026-BTS,S-051,Ops Lead,Ahmed Hassan,sku_transfer,2026-08-28T02:25:24.494057,completed,failed,2.4,Action attempted but failed. stockout_risk not resolved by sku_transfer.
+ACT-0569,EXC-613,C-2026-BTS,S-019,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T03:34:04.661132,completed,resolved,3.6,Sku Transfer completed. stockout_risk resolved.
+ACT-0570,EXC-614,C-2026-BTS,S-083,Ops Lead,Robert Taylor,sku_transfer,2026-08-28T02:25:58.752790,completed,unresolved,2.4,Assignment error: action routed to wrong rep. stockout_risk remains open.
+ACT-0571,EXC-615,C-2026-FCL,S-075,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T05:14:05.215587,completed,resolved,5.2,Sku Transfer completed. stockout_risk resolved.
+ACT-0572,EXC-616,C-2026-FCL,S-029,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T03:55:03.003733,completed,unresolved,3.9,Action completed but stockout_risk remains unresolved.
+ACT-0573,EXC-617,C-2026-FCL,S-036,Ops Lead,David Park,sku_transfer,2026-09-28T05:35:59.160986,completed,resolved,5.6,Sku Transfer completed. stockout_risk resolved.
+ACT-0574,EXC-618,C-2026-FCL,S-003,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T05:22:38.571122,completed,resolved,5.4,Sku Transfer completed. stockout_risk resolved.
+ACT-0575,EXC-619,C-2026-FCL,S-087,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T04:20:36.510981,completed,failed,4.3,Action attempted but failed. stockout_risk not resolved by sku_transfer.
+ACT-0576,EXC-620,C-2026-FCL,S-086,Ops Lead,Sarah Chen,sku_transfer,2026-09-28T04:06:11.092444,completed,unresolved,4.1,Action completed but stockout_risk remains unresolved.
+ACT-0577,EXC-621,C-2026-FCL,S-012,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T01:17:00.394435,completed,failed,1.3,Action attempted but failed. stockout_risk not resolved by sku_transfer.
+ACT-0578,EXC-622,C-2026-FCL,S-063,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T02:30:16.749384,completed,resolved,2.5,Sku Transfer completed. stockout_risk resolved.
+ACT-0579,EXC-623,C-2026-FCL,S-041,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T02:49:32.686928,completed,unresolved,2.8,Action completed but stockout_risk remains unresolved.
+ACT-0580,EXC-624,C-2026-FCL,S-078,Ops Lead,Sarah Chen,sku_transfer,2026-09-28T03:55:06.609806,completed,unresolved,3.9,Action completed but stockout_risk remains unresolved.
+ACT-0581,EXC-625,C-2026-FCL,S-090,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T03:36:32.397922,completed,resolved,3.6,Sku Transfer completed. stockout_risk resolved.
+ACT-0582,EXC-626,C-2026-FCL,S-089,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T02:53:24.307179,completed,resolved,2.9,Sku Transfer completed. stockout_risk resolved.
+ACT-0583,EXC-627,C-2026-FCL,S-089,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T02:05:24.503016,completed,resolved,2.1,Sku Transfer completed. stockout_risk resolved.
+ACT-0584,EXC-628,C-2026-FCL,S-089,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T08:48:18.888290,completed,unresolved,8.8,Action completed but stockout_risk remains unresolved.
+ACT-0585,EXC-629,C-2026-FCL,S-089,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T03:24:31.806108,completed,failed,3.4,Action attempted but failed. stockout_risk not resolved by sku_transfer.
+ACT-0586,EXC-630,C-2026-FCL,S-089,Ops Lead,Marcus Lee,sku_transfer,2026-09-28T04:18:55.181137,completed,resolved,4.3,Sku Transfer completed. stockout_risk resolved.
+ACT-0587,EXC-631,C-2026-FCL,S-019,Ops Lead,Robert Taylor,sku_transfer,2026-09-28T01:47:25.599778,completed,resolved,1.8,Sku Transfer completed. stockout_risk resolved.
+ACT-0588,EXC-632,C-2026-FCL,S-055,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T04:23:13.500522,completed,resolved,4.4,Sku Transfer completed. stockout_risk resolved.
+ACT-0589,EXC-633,C-2026-FCL,S-048,Ops Lead,David Park,sku_transfer,2026-09-28T01:57:45.682612,completed,unresolved,2.0,Assignment error: action routed to wrong rep. stockout_risk remains open.
+ACT-0590,EXC-634,C-2026-FCL,S-050,Ops Lead,Sarah Chen,sku_transfer,2026-09-28T03:30:02.586138,completed,unresolved,3.5,Action completed but stockout_risk remains unresolved.
+ACT-0591,EXC-635,C-2026-FCL,S-002,Ops Lead,Robert Taylor,sku_transfer,2026-09-28T03:13:38.585293,completed,unresolved,3.2,Action completed but stockout_risk remains unresolved.
+ACT-0592,EXC-636,C-2026-FCL,S-045,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T05:22:07.034005,completed,unresolved,5.4,Action completed but stockout_risk remains unresolved.
+ACT-0593,EXC-637,C-2026-FCL,S-040,Ops Lead,David Park,sku_transfer,2026-09-28T01:47:56.407967,completed,resolved,1.8,Sku Transfer completed. stockout_risk resolved.
+ACT-0594,EXC-638,C-2026-FCL,S-091,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T05:02:23.539367,completed,unresolved,5.0,Action completed but stockout_risk remains unresolved.
+ACT-0595,EXC-639,C-2026-FCL,S-091,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T04:03:13.390710,completed,resolved,4.1,Sku Transfer completed. stockout_risk resolved.
+ACT-0596,EXC-640,C-2026-FCL,S-091,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T05:19:28.620552,completed,resolved,5.3,Sku Transfer completed. stockout_risk resolved.
+ACT-0597,EXC-641,C-2026-FCL,S-091,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T04:29:32.401550,completed,reopened,4.5,"Initially resolved via sku_transfer, but exception reopened within 48h."
+ACT-0598,EXC-642,C-2026-FCL,S-091,Ops Lead,Ahmed Hassan,sku_transfer,2026-09-28T02:11:30.518948,completed,resolved,2.2,Sku Transfer completed. stockout_risk resolved.
+ACT-0599,EXC-643,C-2026-FCL,S-088,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T02:49:29.494641,completed,resolved,2.8,Sku Transfer completed. stockout_risk resolved.
+ACT-0600,EXC-644,C-2026-FCL,S-097,Ops Lead,Emma Wilson,sku_transfer,2026-09-28T02:19:34.007063,completed,unresolved,2.3,Assignment error: action routed to wrong rep. stockout_risk remains open.
+ACT-0601,EXC-645,C-2026-FCL,S-027,Ops Lead,Lisa Wong,sku_transfer,2026-09-28T11:25:44.452286,completed,resolved,11.4,Sku Transfer completed. stockout_risk resolved.
+ACT-0602,EXC-646,C-2026-FCL,S-052,Ops Lead,Maria Rodriguez,sku_transfer,2026-09-28T03:32:06.868088,completed,failed,3.5,Action attempted but failed. stockout_risk not resolved by sku_transfer.
+ACT-0603,EXC-647,C-2026-FCL,S-061,Ops Lead,Jennifer Kim,sku_transfer,2026-09-28T02:53:27.655982,completed,unresolved,2.9,Action completed but stockout_risk remains unresolved.
+ACT-0604,EXC-939,C-2026-PEACH,S-014,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T07:44:39.181367,completed,resolved,7.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0605,EXC-940,C-2026-PEACH,S-014,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T04:54:05.255644,completed,resolved,4.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0606,EXC-941,C-2026-PEACH,S-014,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T01:48:56.621573,completed,resolved,1.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0607,EXC-942,C-2026-PEACH,S-014,Ops Lead,Marcus Lee,sku_transfer,2026-07-28T04:27:05.482967,completed,resolved,4.5,Sku Transfer completed. low_sell_through resolved.
+ACT-0608,EXC-944,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T03:38:18.809800,completed,unresolved,3.6,Action completed but low_sell_through remains unresolved.
+ACT-0609,EXC-945,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T02:33:07.429421,completed,unresolved,2.6,Action completed but low_sell_through remains unresolved.
+ACT-0610,EXC-947,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T02:03:24.377606,completed,resolved,2.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0611,EXC-948,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T04:54:27.772786,completed,unresolved,4.9,Action completed but low_sell_through remains unresolved.
+ACT-0612,EXC-949,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T02:03:42.183237,completed,failed,2.1,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0613,EXC-950,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T01:05:16.197973,completed,resolved,1.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0614,EXC-951,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T04:25:06.093582,completed,resolved,4.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0615,EXC-952,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T01:38:37.620435,completed,failed,1.6,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0616,EXC-953,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T04:41:35.614979,completed,resolved,4.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0617,EXC-954,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T02:51:11.511270,completed,resolved,2.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0618,EXC-955,C-2026-PEACH,S-067,Ops Lead,Lisa Wong,sku_transfer,2026-07-28T04:04:08.008905,completed,failed,4.1,Action attempted but failed. low_sell_through not resolved by sku_transfer.
+ACT-0619,EXC-958,C-2026-PEACH,S-016,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T05:37:04.906664,completed,resolved,5.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0620,EXC-959,C-2026-PEACH,S-016,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T02:15:07.837521,completed,unresolved,2.3,Action completed but low_sell_through remains unresolved.
+ACT-0621,EXC-961,C-2026-PEACH,S-016,Ops Lead,Emma Wilson,sku_transfer,2026-07-28T03:10:39.777149,completed,unresolved,3.2,Action completed but low_sell_through remains unresolved.
+ACT-0622,EXC-962,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T02:16:02.069563,completed,resolved,2.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0623,EXC-963,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T04:10:27.581478,completed,unresolved,4.2,Action completed but low_sell_through remains unresolved.
+ACT-0624,EXC-964,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T02:40:12.798097,completed,resolved,2.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0625,EXC-965,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T01:48:27.764070,completed,resolved,1.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0626,EXC-966,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T05:56:46.521815,completed,unresolved,5.9,Action completed but low_sell_through remains unresolved.
+ACT-0627,EXC-967,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T05:13:31.737889,completed,unresolved,5.2,Action completed but low_sell_through remains unresolved.
+ACT-0628,EXC-968,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T06:14:04.731723,completed,unresolved,6.2,Action completed but low_sell_through remains unresolved.
+ACT-0629,EXC-971,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T06:05:04.639349,completed,resolved,6.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0630,EXC-972,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T02:56:16.151557,completed,resolved,2.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0631,EXC-975,C-2026-PEACH,S-011,Ops Lead,James Okoro,sku_transfer,2026-07-28T03:59:19.764980,completed,unresolved,4.0,Action completed but low_sell_through remains unresolved.
+ACT-0632,EXC-976,C-2026-PEACH,S-011,Ops Lead,James Okoro,sku_transfer,2026-07-28T05:35:17.680079,completed,resolved,5.6,Sku Transfer completed. low_sell_through resolved.
+ACT-0633,EXC-977,C-2026-PEACH,S-011,Ops Lead,James Okoro,sku_transfer,2026-07-28T03:52:52.396586,completed,unresolved,3.9,Action completed but low_sell_through remains unresolved.
+ACT-0634,EXC-978,C-2026-PEACH,S-011,Ops Lead,James Okoro,sku_transfer,2026-07-28T05:01:16.735706,completed,resolved,5.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0635,EXC-979,C-2026-PEACH,S-011,Ops Lead,James Okoro,sku_transfer,2026-07-28T05:40:22.605839,completed,resolved,5.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0636,EXC-980,C-2026-PEACH,S-011,Ops Lead,James Okoro,sku_transfer,2026-07-28T04:56:13.608327,completed,resolved,4.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0637,EXC-981,C-2026-PEACH,S-011,Ops Lead,James Okoro,sku_transfer,2026-07-28T05:39:28.053379,completed,resolved,5.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0638,EXC-982,C-2026-PEACH,S-011,Ops Lead,James Okoro,sku_transfer,2026-07-28T03:17:16.901370,completed,unresolved,3.3,Action completed but low_sell_through remains unresolved.
+ACT-0639,EXC-984,C-2026-PEACH,S-021,Ops Lead,Maria Rodriguez,sku_transfer,2026-07-28T04:08:31.036314,completed,resolved,4.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0640,EXC-987,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T02:54:17.777321,completed,resolved,2.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0641,EXC-988,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T02:48:48.983136,completed,resolved,2.8,Sku Transfer completed. low_sell_through resolved.
+ACT-0642,EXC-989,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T06:22:27.708501,completed,resolved,6.4,Sku Transfer completed. low_sell_through resolved.
+ACT-0643,EXC-990,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T02:12:40.541537,completed,resolved,2.2,Sku Transfer completed. low_sell_through resolved.
+ACT-0644,EXC-992,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T05:11:24.836067,completed,unresolved,5.2,Action completed but low_sell_through remains unresolved.
+ACT-0645,EXC-993,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T04:03:58.085151,completed,resolved,4.1,Sku Transfer completed. low_sell_through resolved.
+ACT-0646,EXC-994,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T02:44:15.015754,completed,resolved,2.7,Sku Transfer completed. low_sell_through resolved.
+ACT-0647,EXC-995,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T01:53:33.892747,completed,resolved,1.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0648,EXC-996,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T02:53:24.269382,completed,resolved,2.9,Sku Transfer completed. low_sell_through resolved.
+ACT-0649,EXC-997,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,sku_transfer,2026-07-28T03:02:36.010002,completed,resolved,3.0,Sku Transfer completed. low_sell_through resolved.
+ACT-0650,EXC-998,C-2026-PEACH,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T03:29:31.101542,completed,unresolved,3.5,Assignment error: action routed to wrong rep. low_sell_through remains open.
+ACT-0651,EXC-999,C-2026-PEACH,S-058,Ops Lead,Robert Taylor,sku_transfer,2026-07-28T07:15:06.489028,completed,resolved,7.3,Sku Transfer completed. low_sell_through resolved.
+ACT-0652,EXC-004,C-2026-PEACH,S-065,Ops Lead,James Okoro,phone_call,2026-06-22T19:55:13.453467,completed,resolved,19.9,Phone Call completed. missing_confirmation resolved.
+ACT-0653,EXC-011,C-2026-PEACH,S-043,Ops Lead,Marcus Lee,phone_call,2026-06-22T10:46:38.644780,completed,resolved,10.8,Phone Call completed. missing_confirmation resolved.
+ACT-0654,EXC-001,C-2026-PEACH,S-016,Ops Lead,Emma Wilson,phone_call,2026-06-23T13:46:52.222260,completed,unresolved,13.8,Assignment error: action routed to wrong rep. missing_confirmation remains open.
+ACT-0655,EXC-008,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,phone_call,2026-06-23T05:34:51.297156,completed,resolved,5.6,Phone Call completed. missing_confirmation resolved.
+ACT-0656,EXC-009,C-2026-PEACH,S-084,Ops Lead,Ahmed Hassan,phone_call,2026-06-23T15:31:06.665207,completed,unresolved,15.5,Action completed but missing_confirmation remains unresolved.
+ACT-0657,EXC-006,C-2026-PEACH,S-050,Ops Lead,Sarah Chen,phone_call,2026-06-24T07:47:20.361652,completed,resolved,7.8,Phone Call completed. missing_confirmation resolved.
+ACT-0658,EXC-012,C-2026-PEACH,S-061,Ops Lead,Jennifer Kim,phone_call,2026-06-24T11:11:00.729433,completed,resolved,11.2,Phone Call completed. missing_confirmation resolved.
+ACT-0659,EXC-013,C-2026-PEACH,S-046,Ops Lead,David Park,phone_call,2026-06-25T02:17:08.658553,completed,resolved,26.3,Phone Call completed. missing_confirmation resolved.
+ACT-0660,EXC-003,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,phone_call,2026-06-25T22:52:33.796400,completed,resolved,22.9,Phone Call completed. missing_confirmation resolved.
+ACT-0661,EXC-010,C-2026-PEACH,S-013,Ops Lead,Sarah Chen,phone_call,2026-06-25T08:27:43.769049,completed,failed,8.5,Action attempted but failed. missing_confirmation not resolved by phone_call.
+ACT-0662,EXC-002,C-2026-PEACH,S-066,Ops Lead,Maria Rodriguez,phone_call,2026-06-26T07:45:54.604938,completed,resolved,7.8,Phone Call completed. missing_confirmation resolved.
+ACT-0663,EXC-163,C-2026-PEACH,S-087,Ops Lead,Maria Rodriguez,dc_count_verification,2026-06-26T14:42:52.816536,completed,resolved,14.7,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0664,EXC-174,C-2026-PEACH,S-096,Ops Lead,Robert Taylor,dc_count_verification,2026-06-26T15:02:48.860479,completed,resolved,15.0,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0665,EXC-179,C-2026-PEACH,S-078,Ops Lead,Sarah Chen,dc_count_verification,2026-06-26T10:56:22.444027,completed,resolved,10.9,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0666,EXC-005,C-2026-PEACH,S-031,Ops Lead,David Park,phone_call,2026-06-27T08:48:11.948489,completed,resolved,8.8,Phone Call completed. missing_confirmation resolved.
+ACT-0667,EXC-128,C-2026-PEACH,S-014,Ops Lead,Marcus Lee,dc_count_verification,2026-06-28T11:00:31.522534,completed,resolved,35.0,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0668,EXC-133,C-2026-PEACH,S-067,Ops Lead,Lisa Wong,dc_count_verification,2026-06-27T08:14:41.947908,completed,resolved,8.2,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0669,EXC-136,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,dc_count_verification,2026-06-27T09:26:38.451062,completed,unresolved,9.4,Assignment error: action routed to wrong rep. quantity_mismatch remains open.
+ACT-0670,EXC-151,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,dc_count_verification,2026-06-27T04:56:38.039811,completed,resolved,4.9,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0671,EXC-161,C-2026-PEACH,S-095,Ops Lead,Maria Rodriguez,dc_count_verification,2026-06-27T09:22:40.081508,completed,resolved,9.4,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0672,EXC-172,C-2026-PEACH,S-096,Ops Lead,Robert Taylor,dc_count_verification,2026-06-28T00:41:52.834038,completed,resolved,24.7,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0673,EXC-129,C-2026-PEACH,S-014,Ops Lead,Marcus Lee,dc_count_verification,2026-06-28T15:57:43.329347,completed,resolved,16.0,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0674,EXC-131,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,dc_count_verification,2026-06-28T19:28:20.703210,completed,resolved,19.5,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0675,EXC-132,C-2026-PEACH,S-067,Ops Lead,Lisa Wong,dc_count_verification,2026-06-28T15:16:09.227360,completed,unresolved,15.3,Action completed but quantity_mismatch remains unresolved.
+ACT-0676,EXC-139,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,dc_count_verification,2026-06-28T15:46:36.397189,completed,resolved,15.8,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0677,EXC-143,C-2026-PEACH,S-019,Ops Lead,Robert Taylor,dc_count_verification,2026-06-28T20:26:13.055496,completed,unresolved,20.4,Action completed but quantity_mismatch remains unresolved.
+ACT-0678,EXC-145,C-2026-PEACH,S-056,Ops Lead,Marcus Lee,dc_count_verification,2026-06-28T04:06:55.998192,completed,unresolved,4.1,Action completed but quantity_mismatch remains unresolved.
+ACT-0679,EXC-148,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,dc_count_verification,2026-06-28T09:52:37.095332,completed,resolved,9.9,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0680,EXC-149,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,dc_count_verification,2026-06-29T02:35:07.144199,completed,resolved,26.6,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0681,EXC-150,C-2026-PEACH,S-029,Ops Lead,Emma Wilson,dc_count_verification,2026-06-28T12:41:30.617417,completed,resolved,12.7,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0682,EXC-155,C-2026-PEACH,S-004,Ops Lead,Lisa Wong,dc_count_verification,2026-06-29T04:42:34.009619,completed,resolved,28.7,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0683,EXC-157,C-2026-PEACH,S-051,Ops Lead,Ahmed Hassan,dc_count_verification,2026-06-28T12:39:05.655250,completed,resolved,12.7,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0684,EXC-164,C-2026-PEACH,S-087,Ops Lead,Maria Rodriguez,dc_count_verification,2026-06-28T05:35:30.388399,completed,unresolved,5.6,Action completed but quantity_mismatch remains unresolved.
+ACT-0685,EXC-171,C-2026-PEACH,S-005,Ops Lead,Emma Wilson,dc_count_verification,2026-06-28T19:59:50.354370,completed,resolved,20.0,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0686,EXC-173,C-2026-PEACH,S-096,Ops Lead,Robert Taylor,dc_count_verification,2026-06-29T10:05:39.212592,completed,resolved,34.1,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0687,EXC-177,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,dc_count_verification,2026-06-28T14:08:14.307566,completed,resolved,14.1,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0688,EXC-178,C-2026-PEACH,S-046,Ops Lead,David Park,dc_count_verification,2026-06-28T19:02:58.259323,completed,resolved,19.0,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0689,EXC-135,C-2026-PEACH,S-037,Ops Lead,Jennifer Kim,dc_count_verification,2026-06-29T18:25:58.114623,completed,reopened,18.4,"Initially resolved via dc_count_verification, but exception reopened within 48h."
+ACT-0690,EXC-138,C-2026-PEACH,S-035,Ops Lead,Jennifer Kim,dc_count_verification,2026-06-29T10:40:18.157918,completed,failed,10.7,Action attempted but failed. quantity_mismatch not resolved by dc_count_verification.
+ACT-0691,EXC-146,C-2026-PEACH,S-056,Ops Lead,Marcus Lee,dc_count_verification,2026-06-30T20:29:30.206553,completed,reopened,44.5,"Initially resolved via dc_count_verification, but exception reopened within 48h."
+ACT-0692,EXC-147,C-2026-PEACH,S-056,Ops Lead,Marcus Lee,dc_count_verification,2026-06-29T06:52:55.542632,completed,unresolved,6.9,Action completed but quantity_mismatch remains unresolved.
+ACT-0693,EXC-152,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,dc_count_verification,2026-06-29T14:22:37.094458,completed,unresolved,14.4,Action completed but quantity_mismatch remains unresolved.
+ACT-0694,EXC-154,C-2026-PEACH,S-004,Ops Lead,Lisa Wong,dc_count_verification,2026-06-29T14:12:42.857468,completed,unresolved,14.2,Action completed but quantity_mismatch remains unresolved.
+ACT-0695,EXC-156,C-2026-PEACH,S-054,Ops Lead,Marcus Lee,dc_count_verification,2026-06-29T11:28:16.515451,completed,unresolved,11.5,Action completed but quantity_mismatch remains unresolved.
+ACT-0696,EXC-158,C-2026-PEACH,S-065,Ops Lead,James Okoro,dc_count_verification,2026-06-29T20:01:02.463106,completed,resolved,20.0,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0697,EXC-160,C-2026-PEACH,S-050,Ops Lead,Sarah Chen,dc_count_verification,2026-06-29T18:20:26.484138,completed,failed,18.3,Action attempted but failed. quantity_mismatch not resolved by dc_count_verification.
+ACT-0698,EXC-162,C-2026-PEACH,S-095,Ops Lead,Maria Rodriguez,dc_count_verification,2026-06-29T03:54:06.817087,completed,failed,3.9,Action attempted but failed. quantity_mismatch not resolved by dc_count_verification.
+ACT-0699,EXC-165,C-2026-PEACH,S-041,Ops Lead,Ahmed Hassan,dc_count_verification,2026-06-29T21:51:58.639787,completed,resolved,21.9,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0700,EXC-167,C-2026-PEACH,S-090,Ops Lead,Emma Wilson,dc_count_verification,2026-06-29T09:23:00.687772,completed,resolved,9.4,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0701,EXC-168,C-2026-PEACH,S-090,Ops Lead,Emma Wilson,dc_count_verification,2026-06-29T08:52:07.514546,completed,reopened,8.9,"Initially resolved via dc_count_verification, but exception reopened within 48h."
+ACT-0702,EXC-169,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,dc_count_verification,2026-06-29T03:59:00.066416,completed,reopened,4.0,"Initially resolved via dc_count_verification, but exception reopened within 48h."
+ACT-0703,EXC-134,C-2026-PEACH,S-016,Ops Lead,Emma Wilson,dc_count_verification,2026-06-30T16:11:18.759156,completed,failed,16.2,Action attempted but failed. quantity_mismatch not resolved by dc_count_verification.
+ACT-0704,EXC-141,C-2026-PEACH,S-058,Ops Lead,Robert Taylor,dc_count_verification,2026-06-30T16:45:40.935632,completed,unresolved,16.8,Action completed but quantity_mismatch remains unresolved.
+ACT-0705,EXC-142,C-2026-PEACH,S-019,Ops Lead,Robert Taylor,dc_count_verification,2026-06-30T17:28:11.179236,completed,resolved,17.5,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0706,EXC-153,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,dc_count_verification,2026-06-30T16:23:39.990161,completed,resolved,16.4,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0707,EXC-166,C-2026-PEACH,S-090,Ops Lead,Emma Wilson,dc_count_verification,2026-06-30T14:20:16.521733,completed,resolved,14.3,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0708,EXC-170,C-2026-PEACH,S-005,Ops Lead,Emma Wilson,dc_count_verification,2026-06-30T13:22:54.951164,completed,resolved,13.4,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0709,EXC-175,C-2026-PEACH,S-061,Ops Lead,Jennifer Kim,dc_count_verification,2026-06-30T07:19:22.041533,completed,resolved,7.3,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0710,EXC-176,C-2026-PEACH,S-061,Ops Lead,Jennifer Kim,dc_count_verification,2026-06-30T19:08:06.258672,completed,resolved,19.1,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0711,EXC-130,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,dc_count_verification,2026-07-01T13:24:37.883704,completed,resolved,13.4,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0712,EXC-137,C-2026-PEACH,S-021,Ops Lead,Maria Rodriguez,dc_count_verification,2026-07-01T09:26:33.592961,completed,resolved,9.4,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0713,EXC-140,C-2026-PEACH,S-058,Ops Lead,Robert Taylor,dc_count_verification,2026-07-01T05:53:37.731695,completed,resolved,5.9,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0714,EXC-144,C-2026-PEACH,S-019,Ops Lead,Robert Taylor,dc_count_verification,2026-07-01T20:51:06.235226,completed,resolved,20.9,Dc Count Verification completed. quantity_mismatch resolved.
+ACT-0715,EXC-279,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,site_visit,2026-07-02T17:08:12.029261,completed,resolved,17.1,Site Visit completed. missing_photo_proof resolved.
+ACT-0716,EXC-288,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,site_visit,2026-07-02T17:32:36.370972,completed,failed,17.5,Action attempted but failed. missing_photo_proof not resolved by site_visit.
+ACT-0717,EXC-289,C-2026-PEACH,S-004,Ops Lead,Lisa Wong,site_visit,2026-07-02T10:09:40.738671,completed,failed,10.2,Action attempted but failed. missing_photo_proof not resolved by site_visit.
+ACT-0718,EXC-278,C-2026-PEACH,S-092,Ops Lead,Maria Rodriguez,site_visit,2026-07-03T15:20:35.814466,completed,unresolved,15.3,Action completed but missing_photo_proof remains unresolved.
+ACT-0719,EXC-282,C-2026-PEACH,S-011,Ops Lead,James Okoro,site_visit,2026-07-03T10:10:39.122932,completed,unresolved,10.2,Action completed but missing_photo_proof remains unresolved.
+ACT-0720,EXC-304,C-2026-PEACH,S-018,Ops Lead,Maria Rodriguez,site_visit,2026-07-03T17:18:08.439538,completed,resolved,17.3,Site Visit completed. missing_photo_proof resolved.
+ACT-0721,EXC-291,C-2026-PEACH,S-007,Ops Lead,Jennifer Kim,site_visit,2026-07-04T21:26:50.842107,completed,unresolved,21.4,Action completed but missing_photo_proof remains unresolved.
+ACT-0722,EXC-303,C-2026-PEACH,S-043,Ops Lead,Marcus Lee,site_visit,2026-07-04T07:59:55.292983,completed,failed,8.0,Action attempted but failed. missing_photo_proof not resolved by site_visit.
+ACT-0723,EXC-293,C-2026-PEACH,S-065,Ops Lead,James Okoro,site_visit,2026-07-05T07:13:04.466858,completed,unresolved,7.2,Assignment error: action routed to wrong rep. missing_photo_proof remains open.
+ACT-0724,EXC-294,C-2026-PEACH,S-065,Ops Lead,James Okoro,site_visit,2026-07-05T10:37:16.870958,completed,resolved,10.6,Site Visit completed. missing_photo_proof resolved.
+ACT-0725,EXC-302,C-2026-PEACH,S-043,Ops Lead,Marcus Lee,site_visit,2026-07-05T06:34:53.217372,completed,unresolved,6.6,Assignment error: action routed to wrong rep. missing_photo_proof remains open.
+ACT-0726,EXC-285,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,site_visit,2026-07-06T16:57:35.364523,completed,unresolved,17.0,Action completed but missing_photo_proof remains unresolved.
+ACT-0727,EXC-286,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,site_visit,2026-07-06T20:30:13.832493,completed,resolved,20.5,Site Visit completed. missing_photo_proof resolved.
+ACT-0728,EXC-298,C-2026-PEACH,S-095,Ops Lead,Maria Rodriguez,site_visit,2026-07-07T08:56:52.876170,completed,resolved,32.9,Site Visit completed. missing_photo_proof resolved.
+ACT-0729,EXC-283,C-2026-PEACH,S-011,Ops Lead,James Okoro,site_visit,2026-07-07T06:05:51.408719,completed,unresolved,6.1,Action completed but missing_photo_proof remains unresolved.
+ACT-0730,EXC-307,C-2026-PEACH,S-005,Ops Lead,Emma Wilson,site_visit,2026-07-07T09:06:01.184117,completed,resolved,9.1,Site Visit completed. missing_photo_proof resolved.
+ACT-0731,EXC-308,C-2026-PEACH,S-096,Ops Lead,Robert Taylor,site_visit,2026-07-07T16:24:22.399500,completed,failed,16.4,Action attempted but failed. missing_photo_proof not resolved by site_visit.
+ACT-0732,EXC-310,C-2026-PEACH,S-078,Ops Lead,Sarah Chen,site_visit,2026-07-07T18:40:52.637480,completed,resolved,18.7,Site Visit completed. missing_photo_proof resolved.
+ACT-0733,EXC-305,C-2026-PEACH,S-005,Ops Lead,Emma Wilson,site_visit,2026-07-09T08:00:53.504649,completed,resolved,32.0,Site Visit completed. missing_photo_proof resolved.
+ACT-0734,EXC-047,C-2026-PEACH,S-066,Ops Lead,Maria Rodriguez,phone_call,2026-07-09T12:01:19.900311,completed,resolved,12.0,Phone Call completed. late_confirmation resolved.
+ACT-0735,EXC-051,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,phone_call,2026-07-10T08:24:32.521763,completed,resolved,32.4,Phone Call completed. late_confirmation resolved.
+ACT-0736,EXC-054,C-2026-PEACH,S-051,Ops Lead,Ahmed Hassan,phone_call,2026-07-09T09:12:07.211566,completed,unresolved,9.2,Action completed but late_confirmation remains unresolved.
+ACT-0737,EXC-055,C-2026-PEACH,S-051,Ops Lead,Ahmed Hassan,phone_call,2026-07-09T07:21:02.004379,completed,resolved,7.4,Phone Call completed. late_confirmation resolved.
+ACT-0738,EXC-1601,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,escalation,2026-07-12T00:43:19.548186-07:00,completed,resolved,55.5,Escalation completed. unresolved_issue_sla_breach resolved.
+ACT-0739,EXC-390,C-2026-PEACH,S-066,Ops Lead,Maria Rodriguez,site_visit,2026-07-09T17:30:50.369327-05:00,completed,unresolved,8.0,Action completed but late_photo_proof remains unresolved.
+ACT-0740,EXC-391,C-2026-PEACH,S-066,Ops Lead,Maria Rodriguez,site_visit,2026-07-10T03:08:18.458636-05:00,completed,unresolved,11.1,Action completed but late_photo_proof remains unresolved.
+ACT-0741,EXC-392,C-2026-PEACH,S-066,Ops Lead,Maria Rodriguez,site_visit,2026-07-09T20:17:29.844579-05:00,completed,unresolved,11.0,Action completed but late_photo_proof remains unresolved.
+ACT-0742,EXC-400,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,site_visit,2026-07-10T04:05:27.791579-07:00,completed,failed,13.3,Action attempted but failed. late_photo_proof not resolved by site_visit.
+ACT-0743,EXC-401,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,site_visit,2026-07-10T06:22:09.546897-07:00,completed,unresolved,13.6,Action completed but late_photo_proof remains unresolved.
+ACT-0744,EXC-402,C-2026-PEACH,S-045,Ops Lead,Lisa Wong,site_visit,2026-07-10T08:35:05.725949-07:00,completed,resolved,18.1,Site Visit completed. late_photo_proof resolved.
+ACT-0745,EXC-405,C-2026-PEACH,S-051,Ops Lead,Ahmed Hassan,site_visit,2026-07-10T04:14:43.753172-05:00,completed,resolved,14.2,Site Visit completed. late_photo_proof resolved.
+ACT-0746,EXC-406,C-2026-PEACH,S-051,Ops Lead,Ahmed Hassan,site_visit,2026-07-10T07:00:03.748606-05:00,completed,resolved,14.0,Site Visit completed. late_photo_proof resolved.
+ACT-0747,EXC-407,C-2026-PEACH,S-051,Ops Lead,Ahmed Hassan,site_visit,2026-07-09T17:22:23.903130-05:00,completed,resolved,5.1,Site Visit completed. late_photo_proof resolved.
+ACT-0748,EXC-062,C-2026-PEACH,S-013,Ops Lead,Sarah Chen,phone_call,2026-07-10T09:31:15.563027,completed,resolved,9.5,Phone Call completed. late_confirmation resolved.
+ACT-0749,EXC-065,C-2026-PEACH,S-005,Ops Lead,Emma Wilson,phone_call,2026-07-10T09:55:35.273198,completed,resolved,9.9,Phone Call completed. late_confirmation resolved.
+ACT-0750,EXC-068,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,phone_call,2026-07-10T14:10:02.421900,completed,resolved,14.2,Phone Call completed. late_confirmation resolved.
+ACT-0751,EXC-418,C-2026-PEACH,S-013,Ops Lead,Sarah Chen,site_visit,2026-07-11T02:15:20.702931-07:00,completed,resolved,13.5,Site Visit completed. late_photo_proof resolved.
+ACT-0752,EXC-419,C-2026-PEACH,S-013,Ops Lead,Sarah Chen,site_visit,2026-07-10T20:33:09.393281-07:00,completed,resolved,7.1,Site Visit completed. late_photo_proof resolved.
+ACT-0753,EXC-420,C-2026-PEACH,S-013,Ops Lead,Sarah Chen,site_visit,2026-07-11T01:07:56.870329-07:00,completed,resolved,6.6,Site Visit completed. late_photo_proof resolved.
+ACT-0754,EXC-423,C-2026-PEACH,S-005,Ops Lead,Emma Wilson,site_visit,2026-07-10T19:15:29.362000-04:00,completed,resolved,3.8,Site Visit completed. late_photo_proof resolved.
+ACT-0755,EXC-429,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,site_visit,2026-07-10T15:23:14.789177-07:00,completed,resolved,6.6,Site Visit completed. late_photo_proof resolved.
+ACT-0756,EXC-430,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,site_visit,2026-07-10T18:50:54.552812-07:00,completed,unresolved,9.3,Action completed but late_photo_proof remains unresolved.
+ACT-0757,EXC-431,C-2026-PEACH,S-068,Ops Lead,Lisa Wong,site_visit,2026-07-10T19:52:08.616515-07:00,completed,resolved,5.1,Site Visit completed. late_photo_proof resolved.
+ACT-0758,EXC-050,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,phone_call,2026-07-11T07:33:30.624433,completed,resolved,7.6,Phone Call completed. late_confirmation resolved.
+ACT-0759,EXC-057,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,phone_call,2026-07-12T12:23:24.360902,completed,resolved,36.4,Phone Call completed. late_confirmation resolved.
+ACT-0760,EXC-059,C-2026-PEACH,S-084,Ops Lead,Ahmed Hassan,phone_call,2026-07-11T11:04:57.668558,completed,resolved,11.1,Phone Call completed. late_confirmation resolved.
+ACT-0761,EXC-064,C-2026-PEACH,S-005,Ops Lead,Emma Wilson,phone_call,2026-07-11T08:51:17.577562,completed,unresolved,8.9,Action completed but late_confirmation remains unresolved.
+ACT-0762,EXC-067,C-2026-PEACH,S-061,Ops Lead,Jennifer Kim,phone_call,2026-07-11T09:09:52.463074,completed,resolved,9.2,Phone Call completed. late_confirmation resolved.
+ACT-0763,EXC-069,C-2026-PEACH,S-046,Ops Lead,David Park,phone_call,2026-07-11T09:11:45.001123,completed,unresolved,9.2,Action completed but late_confirmation remains unresolved.
+ACT-0764,EXC-399,C-2026-PEACH,S-012,Ops Lead,Emma Wilson,site_visit,2026-07-12T13:18:44.453448-07:00,completed,resolved,21.8,Site Visit completed. late_photo_proof resolved.
+ACT-0765,EXC-412,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,site_visit,2026-07-12T07:28:12.169063-05:00,completed,resolved,14.7,Site Visit completed. late_photo_proof resolved.
+ACT-0766,EXC-413,C-2026-PEACH,S-079,Ops Lead,Marcus Lee,site_visit,2026-07-12T02:02:17.698032-05:00,completed,unresolved,10.3,Action completed but late_photo_proof remains unresolved.
+ACT-0767,EXC-426,C-2026-PEACH,S-061,Ops Lead,Jennifer Kim,site_visit,2026-07-12T04:25:43.145159-05:00,completed,resolved,11.2,Site Visit completed. late_photo_proof resolved.
+ACT-0768,EXC-427,C-2026-PEACH,S-061,Ops Lead,Jennifer Kim,site_visit,2026-07-11T23:23:20.464819-05:00,completed,unresolved,6.6,Assignment error: action routed to wrong rep. late_photo_proof remains open.
+ACT-0769,EXC-428,C-2026-PEACH,S-061,Ops Lead,Jennifer Kim,site_visit,2026-07-12T00:45:47.303319-05:00,completed,resolved,7.5,Site Visit completed. late_photo_proof resolved.
+ACT-0770,EXC-432,C-2026-PEACH,S-046,Ops Lead,David Park,site_visit,2026-07-11T21:20:36.933128-07:00,completed,resolved,8.6,Site Visit completed. late_photo_proof resolved.
+ACT-0771,EXC-433,C-2026-PEACH,S-046,Ops Lead,David Park,site_visit,2026-07-12T01:58:25.534605-07:00,completed,resolved,9.2,Site Visit completed. late_photo_proof resolved.
+ACT-0772,EXC-434,C-2026-PEACH,S-046,Ops Lead,David Park,site_visit,2026-07-12T10:01:28.320730-07:00,completed,resolved,24.0,Site Visit completed. late_photo_proof resolved.
+ACT-0773,EXC-435,C-2026-PEACH,S-046,Ops Lead,David Park,site_visit,2026-07-12T08:13:19.703017-07:00,completed,failed,15.5,Action attempted but failed. late_photo_proof not resolved by site_visit.
+ACT-0774,EXC-1599,C-2026-PEACH,S-019,Ops Lead,Robert Taylor,escalation,2026-07-16T01:27:28.946387-05:00,completed,unresolved,85.5,Action completed but unresolved_issue_sla_breach remains unresolved.

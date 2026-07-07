@@ -37,13 +37,12 @@ BORDER = "#30363d"
 TEXT = "#e6edf3"
 TEXT_DIM = "#8b949e"
 ARROW_COLOR = "#484f58"
-NARRATIVE_BLUE = "#58a6ff"
 
 ACCENTS = [
     "#f0883e",  # 1 intake     - orange
     "#d29922",  # 2 normalize  - yellow
     "#3fb950",  # 3 validate   - green
-    "#f85149",  # 4 prioritize - red
+    "#ff6b6b",  # 4 prioritize - red (lightened for WCAG AA)
     "#58a6ff",  # 5 report     - blue
 ]
 
@@ -51,7 +50,7 @@ ACCENT_NAMES = [
     "#f0883e",
     "#d29922",
     "#3fb950",
-    "#f85149",
+    "#ff6b6b",
     "#58a6ff",
 ]
 
@@ -136,8 +135,6 @@ STAGES = [
         ],
     },
 ]
-
-NARRATIVE_STEPS = ["intake", "normalize", "validate", "prioritize", "report"]
 
 TITLE = "Retail Operations Control Tower"
 SUBTITLE_TEXT = "System Architecture - Simulated Campaign Execution Pipeline"
@@ -306,32 +303,6 @@ def render_png(output_path: str) -> str:
         )
         ax.add_patch(arrow)
 
-    # ─── Narrative bar ──────────────────────────────────────────
-    nar_y = 0.075
-    nar_box = FancyBboxPatch(
-        (margin, nar_y - 0.030),
-        1.0 - 2 * margin,
-        0.060,
-        boxstyle="round,pad=0.004,rounding_size=0.008",
-        facecolor=PANEL,
-        edgecolor=BORDER,
-        linewidth=0.8,
-        alpha=0.8,
-    )
-    ax.add_patch(nar_box)
-
-    nar_text = "  >  ".join(NARRATIVE_STEPS)
-    ax.text(
-        0.5,
-        nar_y,
-        f"Portfolio narrative:  {nar_text}",
-        fontsize=10,
-        color=NARRATIVE_BLUE,
-        ha="center",
-        va="center",
-        family="monospace",
-    )
-
     # ─── Footer ──────────────────────────────────────────────────
     ax.text(
         0.5,
@@ -396,8 +367,6 @@ def render_html(output_path: str) -> str:
 
     pipeline_html = "\n".join(stages_html)
 
-    narrative_text = "  &gt;  ".join(NARRATIVE_STEPS)
-
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -412,7 +381,6 @@ def render_html(output_path: str) -> str:
       --text: #e6edf3;
       --text-dim: #8b949e;
       --arrow: #484f58;
-      --narrative: #58a6ff;
     }}
     * {{ box-sizing: border-box; }}
     body {{
@@ -512,16 +480,6 @@ def render_html(output_path: str) -> str:
       font-size: 1rem;
       flex-shrink: 0;
     }}
-    .narrative {{
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.7rem 1.5rem;
-      text-align: center;
-      font-family: "SF Mono", "Fira Code", Monaco, Consolas, monospace;
-      color: var(--narrative);
-      font-size: 0.9rem;
-    }}
     .footer {{
       text-align: center;
       color: var(--text-dim);
@@ -543,7 +501,6 @@ def render_html(output_path: str) -> str:
     <div class="pipeline">
 {pipeline_html}
     </div>
-    <div class="narrative">Portfolio narrative:&nbsp;&nbsp;{narrative_text}</div>
     <p class="footer">{_html_escape(FOOTER)}</p>
   </div>
 </body>

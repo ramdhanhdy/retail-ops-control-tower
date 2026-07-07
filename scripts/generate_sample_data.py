@@ -24,6 +24,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from retail_ops_control_tower.data_generation import (
     TABLE_NAMES,
+    generate_actions,
+    generate_intervention_outcomes,
     generate_sample_data,
 )
 
@@ -82,6 +84,30 @@ def main() -> int:
     print()
     for name in TABLE_NAMES:
         print(f"  {name:<25} {len(tables[name]):>6} rows")
+    print()
+
+    # Generate actions table (closed-loop module)
+    import pandas as pd
+    from pathlib import Path
+
+    output_path = Path(args.output)
+    processed_dir = output_path.parent / "processed"
+    exceptions_csv = processed_dir / "exceptions.csv"
+    if exceptions_csv.exists():
+        exceptions = pd.read_csv(exceptions_csv)
+        actions = generate_actions(exceptions, seed=args.seed)
+        actions.to_csv(output_path / "actions.csv", index=False)
+        print(f"  {'actions':<25} {len(actions):>6} rows")
+        print(f"  actions outcomes: {dict(actions['outcome'].value_counts())}")
+
+        # Generate intervention outcomes (matched comparison)
+        stores = tables["stores"]
+        outcomes = generate_intervention_outcomes(actions, exceptions, stores, seed=args.seed)
+        outcomes.to_csv(output_path / "intervention_outcomes.csv", index=False)
+        print(f"  {'intervention_outcomes':<25} {len(outcomes):>6} rows")
+        print(f"  intervention: {outcomes['resolved'].mean():.1%}, control: {outcomes['control_resolved'].mean():.1%}")
+    else:
+        print(f"  Skipping actions/intervention_outcomes: {exceptions_csv} not found")
     print()
     print(f"Seed: {args.seed}")
     return 0
