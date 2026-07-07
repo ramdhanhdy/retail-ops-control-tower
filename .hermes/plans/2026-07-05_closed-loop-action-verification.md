@@ -46,7 +46,7 @@ For Hermes: Use subagent-driven-development skill to implement this plan task-by
 4. **Coffee chain framing** — Fictional named Indonesian coffee chain ("Kopi Senja"), not abstract "retail operations"
 5. **Dashboard: question-named views** — Each view named after the question a specific role asks at a specific time. Target ~200 lines, not 514
 6. **Decision memo** — 1-page memo with 3 recommendations and money attached. Leverages DPR staff experience (briefing decision-makers)
-7. **Video: one exception, cradle to grave** — Follow Store 47's quantity mismatch through the full loop, ~90 seconds, then 20 seconds on scope
+7. **Video: one exception, cradle to grave** — Follow S-048's quantity mismatch through the full loop, ~90 seconds, then 20 seconds on scope
 
 ---
 
@@ -61,7 +61,7 @@ For Hermes: Use subagent-driven-development skill to implement this plan task-by
 - Dashboard: add action queue page with assign/resolve state (SQLite)
 - README rewrite as case study (coffee chain framing, DPR line, loop diagram)
 - Decision memo (1 page, 3 recommendations, money attached)
-- Walkthrough video script (Store 47, cradle to grave)
+- Walkthrough video script (S-048, cradle to grave)
 - Limitations section (circularity disclosure)
 
 ### DISCLOSURE RULE (applies to all tasks)
@@ -141,12 +141,10 @@ operations. The deliverable is a decision memo, not just a dashboard.
 ```markdown
 ## The closed loop
 
-```
     Detect          Rank           Assign         Act            Verify
   (9 rules)  →  (priority)  →  (to AM/rep) → (intervention) → (did it work?)
       ↑                                                              |
       └────────────── feedback: reopen if unresolved ────────────────┘
-```
 ```
 
 **Step 4:** Add placeholders for verification results:
@@ -291,16 +289,16 @@ Expected: FAIL — `ImportError: cannot import name 'generate_actions'`
 **Step 3:** Implement `generate_actions`:
 
 Logic:
-- For each exception with `sla_status == "breached"` OR `priority_score >= 200`, create 1-2 actions
-- `action_type` mapped from `exception_type` (see ACTION_TYPE_MAP in plan)
-- `assigned_to` = `area_manager` from store record
-- `time_to_action_hours` = log-normal, mean by severity (critical=4h, high=12h, medium=24h)
+- For each exception with `severity == "critical"` OR `sla_status == "breached"`, create exactly 1 action
+- `action_type` mapped from `exception_type` (see ACTION_TYPE_MAP below: e.g. quantity_mismatch → dc_count_verification, missing_confirmation → phone_call, missing_photo_proof → site_visit, stockout_risk → sku_transfer)
+- `assigned_to` = `area_manager` from the exception/store record
+- `time_to_action_hours` = log-normal, mean by severity (critical=4h, watch=12h, info=24h)
 - `outcome` = probabilistic with known injected effect:
-  - Baseline (no action): 30% resolve
-  - Intervention: 60% resolve (known effect = +30pp)
-  - 5% of resolved reopen within 48h
-  - 10% of actions fail
-- `notes` = templated string by action type + outcome
+  - 8% of actions fail (`failed`)
+  - 5% assignment errors (`unresolved`, routed to wrong rep)
+  - 5% of resolved reopen within 48h (`reopened`)
+  - Otherwise raw 75% resolve rate with intervention (INTERVENTION_RESOLVE_RATE), net ~60% observed resolve after noise, vs 30% baseline (known effect ≈ +30pp)
+- `notes` = templated string by action type + outcome status
 
 **Step 4:** Run tests, verify pass:
 ```
@@ -1006,7 +1004,7 @@ git commit -m "docs: final README pass — cross-link artifacts and update test 
 - [ ] `dashboard/app.py` is ~200 lines with 5 question-named views + 1 action queue view
 - [ ] Action queue page works: can assign and resolve exceptions
 - [ ] `docs/decision_memo.md` exists with 3 recommendations and money attached
-- [ ] `docs/walkthrough_script.md` exists with 2-minute Store 47 script
+- [ ] `docs/walkthrough_script.md` exists with 2-minute S-048 script
 - [ ] README has coffee chain framing, DPR line, loop diagram, real verification numbers, limitations section
 - [ ] All 360+ tests pass (added 6 methodology + 4 new tests)
 - [ ] All verification-displaying files contain the disclosure sentence (see DISCLOSURE RULE)
